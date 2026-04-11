@@ -80,9 +80,20 @@ body { font-family:'Poppins',Arial,sans-serif; background:var(--dex-light-bg); c
 .tab-content.active { display:block; }
 
 /* BID BUTTON */
-.bid-btn { display:flex; align-items:center; justify-content:center; gap:8px; padding:14px 16px; border-top:1px solid #E5E7EB; font-size:14px; font-weight:700; color:var(--dex-white); background:var(--dex-blue); text-decoration:none; transition:background 0.15s; }
+.bid-btn { display:flex; align-items:center; justify-content:center; gap:8px; padding:14px 16px; border-top:1px solid #E5E7EB; font-size:15px; font-weight:700; color:var(--dex-white); background:var(--dex-blue); text-decoration:none; transition:background 0.15s; border-radius:0 0 var(--radius) var(--radius); }
 .bid-btn:active { background:var(--dex-navy); }
-.bid-btn .emoji { font-size:18px; }
+.bid-btn .emoji { font-size:20px; }
+.bid-btn.hot { background:linear-gradient(135deg, #10B981, #059669); animation:hotpulse 2s infinite; }
+@keyframes hotpulse { 0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,0.4)} 50%{box-shadow:0 0 0 8px rgba(16,185,129,0)} }
+.bid-btn.warn { background:#9CA3AF; }
+.bid-btn.warn:active { background:#6B7280; }
+
+/* MARGIN BAR */
+.margin-bar { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; border-top:1px solid #E5E7EB; }
+.margin-left { font-size:12px; color:var(--dex-muted); }
+.margin-left strong { color:var(--dex-text); }
+.margin-val { font-size:16px; font-weight:800; }
+.margin-sub { font-size:10px; color:var(--dex-muted); margin-top:2px; text-align:right; }
 
 /* LIVE PULSE */
 .live-dot { display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--dex-success); margin-right:4px; animation:pulse 2s infinite; }
@@ -213,7 +224,27 @@ function switchTab(n){
   </div>
   <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Detail auta</button>
   <div class="car-detail-panel"><div class="detail-grid"><div class="detail-item"><div class="detail-label">Prva registracia</div><div class="detail-value">02/02/2023</div></div><div class="detail-item"><div class="detail-label">Rok vyroby</div><div class="detail-value">12/2022</div></div><div class="detail-item"><div class="detail-label">Najazdene</div><div class="detail-value">69 672 km</div></div><div class="detail-item"><div class="detail-label">Vykon</div><div class="detail-value">110 kW / 150 k</div></div><div class="detail-item"><div class="detail-label">Motor</div><div class="detail-value">2.0 TDI 1 968 cm3</div></div><div class="detail-item"><div class="detail-label">Prevodovka</div><div class="detail-value">7-st. DSG Automat</div></div><div class="detail-item"><div class="detail-label">Emisie</div><div class="detail-value">100 g/km, EU6d</div></div><div class="detail-item"><div class="detail-label">Karoseria</div><div class="detail-value">Kombi, Modra</div></div><div class="detail-item"><div class="detail-label">Posledna udrzba</div><div class="detail-value">68 580 km (02/2026)</div></div><div class="detail-item"><div class="detail-label">Povod / Predajca</div><div class="detail-value">DE &middot; Athlon (3.4/5)</div></div><div class="detail-item"><div class="detail-label">Doklady</div><div class="detail-value">Kompletne + COC</div></div><div class="detail-item"><div class="detail-label">VIN (kratke)</div><div class="detail-value">049892</div></div></div></div>
-  <a class="bid-btn" href="https://www.openlane.eu/sk/car/info?auctionId=10795564" target="_blank"><span class="emoji">👍</span> Drazit na OpenLane</a>
+  <div class="margin-bar">
+    <div class="margin-left"><strong>Ak vydrazis za 14 800 &euro;</strong><br>S poplatkami + DPH = 18 924 &euro;</div>
+    <div><div class="margin-val" style="color:var(--dex-success)">+2 576 &euro;</div><div class="margin-sub">marza vs. trh ~21 500 &euro;</div></div>
+  </div>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Porovnanie s bazarom</button>
+  <div class="fee-detail">
+    <div class="comp-title">Porovnatelne inzeraty</div>
+    <div class="comp-row"><a href="https://auto.bazos.sk/inzerat/183603712/skoda-octavia-20235-style-dsg-20-tdi-110kw.php" target="_blank"><span class="cp">21 500 &euro;</span> <span class="spec-tag spec-variant spec-sm">Style</span> <span class="spec-tag spec-trans spec-sm">DSG</span> 81k km, 05/2023 <span class="src">(bazos.sk, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
+    <div class="comp-row"><a href="https://www.autobazar.eu/en/detail/skoda-octavia-combi-20-tdi-scr-style-dsg/AmFTlB89_eg/" target="_blank"><span class="cp">17 999 &euro;</span> <span class="spec-tag spec-variant spec-sm">Style</span> <span class="spec-tag spec-trans spec-sm">DSG</span> 04/2023 <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
+    <div class="comp-row"><a href="https://www.autobazar.eu/detail/skoda-octavia-combi-20-tdi-scr-style-dsg/Am-SqtnVARO/" target="_blank"><span class="cp">16 990 &euro;</span> <span class="spec-tag spec-variant spec-sm">Style</span> <span class="spec-tag spec-trans spec-sm">DSG</span> 2022 <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
+  </div>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Rozpad ceny</button>
+  <div class="fee-detail">
+    <div class="fee-line"><span>Aktualna drazbova cena</span><span>14 800 &euro;</span></div>
+    <div class="fee-line"><span>Naklady za krajinu (DE)</span><span>~285 &euro;</span></div>
+    <div class="fee-line"><span>Poplatok za aukciu</span><span>~300 &euro;</span></div>
+    <div class="fee-line"><span>Spolu bez DPH</span><span>15 385 &euro;</span></div>
+    <div class="fee-line"><span>+ 23% DPH</span><span>+3 539 &euro;</span></div>
+    <div class="fee-line total"><span>Koncova cena</span><span>18 924 &euro;</span></div>
+  </div>
+  <a class="bid-btn" href="https://www.openlane.eu/sk/car/info?auctionId=10795564" target="_blank"><span class="emoji">👍</span> Drazit — este je tu marza!</a>
 </div>
 
 <!-- LIVE: Octavia Combi RS -->
@@ -225,7 +256,27 @@ function switchTab(n){
   </div>
   <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Detail auta</button>
   <div class="car-detail-panel"><div class="detail-grid"><div class="detail-item"><div class="detail-label">Prva registracia</div><div class="detail-value">01/2023</div></div><div class="detail-item"><div class="detail-label">Najazdene</div><div class="detail-value">82 884 km</div></div><div class="detail-item"><div class="detail-label">Vykon</div><div class="detail-value">147 kW / 200 k</div></div><div class="detail-item"><div class="detail-label">Motor</div><div class="detail-value">2.0 TDI</div></div><div class="detail-item"><div class="detail-label">Typ aukcie</div><div class="detail-value">Dynamicka aukcia</div></div><div class="detail-item"><div class="detail-label">Povod</div><div class="detail-value">Nemecko</div></div></div></div>
-  <a class="bid-btn" href="https://www.openlane.eu/sk/car/info?auctionId=10791828" target="_blank"><span class="emoji">👍</span> Drazit na OpenLane</a>
+  <div class="margin-bar">
+    <div class="margin-left"><strong>Ak vydrazis za 22 900 &euro;</strong><br>S poplatkami + DPH = 28 887 &euro;</div>
+    <div><div class="margin-val" style="color:var(--dex-error)">-2 887 &euro;</div><div class="margin-sub">nad trhom ~26 000 &euro;</div></div>
+  </div>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Porovnanie s bazarom</button>
+  <div class="fee-detail">
+    <div class="comp-title">Porovnatelne inzeraty (RS verzia!)</div>
+    <div class="comp-row"><a href="https://auto.bazos.sk/inzerat/189157480/skoda-octavia-147kw.php" target="_blank"><span class="cp">24 999 &euro;</span> <span class="spec-tag spec-variant spec-sm">RS</span> <span class="spec-tag spec-drive spec-sm">4x4</span> TDI DSG, 102k km <span class="src">(bazos.sk, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
+    <div class="comp-row"><a href="https://www.autobazar.eu/en/detail-aaa/skoda-octavia-rs-20-tdi-4x4-cr-1-maj-dph-rs-4x4/Amp3x5K_rcZ/" target="_blank"><span class="cp">25 700 &euro;</span> <span class="spec-tag spec-variant spec-sm">RS</span> <span class="spec-tag spec-drive spec-sm">4x4</span> TDI, 124k km <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
+    <div class="comp-row"><a href="https://www.autobazar.eu/detail/skoda-octavia-combi-iv-rs-20-tdi-dsg-200ps-018730/Am1HJfZh5WR/" target="_blank"><span class="cp">21 999 &euro;</span> <span class="spec-tag spec-variant spec-sm">RS</span> TDI DSG, 09/2022 <span class="src">(autobazar.eu)</span><span class="link-icon">&#8599;</span></a></div>
+  </div>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Rozpad ceny</button>
+  <div class="fee-detail">
+    <div class="fee-line"><span>Aktualna drazbova cena</span><span>22 900 &euro;</span></div>
+    <div class="fee-line"><span>Naklady za krajinu (DE)</span><span>~285 &euro;</span></div>
+    <div class="fee-line"><span>Poplatok za aukciu</span><span>~300 &euro;</span></div>
+    <div class="fee-line"><span>Spolu bez DPH</span><span>23 485 &euro;</span></div>
+    <div class="fee-line"><span>+ 23% DPH</span><span>+5 402 &euro;</span></div>
+    <div class="fee-line total"><span>Koncova cena</span><span>28 887 &euro;</span></div>
+  </div>
+  <a class="bid-btn warn" href="https://www.openlane.eu/sk/car/info?auctionId=10791828" target="_blank"><span class="emoji">🤯</span> Uz sa to neoplati — nad trhom</a>
 </div>
 
 <!-- LIVE: Octavia Combi 42k -->
@@ -237,7 +288,28 @@ function switchTab(n){
   </div>
   <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Detail auta</button>
   <div class="car-detail-panel"><div class="detail-grid"><div class="detail-item"><div class="detail-label">Prva registracia</div><div class="detail-value">02/2023</div></div><div class="detail-item"><div class="detail-label">Najazdene</div><div class="detail-value">42 641 km</div></div><div class="detail-item"><div class="detail-label">Vykon</div><div class="detail-value">110 kW / 150 k</div></div><div class="detail-item"><div class="detail-label">Motor</div><div class="detail-value">2.0 TDI</div></div><div class="detail-item"><div class="detail-label">Typ aukcie</div><div class="detail-value">Cielova aukcia</div></div><div class="detail-item"><div class="detail-label">Povod</div><div class="detail-value">Nemecko</div></div></div></div>
-  <a class="bid-btn" href="https://www.openlane.eu/sk/car/info?auctionId=10788943" target="_blank"><span class="emoji">👍</span> Drazit na OpenLane</a>
+  <div class="margin-bar">
+    <div class="margin-left"><strong>Ak vydrazis za 12 700 &euro;</strong><br>S poplatkami + DPH = 16 341 &euro;</div>
+    <div><div class="margin-val" style="color:var(--dex-success)">+5 659 &euro;</div><div class="margin-sub">marza vs. trh ~22 000 &euro;</div></div>
+  </div>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Porovnanie s bazarom</button>
+  <div class="fee-detail">
+    <div class="comp-title">Porovnatelne inzeraty</div>
+    <div class="comp-row"><a href="https://auto.bazos.sk/inzerat/183603712/skoda-octavia-20235-style-dsg-20-tdi-110kw.php" target="_blank"><span class="cp">21 500 &euro;</span> <span class="spec-tag spec-variant spec-sm">Style</span> <span class="spec-tag spec-trans spec-sm">DSG</span> 81k km, 05/2023 <span class="src">(bazos.sk, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
+    <div class="comp-row"><a href="https://auto.bazos.sk/inzerat/190137726/skoda-octavia-combi-iv-20-tdi-scr-style-dsg.php" target="_blank"><span class="cp">17 799 &euro;</span> <span class="spec-tag spec-variant spec-sm">Style</span> <span class="spec-tag spec-trans spec-sm">DSG</span> 159k km, 07/2022 <span class="src">(bazos.sk, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
+    <div class="comp-row"><a href="https://www.autobazar.eu/detail/skoda-octavia-combi-20-tdi-scr-style-dsg/AmjHAJz-tnW/" target="_blank"><span class="cp">16 290 &euro;</span> <span class="spec-tag spec-variant spec-sm">Style</span> <span class="spec-tag spec-trans spec-sm">DSG</span> 172k km, 02/2023 <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
+    <div style="font-size:11px;color:var(--dex-muted);margin-top:8px;padding-top:6px;border-top:1px dashed #E5E7EB">Toto auto ma len 42k km — na trhu je to rarita. Podobne auta s 40-50k km sa predavaju za 22 000+ &euro;</div>
+  </div>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Rozpad ceny</button>
+  <div class="fee-detail">
+    <div class="fee-line"><span>Aktualna drazbova cena</span><span>12 700 &euro;</span></div>
+    <div class="fee-line"><span>Naklady za krajinu (DE)</span><span>~285 &euro;</span></div>
+    <div class="fee-line"><span>Poplatok za aukciu</span><span>~300 &euro;</span></div>
+    <div class="fee-line"><span>Spolu bez DPH</span><span>13 285 &euro;</span></div>
+    <div class="fee-line"><span>+ 23% DPH</span><span>+3 056 &euro;</span></div>
+    <div class="fee-line total"><span>Koncova cena</span><span>16 341 &euro;</span></div>
+  </div>
+  <a class="bid-btn hot" href="https://www.openlane.eu/sk/car/info?auctionId=10788943" target="_blank"><span class="emoji">🔥</span> Pod ho drazit!! Marza +5 659 &euro;</a>
 </div>
 
 </div>
