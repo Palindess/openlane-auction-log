@@ -66,7 +66,10 @@ body { font-family:'Poppins',Arial,sans-serif; background:var(--dex-light-bg); c
 /* CAR CARD */
 .car-card { background:var(--dex-white); border-radius:var(--radius); margin-bottom:12px; overflow:hidden; box-shadow:var(--shadow); border:1px solid rgba(0,0,0,0.04); }
 .car-card.unsold { opacity:0.5; }
-.car-card.ended .car-title::after { content:' 😔'; }
+/* Emoji per result type */
+.car-card.missed .car-title::after { content:' 😔'; }
+.car-card.over .car-title::after { content:' 🤯'; }
+.car-card.meh .car-title::after { content:' 😮‍💨'; }
 
 /* TABS */
 .tabs { display:flex; gap:4px; margin-bottom:16px; background:var(--dex-white); border-radius:12px; padding:4px; box-shadow:var(--shadow); }
@@ -251,7 +254,7 @@ function switchTab(n){
 </div>
 
 <!-- ===== TESLA MODEL Y LR 2024 ===== -->
-<div class="car-card ended">
+<div class="car-card ended missed">
   <div class="card-top">
     <div class="card-top-left">
       <div class="car-title">Tesla Model Y Long Range</div>
@@ -308,7 +311,7 @@ function switchTab(n){
 </div>
 
 <!-- ===== TESLA MODEL Y LR 2023 ===== -->
-<div class="car-card ended">
+<div class="car-card ended missed">
   <div class="card-top">
     <div class="card-top-left">
       <div class="car-title">Tesla Model Y Long Range</div>
@@ -354,7 +357,7 @@ function switchTab(n){
 </div>
 
 <!-- ===== SKODA KODIAQ 2023 ===== -->
-<div class="car-card ended">
+<div class="car-card ended missed">
   <div class="card-top"><div class="card-top-left"><div class="car-title">Skoda Kodiaq 2.0 TDI</div><div class="car-meta">11/2023 &middot; 28 902 km &middot; 150 k &middot; DE &middot; Ref. 10762282</div><div class="specs"><span class="spec-tag spec-variant">Style</span><span class="spec-tag spec-fuel">Nafta</span><span class="spec-tag spec-trans">DSG Automat</span><span class="spec-tag spec-info">SUV</span></div></div><span class="badge b-green">-6%</span></div>
   <div class="price-row"><div class="price-cell"><div class="label"><span class="info-wrap">Drazba s DPH <button class="info-btn" onclick="togInfo(event,this)">i</button><div class="info-bubble"><button class="close-bubble" onclick="closeInfo(event,this)">&times;</button><strong>Co je v cene:</strong><br>Drazbova cena + poplatky + 23% DPH</div></span></div><div class="val">33 069 &euro;</div><div class="val-sub">26 300 &euro; bez DPH</div></div><div class="price-cell"><div class="label">Priemer bazaru</div><div class="val">35 000 &euro;</div><div class="val-sub">s DPH</div></div></div>
   <div class="diff-bar" style="color:var(--dex-success)">-1 931 &euro; lacnejsie <span class="pct">Pod trhom</span></div>
@@ -366,7 +369,7 @@ function switchTab(n){
 </div>
 
 <!-- ===== VW ID.4 2022 ===== -->
-<div class="car-card ended">
+<div class="car-card ended meh">
   <div class="card-top"><div class="card-top-left"><div class="car-title">Volkswagen ID.4</div><div class="car-meta">12/2022 &middot; 28 041 km &middot; 204 k &middot; DE &middot; Ref. 10762620</div><div class="specs"><span class="spec-tag spec-variant">Pro Performance</span><span class="spec-tag spec-drive">RWD</span><span class="spec-tag spec-battery">77 kWh</span><span class="spec-tag spec-fuel">Elektricke</span></div></div><span class="badge b-yellow">~0%</span></div>
   <div class="price-row"><div class="price-cell"><div class="label"><span class="info-wrap">Drazba s DPH <button class="info-btn" onclick="togInfo(event,this)">i</button><div class="info-bubble"><button class="close-bubble" onclick="closeInfo(event,this)">&times;</button><strong>Co je v cene:</strong><br>Drazbova cena + poplatky + 23% DPH</div></span></div><div class="val">25 320 &euro;</div><div class="val-sub">20 000 &euro; bez DPH</div></div><div class="price-cell"><div class="label">Priemer bazaru</div><div class="val">25 500 &euro;</div><div class="val-sub">s DPH</div></div></div>
   <div class="diff-bar" style="color:var(--dex-warning)">-180 &euro; <span class="pct">Trhova cena</span></div>
@@ -378,7 +381,7 @@ function switchTab(n){
 </div>
 
 <!-- ===== VW PASSAT 2023 ===== -->
-<div class="car-card ended">
+<div class="car-card ended over">
   <div class="card-top"><div class="card-top-left"><div class="car-title">VW Passat Variant 2.0 TDI</div><div class="car-meta">02/2023 &middot; 98 570 km &middot; 150 k &middot; DE &middot; Ref. 10762627</div><div class="specs"><span class="spec-tag spec-fuel">Nafta</span><span class="spec-tag spec-trans">DSG Automat</span><span class="spec-tag spec-info">Kombi</span></div></div><span class="badge b-red">+5%</span></div>
   <div class="price-row"><div class="price-cell"><div class="label"><span class="info-wrap">Drazba s DPH <button class="info-btn" onclick="togInfo(event,this)">i</button><div class="info-bubble"><button class="close-bubble" onclick="closeInfo(event,this)">&times;</button><strong>Co je v cene:</strong><br>Drazbova cena + poplatky + 23% DPH</div></span></div><div class="val">19 416 &euro;</div><div class="val-sub">15 200 &euro; bez DPH</div></div><div class="price-cell"><div class="label">Priemer bazaru</div><div class="val">18 566 &euro;</div><div class="val-sub">s DPH</div></div></div>
   <div class="diff-bar" style="color:var(--dex-error)">+850 &euro; drahsie <span class="pct">Nad trhom</span></div>
@@ -390,7 +393,7 @@ function switchTab(n){
 </div>
 
 <!-- ===== TESLA MODEL 3 2020 ===== -->
-<div class="car-card ended">
+<div class="car-card ended over">
   <div class="card-top"><div class="card-top-left"><div class="car-title">Tesla Model 3 Standard Range Plus</div><div class="car-meta">03/2020 &middot; 40 944 km &middot; 306 k &middot; Ref. 10772756</div><div class="specs"><span class="spec-tag spec-variant">Standard Range</span><span class="spec-tag spec-drive">RWD</span><span class="spec-tag spec-battery">60 kWh LFP</span><span class="spec-tag spec-fuel">Elektricke</span></div></div><span class="badge b-red">+13%</span></div>
   <div class="price-row"><div class="price-cell"><div class="label"><span class="info-wrap">Drazba s DPH <button class="info-btn" onclick="togInfo(event,this)">i</button><div class="info-bubble"><button class="close-bubble" onclick="closeInfo(event,this)">&times;</button><strong>Co je v cene:</strong><br>Drazbova cena + poplatky + 23% DPH</div></span></div><div class="val">21 876 &euro;</div><div class="val-sub">17 200 &euro; bez DPH</div></div><div class="price-cell"><div class="label">Priemer bazaru</div><div class="val">19 400 &euro;</div><div class="val-sub">s DPH</div></div></div>
   <div class="diff-bar" style="color:var(--dex-error)">+2 476 &euro; drahsie <span class="pct">Nad trhom</span></div>
@@ -402,7 +405,7 @@ function switchTab(n){
 </div>
 
 <!-- ===== SKODA OCTAVIA 2022 ===== -->
-<div class="car-card ended">
+<div class="car-card ended over">
   <div class="card-top"><div class="card-top-left"><div class="car-title">Skoda Octavia Combi 2.0 TDI</div><div class="car-meta">02/2022 &middot; 25 301 km &middot; 150 k &middot; DE &middot; Ref. 10783236</div><div class="specs"><span class="spec-tag spec-variant">Style</span><span class="spec-tag spec-fuel">Nafta</span><span class="spec-tag spec-trans">DSG Automat</span><span class="spec-tag spec-info">Kombi</span></div></div><span class="badge b-red">+10%</span></div>
   <div class="price-row"><div class="price-cell"><div class="label"><span class="info-wrap">Drazba s DPH <button class="info-btn" onclick="togInfo(event,this)">i</button><div class="info-bubble"><button class="close-bubble" onclick="closeInfo(event,this)">&times;</button><strong>Co je v cene:</strong><br>Drazbova cena + poplatky + 23% DPH</div></span></div><div class="val">23 721 &euro;</div><div class="val-sub">18 700 &euro; bez DPH</div></div><div class="price-cell"><div class="label">Priemer bazaru</div><div class="val">21 600 &euro;</div><div class="val-sub">s DPH</div></div></div>
   <div class="diff-bar" style="color:var(--dex-error)">+2 121 &euro; drahsie <span class="pct">Nad trhom</span></div>
