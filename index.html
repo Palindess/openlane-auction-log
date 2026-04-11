@@ -165,6 +165,46 @@ body { font-family:'Poppins',Arial,sans-serif; background:var(--dex-light-bg); c
 .info-bubble strong { color:var(--dex-white); }
 .info-bubble .close-bubble { position:absolute; top:8px; right:12px; background:none; border:none; color:rgba(255,255,255,0.4); font-size:16px; cursor:pointer; font-family:inherit; }
 
+/* SEARCH TAB */
+.search-hero { background:var(--dex-navy); border-radius:var(--radius); padding:24px 20px; text-align:center; margin-bottom:16px; position:relative; overflow:hidden; }
+.search-hero::before { content:''; position:absolute; width:160px; height:160px; border-radius:50%; border:2px solid var(--dex-blue); opacity:0.08; top:-60px; right:-40px; }
+.search-hero h2 { font-family:'Questrial',Arial,sans-serif; font-size:20px; color:var(--dex-white); margin-bottom:4px; position:relative; }
+.search-hero p { font-size:12px; color:rgba(255,255,255,0.5); position:relative; }
+
+.search-form { background:var(--dex-white); border-radius:var(--radius); padding:20px 16px; box-shadow:var(--shadow); margin-bottom:12px; }
+.form-row { margin-bottom:14px; }
+.form-row:last-child { margin-bottom:0; }
+.form-label { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.5px; color:var(--dex-muted); margin-bottom:6px; display:block; }
+.form-input, .form-select { width:100%; padding:12px 14px; border:1.5px solid #E5E7EB; border-radius:10px; font-family:inherit; font-size:14px; color:var(--dex-navy); background:var(--dex-white); -webkit-appearance:none; appearance:none; transition:border-color 0.15s; }
+.form-input:focus, .form-select:focus { outline:none; border-color:var(--dex-blue); box-shadow:0 0 0 3px rgba(0,101,247,0.1); }
+.form-input::placeholder { color:#D1D5DB; }
+.form-select { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M3 5l3 3 3-3' stroke='%236B7280' fill='none' stroke-width='1.5'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; padding-right:36px; }
+.form-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.form-hint { font-size:11px; color:var(--dex-muted); margin-top:4px; }
+
+.search-actions { display:flex; flex-direction:column; gap:8px; margin-top:16px; }
+.search-btn { display:flex; align-items:center; justify-content:center; gap:8px; padding:14px; border:none; border-radius:12px; font-family:inherit; font-size:14px; font-weight:700; cursor:pointer; text-decoration:none; transition:all 0.15s; }
+.search-btn:active { transform:scale(0.98); }
+.search-primary { background:var(--dex-blue); color:var(--dex-white); }
+.search-secondary { background:var(--dex-navy); color:var(--dex-white); }
+.search-outline { background:transparent; color:var(--dex-blue); border:2px solid var(--dex-blue); }
+
+.quick-chips { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
+.chip { padding:8px 14px; border-radius:20px; border:1.5px solid #E5E7EB; background:var(--dex-white); font-family:inherit; font-size:12px; font-weight:500; color:var(--dex-text); cursor:pointer; transition:all 0.15s; box-shadow:var(--shadow); }
+.chip:active, .chip.selected { background:var(--dex-navy); color:var(--dex-white); border-color:var(--dex-navy); }
+.chip .chip-emoji { margin-right:4px; }
+
+.or-divider { display:flex; align-items:center; gap:12px; margin:16px 0; font-size:11px; color:var(--dex-muted); font-weight:500; }
+.or-divider::before, .or-divider::after { content:''; flex:1; height:1px; background:#E5E7EB; }
+
+.claude-box { background:linear-gradient(135deg, rgba(0,101,247,0.05), rgba(5,2,78,0.05)); border:1.5px solid var(--dex-blue-20); border-radius:var(--radius); padding:16px; margin-top:12px; }
+.claude-box h3 { font-size:14px; font-weight:700; color:var(--dex-navy); margin-bottom:6px; }
+.claude-box p { font-size:12px; color:var(--dex-muted); line-height:1.6; }
+.claude-box code { background:rgba(0,101,247,0.1); color:var(--dex-blue); padding:2px 6px; border-radius:4px; font-size:11px; font-family:inherit; font-weight:600; }
+.copy-prompt { display:flex; align-items:center; justify-content:center; gap:6px; width:100%; margin-top:10px; padding:10px; border:1.5px dashed var(--dex-blue); border-radius:10px; background:transparent; font-family:inherit; font-size:12px; font-weight:600; color:var(--dex-blue); cursor:pointer; transition:all 0.15s; }
+.copy-prompt:active { background:var(--dex-blue-10); }
+.copy-prompt.copied { background:var(--dex-blue); color:var(--dex-white); border-style:solid; }
+
 /* NOTES */
 .notes { background:var(--dex-white); border-radius:var(--radius); padding:18px 16px; margin-top:20px; margin-bottom:40px; box-shadow:var(--shadow); border-left:3px solid var(--dex-warning); }
 .notes h3 { font-size:13px; font-weight:700; color:var(--dex-navy); margin-bottom:8px; }
@@ -206,8 +246,9 @@ function switchTab(n){
 </script>
 
 <div class="tabs">
-  <button class="tab-btn active" onclick="switchTab(0)"><span class="tab-count"><span class="live-dot"></span>3</span>Zive aukcie</button>
-  <button class="tab-btn" onclick="switchTab(1)"><span class="tab-count">9</span>History Log</button>
+  <button class="tab-btn active" onclick="switchTab(0)"><span class="tab-count"><span class="live-dot"></span>3</span>Zive</button>
+  <button class="tab-btn" onclick="switchTab(1)"><span class="tab-count">9</span>History</button>
+  <button class="tab-btn" onclick="switchTab(2)"><span class="tab-count">🔍</span>Hladat</button>
 </div>
 
 <!-- ==================== TAB 1: ZIVE AUKCIE ==================== -->
@@ -505,6 +546,170 @@ function switchTab(n){
 </div>
 
 </div><!-- /tab-content history -->
+
+<!-- ==================== TAB 3: SEARCH ==================== -->
+<div class="tab-content">
+
+<div class="search-hero">
+  <h2>🔍 Najdi svoju drazbu</h2>
+  <p>Zadaj co hledas a DexLane ti najde najlepsie aukcie</p>
+</div>
+
+<div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:var(--dex-muted);margin-bottom:10px">Rychle volby</div>
+<div class="quick-chips">
+  <button class="chip" onclick="fillSearch('Tesla Model Y','Long Range','Elektricke','','30000')"><span class="chip-emoji">⚡</span>Tesla Y LR</button>
+  <button class="chip" onclick="fillSearch('Tesla Model 3','','Elektricke','','25000')"><span class="chip-emoji">⚡</span>Tesla 3</button>
+  <button class="chip" onclick="fillSearch('Skoda Octavia Combi','2.0 TDI','Nafta','DSG','20000')"><span class="chip-emoji">🚗</span>Octavia TDI</button>
+  <button class="chip" onclick="fillSearch('Skoda Kodiaq','2.0 TDI','Nafta','','30000')"><span class="chip-emoji">🚙</span>Kodiaq</button>
+  <button class="chip" onclick="fillSearch('Volkswagen ID.4','','Elektricke','','25000')"><span class="chip-emoji">⚡</span>VW ID.4</button>
+  <button class="chip" onclick="fillSearch('Volkswagen Passat','2.0 TDI','Nafta','DSG','18000')"><span class="chip-emoji">🚗</span>Passat TDI</button>
+</div>
+
+<div class="search-form">
+  <div class="form-row">
+    <label class="form-label">Znacka a model</label>
+    <input class="form-input" type="text" id="s-model" placeholder="napr. Tesla Model Y, Skoda Octavia Combi...">
+  </div>
+  <div class="form-row">
+    <label class="form-label">Varianta / motor</label>
+    <input class="form-input" type="text" id="s-variant" placeholder="napr. Long Range, 2.0 TDI, RS, Style...">
+  </div>
+  <div class="form-grid">
+    <div class="form-row">
+      <label class="form-label">Palivo</label>
+      <select class="form-select" id="s-fuel">
+        <option value="">Vsetky</option>
+        <option value="Elektricke">Elektricke</option>
+        <option value="Nafta">Nafta</option>
+        <option value="Benzin">Benzin</option>
+        <option value="Hybridne">Hybridne</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <label class="form-label">Prevodovka</label>
+      <select class="form-select" id="s-trans">
+        <option value="">Vsetky</option>
+        <option value="Automat">Automat / DSG</option>
+        <option value="Manual">Manual</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-grid">
+    <div class="form-row">
+      <label class="form-label">Max. cena (bez DPH)</label>
+      <input class="form-input" type="number" id="s-price" placeholder="napr. 20000">
+      <div class="form-hint">S poplatkami + DPH to bude ~<span id="s-price-calc">0</span> &euro;</div>
+    </div>
+    <div class="form-row">
+      <label class="form-label">Max. km</label>
+      <input class="form-input" type="number" id="s-km" placeholder="napr. 80000">
+    </div>
+  </div>
+  <div class="form-grid">
+    <div class="form-row">
+      <label class="form-label">Rok od</label>
+      <select class="form-select" id="s-year">
+        <option value="">Vsetky</option>
+        <option value="2024">2024+</option>
+        <option value="2023">2023+</option>
+        <option value="2022">2022+</option>
+        <option value="2021">2021+</option>
+        <option value="2020">2020+</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <label class="form-label">Pohon</label>
+      <select class="form-select" id="s-drive">
+        <option value="">Vsetky</option>
+        <option value="4x4">4x4 / AWD</option>
+        <option value="RWD">RWD (zadny)</option>
+        <option value="FWD">FWD (predny)</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="search-actions">
+    <a class="search-btn search-primary" id="search-openlane-btn" href="https://www.openlane.eu/sk/findcar/advanced" target="_blank">🔍 Hladat na OpenLane</a>
+    <a class="search-btn search-outline" id="search-bazos-btn" href="https://auto.bazos.sk/" target="_blank">📊 Pozriet ceny na bazosi</a>
+  </div>
+</div>
+
+<div class="or-divider">alebo</div>
+
+<div class="claude-box">
+  <h3>🤖 Nechaj to na DexLane AI</h3>
+  <p>Skopiruj prompt a hodaj do Claude. Najdem ti najlepsie aukcie, porovnam s trhom a vypocitam ci sa oplati drazit.</p>
+  <button class="copy-prompt" id="copy-btn" onclick="copyPrompt()">
+    📋 Skopirovat DexLane prompt
+  </button>
+</div>
+
+<div class="search-form" style="margin-top:12px">
+  <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:var(--dex-muted);margin-bottom:10px">Ako to funguje</div>
+  <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:12px">
+    <div style="width:28px;height:28px;border-radius:50%;background:var(--dex-blue-10);color:var(--dex-blue);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;flex-shrink:0">1</div>
+    <div><div style="font-size:13px;font-weight:600;color:var(--dex-navy)">Vyber alebo zadaj parametre</div><div style="font-size:12px;color:var(--dex-muted)">Znacka, model, max cena, km...</div></div>
+  </div>
+  <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:12px">
+    <div style="width:28px;height:28px;border-radius:50%;background:var(--dex-blue-10);color:var(--dex-blue);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;flex-shrink:0">2</div>
+    <div><div style="font-size:13px;font-weight:600;color:var(--dex-navy)">Skopiruj prompt do Claude</div><div style="font-size:12px;color:var(--dex-muted)">DexLane skill automaticky spravi research</div></div>
+  </div>
+  <div style="display:flex;gap:12px;align-items:flex-start">
+    <div style="width:28px;height:28px;border-radius:50%;background:var(--dex-blue-10);color:var(--dex-blue);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;flex-shrink:0">3</div>
+    <div><div style="font-size:13px;font-weight:600;color:var(--dex-navy)">Dostanes kompletnu analyzu</div><div style="font-size:12px;color:var(--dex-muted)">Cena z drazby vs. bazar, marza, odporucanie ci drazit</div></div>
+  </div>
+</div>
+
+</div><!-- /tab-content search -->
+
+<script>
+// Price calculator
+document.getElementById('s-price').addEventListener('input',function(){
+  var v=parseFloat(this.value)||0;
+  var total=Math.round((v+285+300)*1.23);
+  document.getElementById('s-price-calc').textContent=total.toLocaleString('sk-SK');
+});
+
+// Quick chip fill
+function fillSearch(model,variant,fuel,trans,price){
+  document.getElementById('s-model').value=model;
+  document.getElementById('s-variant').value=variant;
+  if(fuel){var fs=document.getElementById('s-fuel');for(var i=0;i<fs.options.length;i++){if(fs.options[i].value===fuel){fs.selectedIndex=i;break;}}}
+  if(trans){var ts=document.getElementById('s-trans');for(var i=0;i<ts.options.length;i++){if(ts.options[i].value===trans||ts.options[i].text.indexOf(trans)>-1){ts.selectedIndex=i;break;}}}
+  if(price){var pi=document.getElementById('s-price');pi.value=price;pi.dispatchEvent(new Event('input'));}
+  document.querySelectorAll('.chip').forEach(function(c){c.classList.remove('selected')});
+  event.target.closest('.chip').classList.add('selected');
+}
+
+// Copy prompt
+function copyPrompt(){
+  var m=document.getElementById('s-model').value||'[znacka a model]';
+  var v=document.getElementById('s-variant').value;
+  var f=document.getElementById('s-fuel').value;
+  var t=document.getElementById('s-trans').value;
+  var p=document.getElementById('s-price').value;
+  var km=document.getElementById('s-km').value;
+  var y=document.getElementById('s-year').value;
+  var d=document.getElementById('s-drive').value;
+
+  var prompt='/dexlane Hladam: '+m;
+  if(v) prompt+=', varianta '+v;
+  if(f) prompt+=', palivo '+f;
+  if(t) prompt+=', prevodovka '+t;
+  if(d) prompt+=', pohon '+d;
+  if(p) prompt+=', max cena '+p+' EUR bez DPH';
+  if(km) prompt+=', max '+km+' km';
+  if(y) prompt+=', rocnik '+y+'+';
+  prompt+='. Najdi na OpenLane najlepsie aukcie, porovnaj ceny s bazos.sk a autobazar.eu, vypocitaj marzu a povedz mi ci sa oplati drazit.';
+
+  navigator.clipboard.writeText(prompt).then(function(){
+    var btn=document.getElementById('copy-btn');
+    btn.textContent='✅ Skopirovane!';
+    btn.classList.add('copied');
+    setTimeout(function(){btn.textContent='📋 Skopirovat DexLane prompt';btn.classList.remove('copied');},2000);
+  });
+}
+</script>
 
 <!-- NOTES -->
 <div class="notes">
