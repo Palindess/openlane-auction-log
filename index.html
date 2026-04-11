@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OpenLane Auction Log</title>
+<title>DexLane — Auto Aukcie Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Questrial&display=swap" rel="stylesheet">
 <style>
@@ -13,487 +13,155 @@
   --dex-navy: #05024E;
   --dex-white: #ffffff;
   --dex-light-bg: #F4F6FC;
-  --dex-blue-10: rgba(0, 101, 247, 0.1);
-  --dex-blue-20: rgba(0, 101, 247, 0.2);
+  --dex-blue-10: rgba(0,101,247,0.1);
+  --dex-blue-20: rgba(0,101,247,0.2);
   --dex-text: #1A1A2E;
   --dex-muted: #6B7280;
   --dex-success: #10B981;
   --dex-warning: #F59E0B;
   --dex-error: #EF4444;
   --radius: 14px;
-  --shadow: 0 2px 8px rgba(0, 101, 247, 0.08);
+  --shadow: 0 2px 8px rgba(0,101,247,0.08);
 }
-body {
-  font-family: 'Poppins', Arial, sans-serif;
-  background: var(--dex-light-bg);
-  color: var(--dex-text);
-  padding: 16px;
-  max-width: 720px;
-  margin: 0 auto;
-  -webkit-font-smoothing: antialiased;
-}
+body { font-family:'Poppins',Arial,sans-serif; background:var(--dex-light-bg); color:var(--dex-text); padding:16px; max-width:720px; margin:0 auto; -webkit-font-smoothing:antialiased; }
 
 /* HEADER */
-.header {
-  background: var(--dex-navy);
-  border-radius: var(--radius);
-  padding: 28px 20px 24px;
-  text-align: center;
-  margin-bottom: 16px;
-  position: relative;
-  overflow: hidden;
-}
-.header::before {
-  content: '';
-  position: absolute;
-  width: 200px; height: 200px;
-  border-radius: 50%;
-  border: 2px solid var(--dex-blue);
-  opacity: 0.1;
-  top: -80px; right: -60px;
-}
-.header::after {
-  content: '';
-  position: absolute;
-  width: 120px; height: 120px;
-  border-radius: 50%;
-  border: 2px solid var(--dex-blue);
-  opacity: 0.08;
-  bottom: -40px; left: -30px;
-}
-.header .logo-img {
-  height: 28px;
-  margin-bottom: 12px;
-  opacity: 0.9;
-}
-.header h1 {
-  font-family: 'Questrial', Arial, sans-serif;
-  font-size: 22px;
-  font-weight: 400;
-  color: var(--dex-white);
-  line-height: 1.2;
-  position: relative;
-}
-.header .sub {
-  font-size: 12px;
-  color: rgba(255,255,255,0.5);
-  margin-top: 6px;
-  font-weight: 400;
-  position: relative;
-}
-.header .date-badge {
-  display: inline-block;
-  margin-top: 12px;
-  font-size: 11px;
-  color: var(--dex-blue);
-  background: rgba(0,101,247,0.15);
-  padding: 4px 14px;
-  border-radius: 20px;
-  font-weight: 500;
-  position: relative;
-}
+.header { background:var(--dex-navy); border-radius:var(--radius); padding:28px 20px 24px; text-align:center; margin-bottom:16px; position:relative; overflow:hidden; }
+.header::before { content:''; position:absolute; width:200px; height:200px; border-radius:50%; border:2px solid var(--dex-blue); opacity:0.1; top:-80px; right:-60px; }
+.header::after { content:''; position:absolute; width:120px; height:120px; border-radius:50%; border:2px solid var(--dex-blue); opacity:0.08; bottom:-40px; left:-30px; }
+.header .logo-img { height:24px; margin-bottom:14px; opacity:0.7; position:relative; }
+.header .brand-name { font-family:'Questrial',Arial,sans-serif; font-size:28px; font-weight:400; color:var(--dex-white); line-height:1.1; position:relative; }
+.header .brand-name span { color:var(--dex-blue); }
+.header .brand-sub { font-size:13px; color:rgba(255,255,255,0.45); margin-top:4px; font-weight:400; position:relative; letter-spacing:0.5px; }
+.header .date-badge { display:inline-block; margin-top:12px; font-size:11px; color:var(--dex-blue); background:rgba(0,101,247,0.15); padding:4px 14px; border-radius:20px; font-weight:500; position:relative; }
 
 /* SUMMARY */
-.summary {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  margin-bottom: 24px;
-}
-.stat {
-  background: var(--dex-white);
-  border-radius: 12px;
-  padding: 16px;
-  text-align: center;
-  box-shadow: var(--shadow);
-  border-left: 3px solid var(--dex-blue);
-}
-.stat .num {
-  font-size: 24px;
-  font-weight: 800;
-  line-height: 1;
-  color: var(--dex-navy);
-}
-.stat .lbl {
-  font-size: 10px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: var(--dex-muted);
-  margin-top: 6px;
-}
-.stat .detail {
-  font-size: 11px;
-  color: var(--dex-muted);
-  margin-top: 2px;
-}
+.summary { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-bottom:24px; }
+.stat { background:var(--dex-white); border-radius:12px; padding:16px; text-align:center; box-shadow:var(--shadow); border-left:3px solid var(--dex-blue); }
+.stat .num { font-size:24px; font-weight:800; line-height:1; color:var(--dex-navy); }
+.stat .lbl { font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.5px; color:var(--dex-muted); margin-top:6px; }
+.stat .detail { font-size:11px; color:var(--dex-muted); margin-top:2px; }
 
 /* SECTION */
-.section-head {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 12px;
-}
-.section-head h2 {
-  font-family: 'Questrial', Arial, sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  color: var(--dex-navy);
-}
-.pill {
-  font-size: 11px;
-  font-weight: 600;
-  background: var(--dex-blue-10);
-  color: var(--dex-blue);
-  padding: 2px 10px;
-  border-radius: 20px;
-}
+.section-head { display:flex; align-items:center; gap:8px; margin-bottom:12px; }
+.section-head h2 { font-family:'Questrial',Arial,sans-serif; font-size:18px; font-weight:400; color:var(--dex-navy); }
+.pill { font-size:11px; font-weight:600; background:var(--dex-blue-10); color:var(--dex-blue); padding:2px 10px; border-radius:20px; }
 
 /* LEGEND */
-.legend {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  margin-bottom: 14px;
-}
-.leg {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 11px;
-  color: var(--dex-muted);
-}
-.dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.legend { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:14px; }
+.leg { display:flex; align-items:center; gap:5px; font-size:11px; color:var(--dex-muted); }
+.dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
 
-/* ===== SPEC TAGS — HIGH VISIBILITY ===== */
-.specs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin-top: 8px;
-}
-.spec-tag {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 600;
-  padding: 3px 9px;
-  border-radius: 6px;
-  line-height: 1.3;
-}
-/* Variant: Long Range, Standard Range, Performance */
-.spec-variant {
-  background: var(--dex-navy);
-  color: var(--dex-white);
-}
-/* Drivetrain: 4x4, RWD, AWD */
-.spec-drive {
-  background: var(--dex-blue);
-  color: var(--dex-white);
-}
-/* Battery */
-.spec-battery {
-  background: #DDD6FE;
-  color: #5B21B6;
-}
-/* Fuel type */
-.spec-fuel {
-  background: #D1FAE5;
-  color: #065F46;
-}
-/* Transmission */
-.spec-trans {
-  background: #FEF3C7;
-  color: #92400E;
-}
-/* Generic info */
-.spec-info {
-  background: #E5E7EB;
-  color: #374151;
-}
+/* SPEC TAGS */
+.specs { display:flex; flex-wrap:wrap; gap:5px; margin-top:8px; }
+.spec-tag { display:inline-block; font-size:11px; font-weight:600; padding:3px 9px; border-radius:6px; line-height:1.3; }
+.spec-variant { background:var(--dex-navy); color:var(--dex-white); }
+.spec-drive { background:var(--dex-blue); color:var(--dex-white); }
+.spec-battery { background:#DDD6FE; color:#5B21B6; }
+.spec-fuel { background:#D1FAE5; color:#065F46; }
+.spec-trans { background:#FEF3C7; color:#92400E; }
+.spec-info { background:#E5E7EB; color:#374151; }
+.spec-sm { font-size:10px; padding:1px 6px; }
 
 /* CAR CARD */
-.car-card {
-  background: var(--dex-white);
-  border-radius: var(--radius);
-  margin-bottom: 12px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  border: 1px solid rgba(0,0,0,0.04);
-}
-.car-card.unsold { opacity: 0.5; }
+.car-card { background:var(--dex-white); border-radius:var(--radius); margin-bottom:12px; overflow:hidden; box-shadow:var(--shadow); border:1px solid rgba(0,0,0,0.04); }
+.car-card.unsold { opacity:0.5; }
+.car-card.ended .car-title::after { content:' 😔'; }
 
-.card-top {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  padding: 16px 16px 14px;
-  gap: 10px;
-}
-.card-top-left { flex: 1; min-width: 0; }
-.car-title {
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--dex-navy);
-  line-height: 1.3;
-}
-.car-meta {
-  font-size: 12px;
-  color: var(--dex-muted);
-  margin-top: 3px;
-  line-height: 1.4;
-}
+/* TABS */
+.tabs { display:flex; gap:4px; margin-bottom:16px; background:var(--dex-white); border-radius:12px; padding:4px; box-shadow:var(--shadow); }
+.tab-btn { flex:1; padding:12px 8px; border:none; background:transparent; font-family:inherit; font-size:13px; font-weight:600; color:var(--dex-muted); border-radius:10px; cursor:pointer; transition:all 0.2s; text-align:center; line-height:1.3; }
+.tab-btn.active { background:var(--dex-navy); color:var(--dex-white); box-shadow:0 2px 8px rgba(5,2,78,0.25); }
+.tab-btn .tab-count { display:block; font-size:18px; font-weight:800; margin-bottom:2px; }
+.tab-content { display:none; }
+.tab-content.active { display:block; }
 
-.badge {
-  flex-shrink: 0;
-  font-size: 12px;
-  font-weight: 700;
-  padding: 5px 12px;
-  border-radius: 20px;
-  white-space: nowrap;
-  margin-top: 2px;
-}
-.b-green { background: #D1FAE5; color: #065F46; }
-.b-red { background: #FEE2E2; color: #991B1B; }
-.b-yellow { background: #FEF3C7; color: #92400E; }
-.b-gray { background: #F3F4F6; color: #6B7280; }
+/* BID BUTTON */
+.bid-btn { display:flex; align-items:center; justify-content:center; gap:8px; padding:14px 16px; border-top:1px solid #E5E7EB; font-size:14px; font-weight:700; color:var(--dex-white); background:var(--dex-blue); text-decoration:none; transition:background 0.15s; }
+.bid-btn:active { background:var(--dex-navy); }
+.bid-btn .emoji { font-size:18px; }
+
+/* LIVE PULSE */
+.live-dot { display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--dex-success); margin-right:4px; animation:pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+/* COUNTDOWN */
+.countdown { font-size:12px; color:var(--dex-error); font-weight:600; margin-top:4px; }
+.countdown .timer-label { color:var(--dex-muted); font-weight:400; }
+.card-top { display:flex; align-items:flex-start; justify-content:space-between; padding:16px 16px 14px; gap:10px; }
+.card-top-left { flex:1; min-width:0; }
+.car-title { font-size:16px; font-weight:700; color:var(--dex-navy); line-height:1.3; }
+.car-meta { font-size:12px; color:var(--dex-muted); margin-top:3px; line-height:1.4; }
+.badge { flex-shrink:0; font-size:12px; font-weight:700; padding:5px 12px; border-radius:20px; white-space:nowrap; margin-top:2px; }
+.b-green { background:#D1FAE5; color:#065F46; }
+.b-red { background:#FEE2E2; color:#991B1B; }
+.b-yellow { background:#FEF3C7; color:#92400E; }
+.b-gray { background:#F3F4F6; color:#6B7280; }
 
 /* PRICE ROW */
-.price-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1px;
-  background: #E5E7EB;
-}
-.price-cell {
-  background: #F8FAFC;
-  padding: 14px 16px;
-}
-.price-cell .label {
-  font-size: 10px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.3px;
-  color: var(--dex-muted);
-  margin-bottom: 4px;
-}
-.price-cell .val {
-  font-size: 20px;
-  font-weight: 800;
-  color: var(--dex-navy);
-  line-height: 1;
-}
-.price-cell .val-sub {
-  font-size: 11px;
-  color: var(--dex-muted);
-  margin-top: 4px;
-}
+.price-row { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:#E5E7EB; }
+.price-cell { background:#F8FAFC; padding:14px 16px; }
+.price-cell .label { font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.3px; color:var(--dex-muted); margin-bottom:4px; }
+.price-cell .val { font-size:20px; font-weight:800; color:var(--dex-navy); line-height:1; }
+.price-cell .val-sub { font-size:11px; color:var(--dex-muted); margin-top:4px; }
+
+/* TOGGLE BTN (reusable) */
+.toggle-btn { display:flex; align-items:center; gap:5px; font-size:12px; font-weight:500; color:var(--dex-blue); cursor:pointer; padding:10px 16px; background:var(--dex-white); border:none; width:100%; text-align:left; border-top:1px solid #E5E7EB; font-family:inherit; }
+.toggle-btn .arrow { transition:transform 0.2s; font-size:10px; }
+.toggle-btn.open .arrow { transform:rotate(90deg); }
 
 /* FEE DETAIL */
-.fee-toggle {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--dex-blue);
-  cursor: pointer;
-  padding: 10px 16px;
-  background: var(--dex-white);
-  border: none;
-  width: 100%;
-  text-align: left;
-  border-top: 1px solid #E5E7EB;
-  font-family: inherit;
-}
-.fee-toggle .arrow {
-  transition: transform 0.2s;
-  font-size: 10px;
-}
-.fee-toggle.open .arrow { transform: rotate(90deg); }
-.fee-detail {
-  display: none;
-  padding: 0 16px 14px;
-  background: var(--dex-white);
-}
-.fee-detail.show { display: block; }
-.fee-line {
-  display: flex;
-  justify-content: space-between;
-  font-size: 13px;
-  color: #6B7280;
-  padding: 4px 0;
-}
-.fee-line.total {
-  border-top: 2px solid var(--dex-navy);
-  margin-top: 6px;
-  padding-top: 8px;
-  font-weight: 700;
-  color: var(--dex-navy);
-  font-size: 14px;
-}
+.fee-detail,.car-detail-panel { display:none; padding:0 16px 14px; background:var(--dex-white); }
+.fee-detail.show,.car-detail-panel.show { display:block; }
+.fee-line { display:flex; justify-content:space-between; font-size:13px; color:#6B7280; padding:4px 0; }
+.fee-line.total { border-top:2px solid var(--dex-navy); margin-top:6px; padding-top:8px; font-weight:700; color:var(--dex-navy); font-size:14px; }
+
+/* CAR DETAIL PANEL (flip content) */
+.car-detail-panel { border-top:1px solid #E5E7EB; }
+.detail-grid { display:grid; grid-template-columns:1fr 1fr; gap:0; }
+.detail-item { padding:8px 0; border-bottom:1px solid #F3F4F6; }
+.detail-item:nth-child(odd) { padding-right:12px; }
+.detail-item:nth-child(even) { padding-left:12px; border-left:1px solid #F3F4F6; }
+.detail-label { font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.3px; color:var(--dex-muted); }
+.detail-value { font-size:13px; font-weight:600; color:var(--dex-navy); margin-top:2px; }
+.detail-full { grid-column:1/-1; padding:8px 0; border-bottom:1px solid #F3F4F6; }
+.detail-link { display:inline-flex; align-items:center; gap:4px; font-size:11px; color:var(--dex-blue); text-decoration:none; margin-top:8px; font-weight:500; }
+.detail-link:active { opacity:0.7; }
 
 /* DIFF BAR */
-.diff-bar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 12px 16px;
-  border-top: 1px solid #E5E7EB;
-  font-size: 14px;
-  font-weight: 700;
-}
-.diff-bar .pct {
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--dex-muted);
-}
+.diff-bar { display:flex; align-items:center; justify-content:center; gap:8px; padding:12px 16px; border-top:1px solid #E5E7EB; font-size:14px; font-weight:700; }
+.diff-bar .pct { font-size:11px; font-weight:500; color:var(--dex-muted); }
 
 /* COMPARISON */
-.comp-section {
-  padding: 0 16px 14px;
-  border-top: 1px solid #E5E7EB;
-}
-.comp-title {
-  font-size: 10px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: var(--dex-muted);
-  padding: 12px 0 8px;
-}
-.comp-row {
-  padding: 6px 0;
-  font-size: 13px;
-  color: #374151;
-  line-height: 1.4;
-  border-bottom: 1px solid #F3F4F6;
-}
-.comp-row:last-child { border-bottom: none; }
-.comp-row a {
-  color: inherit;
-  text-decoration: none;
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  width: 100%;
-}
-.comp-row a:active { opacity: 0.7; }
-.comp-row .cp {
-  font-weight: 700;
-  color: var(--dex-navy);
-  white-space: nowrap;
-  min-width: 72px;
-}
-.comp-row .src {
-  color: var(--dex-muted);
-  font-size: 11px;
-}
-.comp-row .link-icon {
-  font-size: 12px;
-  color: var(--dex-blue);
-  flex-shrink: 0;
-  margin-left: auto;
-}
-
-/* OPENLANE LINK */
-.ol-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 12px 16px;
-  border-top: 1px solid #E5E7EB;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--dex-blue);
-  text-decoration: none;
-  background: var(--dex-white);
-  transition: background 0.15s;
-}
-.ol-link:active { background: var(--dex-light-bg); }
-.ol-link .ext { font-size: 11px; }
+.comp-section { padding:0 16px 14px; border-top:1px solid #E5E7EB; }
+.comp-title { font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.5px; color:var(--dex-muted); padding:12px 0 8px; }
+.comp-row { padding:6px 0; font-size:13px; color:#374151; line-height:1.4; border-bottom:1px solid #F3F4F6; }
+.comp-row:last-child { border-bottom:none; }
+.comp-row a { color:inherit; text-decoration:none; display:flex; align-items:baseline; gap:8px; width:100%; flex-wrap:wrap; }
+.comp-row a:active { opacity:0.7; }
+.comp-row .cp { font-weight:700; color:var(--dex-navy); white-space:nowrap; min-width:72px; }
+.comp-row .src { color:var(--dex-muted); font-size:11px; }
+.comp-row .link-icon { font-size:12px; color:var(--dex-blue); flex-shrink:0; margin-left:auto; }
 
 /* INFO TOOLTIP */
-.info-wrap {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-}
-.info-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 16px; height: 16px;
-  border-radius: 50%;
-  background: var(--dex-blue-20);
-  color: var(--dex-blue);
-  font-size: 10px;
-  font-weight: 700;
-  cursor: pointer;
-  border: none;
-  font-family: inherit;
-  flex-shrink: 0;
-}
-.info-bubble {
-  display: none;
-  position: absolute;
-  left: 0;
-  top: 100%;
-  margin-top: 6px;
-  width: 270px;
-  background: var(--dex-navy);
-  border-radius: 12px;
-  padding: 14px 16px;
-  z-index: 100;
-  box-shadow: 0 12px 40px rgba(5,2,78,0.35);
-  font-size: 12px;
-  color: rgba(255,255,255,0.75);
-  line-height: 1.7;
-}
-.info-bubble.show { display: block; }
-.info-bubble strong { color: var(--dex-white); }
-.info-bubble .close-bubble {
-  position: absolute;
-  top: 8px; right: 12px;
-  background: none;
-  border: none;
-  color: rgba(255,255,255,0.4);
-  font-size: 16px;
-  cursor: pointer;
-  font-family: inherit;
-}
+.info-wrap { position:relative; display:inline-flex; align-items:center; gap:4px; }
+.info-btn { display:inline-flex; align-items:center; justify-content:center; width:16px; height:16px; border-radius:50%; background:var(--dex-blue-20); color:var(--dex-blue); font-size:10px; font-weight:700; cursor:pointer; border:none; font-family:inherit; flex-shrink:0; }
+.info-bubble { display:none; position:absolute; left:0; top:100%; margin-top:6px; width:270px; background:var(--dex-navy); border-radius:12px; padding:14px 16px; z-index:100; box-shadow:0 12px 40px rgba(5,2,78,0.35); font-size:12px; color:rgba(255,255,255,0.75); line-height:1.7; }
+.info-bubble.show { display:block; }
+.info-bubble strong { color:var(--dex-white); }
+.info-bubble .close-bubble { position:absolute; top:8px; right:12px; background:none; border:none; color:rgba(255,255,255,0.4); font-size:16px; cursor:pointer; font-family:inherit; }
 
 /* NOTES */
-.notes {
-  background: var(--dex-white);
-  border-radius: var(--radius);
-  padding: 18px 16px;
-  margin-top: 20px;
-  margin-bottom: 40px;
-  box-shadow: var(--shadow);
-  border-left: 3px solid var(--dex-warning);
-}
-.notes h3 {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--dex-navy);
-  margin-bottom: 8px;
-}
-.notes p {
-  font-size: 12px;
-  color: var(--dex-muted);
-  line-height: 1.7;
-}
-.notes strong { color: var(--dex-text); }
+.notes { background:var(--dex-white); border-radius:var(--radius); padding:18px 16px; margin-top:20px; margin-bottom:40px; box-shadow:var(--shadow); border-left:3px solid var(--dex-warning); }
+.notes h3 { font-size:13px; font-weight:700; color:var(--dex-navy); margin-bottom:8px; }
+.notes p { font-size:12px; color:var(--dex-muted); line-height:1.7; }
+.notes strong { color:var(--dex-text); }
 
-@media (min-width: 640px) {
-  body { padding: 32px 24px; }
-  .summary { grid-template-columns: repeat(4, 1fr); }
-  .header h1 { font-size: 28px; }
-  .header { padding: 32px 28px; }
+@media (min-width:640px) {
+  body { padding:32px 24px; }
+  .summary { grid-template-columns:repeat(4,1fr); }
+  .header .brand-name { font-size:34px; }
+  .header { padding:32px 28px; }
 }
 </style>
 </head>
@@ -501,39 +169,80 @@ body {
 
 <div class="header">
   <img src="https://www.dexfinity.com/wp-content/uploads/2021/03/Logo-Small-Dark-Landscape@2x.png" alt="Dexfinity" class="logo-img">
-  <h1>OpenLane Auction Log</h1>
-  <div class="sub">Drazbove ceny (vr. poplatkov + DPH) vs. trhove ceny na bazaroch</div>
+  <div class="brand-name">Dex<span>Lane</span></div>
+  <div class="brand-sub">Auto Aukcie Tracker</div>
   <div class="date-badge">Aktualizovane 11. april 2026</div>
 </div>
 
 <div class="summary">
-  <div class="stat">
-    <div class="num">9</div>
-    <div class="lbl">Aukcii</div>
-    <div class="detail">7 predanych</div>
-  </div>
-  <div class="stat">
-    <div class="num" style="color:var(--dex-success)">4/7</div>
-    <div class="lbl">Pod trhom</div>
-    <div class="detail">vyhodnych</div>
-  </div>
-  <div class="stat">
-    <div class="num" style="color:var(--dex-success)">-2 143&euro;</div>
-    <div class="lbl">Priem. uspora</div>
-    <div class="detail">vs. bazar</div>
-  </div>
-  <div class="stat">
-    <div class="num" style="color:var(--dex-success)">-4 110&euro;</div>
-    <div class="lbl">Najlepsi deal</div>
-    <div class="detail">Tesla Y '24</div>
-  </div>
+  <div class="stat"><div class="num">9</div><div class="lbl">Aukcii</div><div class="detail">7 predanych</div></div>
+  <div class="stat"><div class="num" style="color:var(--dex-success)">4/7</div><div class="lbl">Pod trhom</div><div class="detail">vyhodnych</div></div>
+  <div class="stat"><div class="num" style="color:var(--dex-success)">-2 143&euro;</div><div class="lbl">Priem. uspora</div><div class="detail">vs. bazar</div></div>
+  <div class="stat"><div class="num" style="color:var(--dex-success)">-4 110&euro;</div><div class="lbl">Najlepsi deal</div><div class="detail">Tesla Y '24</div></div>
 </div>
 
-<div class="section-head">
-  <h2>Uzavrete aukcie</h2>
-  <span class="pill">9</span>
+<script>
+function tog(el){el.classList.toggle('open');el.nextElementSibling.classList.toggle('show');}
+function togInfo(ev,el){ev.stopPropagation();el.nextElementSibling.classList.toggle('show');}
+function closeInfo(ev,el){ev.stopPropagation();el.parentElement.classList.remove('show');}
+function switchTab(n){
+  document.querySelectorAll('.tab-btn').forEach(function(b,i){b.classList.toggle('active',i===n)});
+  document.querySelectorAll('.tab-content').forEach(function(c,i){c.classList.toggle('active',i===n)});
+}
+</script>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="switchTab(0)"><span class="tab-count"><span class="live-dot"></span>3</span>Zive aukcie</button>
+  <button class="tab-btn" onclick="switchTab(1)"><span class="tab-count">9</span>History Log</button>
 </div>
 
+<!-- ==================== TAB 1: ZIVE AUKCIE ==================== -->
+<div class="tab-content active">
+
+<div class="section-head"><h2><span class="live-dot"></span>Zive aukcie</h2><span class="pill">3 sledovane</span></div>
+
+<!-- LIVE: Octavia Combi Style 69k -->
+<div class="car-card">
+  <div class="card-top"><div class="card-top-left"><div class="car-title">Skoda Octavia Combi 2.0 TDI Style</div><div class="car-meta">02/2023 &middot; 69 672 km &middot; 150 k &middot; DE &middot; Ref. 10795564</div><div class="countdown"><span class="timer-label">Konci:</span> 13/04/2026 10:25</div><div class="specs"><span class="spec-tag spec-variant">Style</span><span class="spec-tag spec-fuel">Nafta</span><span class="spec-tag spec-trans">DSG 7-st.</span><span class="spec-tag spec-info">Kombi</span></div></div><span class="badge" style="background:var(--dex-blue-10);color:var(--dex-blue)">Sledovane</span></div>
+  <div class="price-row">
+    <div class="price-cell"><div class="label">Aktualna cena</div><div class="val">14 800 &euro;</div><div class="val-sub">bez DPH</div></div>
+    <div class="price-cell"><div class="label">Odhadovana cena</div><div class="val">16 500 &euro;</div><div class="val-sub">bez DPH</div></div>
+  </div>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Detail auta</button>
+  <div class="car-detail-panel"><div class="detail-grid"><div class="detail-item"><div class="detail-label">Prva registracia</div><div class="detail-value">02/02/2023</div></div><div class="detail-item"><div class="detail-label">Rok vyroby</div><div class="detail-value">12/2022</div></div><div class="detail-item"><div class="detail-label">Najazdene</div><div class="detail-value">69 672 km</div></div><div class="detail-item"><div class="detail-label">Vykon</div><div class="detail-value">110 kW / 150 k</div></div><div class="detail-item"><div class="detail-label">Motor</div><div class="detail-value">2.0 TDI 1 968 cm3</div></div><div class="detail-item"><div class="detail-label">Prevodovka</div><div class="detail-value">7-st. DSG Automat</div></div><div class="detail-item"><div class="detail-label">Emisie</div><div class="detail-value">100 g/km, EU6d</div></div><div class="detail-item"><div class="detail-label">Karoseria</div><div class="detail-value">Kombi, Modra</div></div><div class="detail-item"><div class="detail-label">Posledna udrzba</div><div class="detail-value">68 580 km (02/2026)</div></div><div class="detail-item"><div class="detail-label">Povod / Predajca</div><div class="detail-value">DE &middot; Athlon (3.4/5)</div></div><div class="detail-item"><div class="detail-label">Doklady</div><div class="detail-value">Kompletne + COC</div></div><div class="detail-item"><div class="detail-label">VIN (kratke)</div><div class="detail-value">049892</div></div></div></div>
+  <a class="bid-btn" href="https://www.openlane.eu/sk/car/info?auctionId=10795564" target="_blank"><span class="emoji">👍</span> Drazit na OpenLane</a>
+</div>
+
+<!-- LIVE: Octavia Combi RS -->
+<div class="car-card">
+  <div class="card-top"><div class="card-top-left"><div class="car-title">Skoda Octavia Combi RS 2.0 TDI</div><div class="car-meta">01/2023 &middot; 82 884 km &middot; 200 k &middot; DE &middot; Ref. 10791828</div><div class="countdown"><span class="timer-label">Konci:</span> 13/04/2026 13:00</div><div class="specs"><span class="spec-tag spec-variant">RS</span><span class="spec-tag spec-fuel">Nafta</span><span class="spec-tag spec-trans">DSG Automat</span><span class="spec-tag spec-info">Kombi</span></div></div><span class="badge" style="background:var(--dex-blue-10);color:var(--dex-blue)">Sledovane</span></div>
+  <div class="price-row">
+    <div class="price-cell"><div class="label">Aktualna cena</div><div class="val">22 900 &euro;</div><div class="val-sub">bez DPH</div></div>
+    <div class="price-cell"><div class="label">Odhadovana cena</div><div class="val">23 400 &euro;</div><div class="val-sub">bez DPH</div></div>
+  </div>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Detail auta</button>
+  <div class="car-detail-panel"><div class="detail-grid"><div class="detail-item"><div class="detail-label">Prva registracia</div><div class="detail-value">01/2023</div></div><div class="detail-item"><div class="detail-label">Najazdene</div><div class="detail-value">82 884 km</div></div><div class="detail-item"><div class="detail-label">Vykon</div><div class="detail-value">147 kW / 200 k</div></div><div class="detail-item"><div class="detail-label">Motor</div><div class="detail-value">2.0 TDI</div></div><div class="detail-item"><div class="detail-label">Typ aukcie</div><div class="detail-value">Dynamicka aukcia</div></div><div class="detail-item"><div class="detail-label">Povod</div><div class="detail-value">Nemecko</div></div></div></div>
+  <a class="bid-btn" href="https://www.openlane.eu/sk/car/info?auctionId=10791828" target="_blank"><span class="emoji">👍</span> Drazit na OpenLane</a>
+</div>
+
+<!-- LIVE: Octavia Combi 42k -->
+<div class="car-card">
+  <div class="card-top"><div class="card-top-left"><div class="car-title">Skoda Octavia Combi 2.0 TDI</div><div class="car-meta">02/2023 &middot; 42 641 km &middot; 150 k &middot; DE &middot; Ref. 10788943</div><div class="countdown"><span class="timer-label">Konci:</span> 13/04/2026 13:00</div><div class="specs"><span class="spec-tag spec-fuel">Nafta</span><span class="spec-tag spec-trans">DSG Automat</span><span class="spec-tag spec-info">Kombi</span></div></div><span class="badge" style="background:var(--dex-blue-10);color:var(--dex-blue)">Sledovane</span></div>
+  <div class="price-row">
+    <div class="price-cell"><div class="label">Aktualna cena</div><div class="val">12 700 &euro;</div><div class="val-sub">bez DPH</div></div>
+    <div class="price-cell"><div class="label">Odhadovana cena</div><div class="val" style="color:var(--dex-muted);font-size:14px">&mdash;</div><div class="val-sub">nedostupna</div></div>
+  </div>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Detail auta</button>
+  <div class="car-detail-panel"><div class="detail-grid"><div class="detail-item"><div class="detail-label">Prva registracia</div><div class="detail-value">02/2023</div></div><div class="detail-item"><div class="detail-label">Najazdene</div><div class="detail-value">42 641 km</div></div><div class="detail-item"><div class="detail-label">Vykon</div><div class="detail-value">110 kW / 150 k</div></div><div class="detail-item"><div class="detail-label">Motor</div><div class="detail-value">2.0 TDI</div></div><div class="detail-item"><div class="detail-label">Typ aukcie</div><div class="detail-value">Cielova aukcia</div></div><div class="detail-item"><div class="detail-label">Povod</div><div class="detail-value">Nemecko</div></div></div></div>
+  <a class="bid-btn" href="https://www.openlane.eu/sk/car/info?auctionId=10788943" target="_blank"><span class="emoji">👍</span> Drazit na OpenLane</a>
+</div>
+
+</div>
+
+<!-- ==================== TAB 2: HISTORY LOG ==================== -->
+<div class="tab-content">
+
+<div class="section-head"><h2>History Log</h2><span class="pill">9 uzavretych</span></div>
 <div class="legend">
   <div class="leg"><div class="dot" style="background:var(--dex-success)"></div>Pod trhom</div>
   <div class="leg"><div class="dot" style="background:var(--dex-warning)"></div>Trhova cena</div>
@@ -541,8 +250,8 @@ body {
   <div class="leg"><div class="dot" style="background:#D1D5DB"></div>Nepredane</div>
 </div>
 
-<!-- ========== TESLA MODEL Y LR 2024 ========== -->
-<div class="car-card">
+<!-- ===== TESLA MODEL Y LR 2024 ===== -->
+<div class="car-card ended">
   <div class="card-top">
     <div class="card-top-left">
       <div class="car-title">Tesla Model Y Long Range</div>
@@ -558,18 +267,30 @@ body {
   </div>
   <div class="price-row">
     <div class="price-cell">
-      <div class="label"><span class="info-wrap">Drazba s DPH <button class="info-btn" onclick="event.stopPropagation();var b=this.nextElementSibling;b.classList.toggle('show')">i</button><div class="info-bubble"><button class="close-bubble" onclick="event.stopPropagation();this.parentElement.classList.remove('show')">&times;</button><strong>Co je v cene:</strong><br>Drazbova cena (bez DPH)<br>+ Naklady za krajinu (~285&euro;)<br>+ Poplatok za aukciu (~300&euro;)<br>+ 23% DPH na celu sumu<br><br>Klikni "Rozpad ceny" nizsie pre presny rozpocet.</div></span></div>
+      <div class="label"><span class="info-wrap">Drazba s DPH <button class="info-btn" onclick="togInfo(event,this)">i</button><div class="info-bubble"><button class="close-bubble" onclick="closeInfo(event,this)">&times;</button><strong>Co je v cene:</strong><br>Drazbova cena (bez DPH)<br>+ Naklady za krajinu (~285&euro;)<br>+ Poplatok za aukciu (~300&euro;)<br>+ 23% DPH na celu sumu<br><br>Klikni "Rozpad ceny" nizsie pre presny rozpocet.</div></span></div>
       <div class="val">36 390 &euro;</div>
       <div class="val-sub">29 000 &euro; bez DPH</div>
     </div>
-    <div class="price-cell">
-      <div class="label">Priemer bazaru</div>
-      <div class="val">40 500 &euro;</div>
-      <div class="val-sub">s DPH</div>
-    </div>
+    <div class="price-cell"><div class="label">Priemer bazaru</div><div class="val">40 500 &euro;</div><div class="val-sub">s DPH</div></div>
   </div>
   <div class="diff-bar" style="color:var(--dex-success)">-4 110 &euro; lacnejsie <span class="pct">Vyborny deal!</span></div>
-  <button class="fee-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')"><span class="arrow">&#9654;</span> Rozpad ceny &amp; porovnanie</button>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Detail auta</button>
+  <div class="car-detail-panel">
+    <div class="detail-grid">
+      <div class="detail-item"><div class="detail-label">Prva registracia</div><div class="detail-value">10/2024</div></div>
+      <div class="detail-item"><div class="detail-label">Najazdene</div><div class="detail-value">23 085 km</div></div>
+      <div class="detail-item"><div class="detail-label">Vykon</div><div class="detail-value">255 kW / 346 k</div></div>
+      <div class="detail-item"><div class="detail-label">Pohon</div><div class="detail-value">4x4 AWD Dual Motor</div></div>
+      <div class="detail-item"><div class="detail-label">Bateria</div><div class="detail-value">75 kWh</div></div>
+      <div class="detail-item"><div class="detail-label">Karoseria</div><div class="detail-value">SUV</div></div>
+      <div class="detail-item"><div class="detail-label">Prevodovka</div><div class="detail-value">Automaticka</div></div>
+      <div class="detail-item"><div class="detail-label">DPH rezim</div><div class="detail-value">Bez DPH</div></div>
+      <div class="detail-item"><div class="detail-label">Emisie</div><div class="detail-value">0 g/km</div></div>
+      <div class="detail-item"><div class="detail-label">Konecna cena drazby</div><div class="detail-value">29 000 &euro;</div></div>
+    </div>
+    <a class="detail-link" href="https://www.openlane.eu/sk/car/info?auctionId=10769213" target="_blank">Otvorit na OpenLane &#8599;</a>
+  </div>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Rozpad ceny</button>
   <div class="fee-detail">
     <div class="fee-line"><span>Drazbova cena</span><span>29 000 &euro;</span></div>
     <div class="fee-line"><span>Naklady za krajinu (DE)</span><span>~285 &euro;</span></div>
@@ -580,15 +301,14 @@ body {
   </div>
   <div class="comp-section">
     <div class="comp-title">Porovnatelne inzeraty</div>
-    <div class="comp-row"><a href="https://www.autobazar.eu/en/detail/tesla-model-y-dual-motor-long-range-75kwh-514k-4x4-25000km/Amk3nTTZuCy/" target="_blank"><span class="cp">39 990 &euro;</span> <span class="spec-tag spec-variant" style="font-size:10px;padding:1px 6px">LR</span> <span class="spec-tag spec-drive" style="font-size:10px;padding:1px 6px">4x4</span> 75kWh, 25k km <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
-    <div class="comp-row"><a href="https://www.autobazar.eu/en/detail/tesla-model-y-75kwh-long-range-awd/Am2X4dEsKYn/" target="_blank"><span class="cp">41 990 &euro;</span> <span class="spec-tag spec-variant" style="font-size:10px;padding:1px 6px">LR</span> <span class="spec-tag spec-drive" style="font-size:10px;padding:1px 6px">AWD</span> 75kWh, 04/2024 <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
-    <div class="comp-row"><a href="https://auto.bazos.sk/inzerat/190467861/tesla-model-y-2024-eu-version-long-range-dual-motor.php" target="_blank"><span class="cp">38 900 &euro;</span> <span class="spec-tag spec-variant" style="font-size:10px;padding:1px 6px">LR</span> 78kWh, 32k km <span class="src" style="color:var(--dex-error);font-weight:600">(bazos.sk, BEZ DPH!)</span><span class="link-icon">&#8599;</span></a></div>
+    <div class="comp-row"><a href="https://www.autobazar.eu/en/detail/tesla-model-y-dual-motor-long-range-75kwh-514k-4x4-25000km/Amk3nTTZuCy/" target="_blank"><span class="cp">39 990 &euro;</span> <span class="spec-tag spec-variant spec-sm">LR</span> <span class="spec-tag spec-drive spec-sm">4x4</span> 75kWh, 25k km <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
+    <div class="comp-row"><a href="https://www.autobazar.eu/en/detail/tesla-model-y-75kwh-long-range-awd/Am2X4dEsKYn/" target="_blank"><span class="cp">41 990 &euro;</span> <span class="spec-tag spec-variant spec-sm">LR</span> <span class="spec-tag spec-drive spec-sm">AWD</span> 75kWh, 04/2024 <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
+    <div class="comp-row"><a href="https://auto.bazos.sk/inzerat/190467861/tesla-model-y-2024-eu-version-long-range-dual-motor.php" target="_blank"><span class="cp">38 900 &euro;</span> <span class="spec-tag spec-variant spec-sm">LR</span> 78kWh, 32k km <span class="src" style="color:var(--dex-error);font-weight:600">(bazos.sk, BEZ DPH!)</span><span class="link-icon">&#8599;</span></a></div>
   </div>
-  <a class="ol-link" href="https://www.openlane.eu/sk/car/info?auctionId=10769213" target="_blank">Zobrazit na OpenLane <span class="ext">&#8599;</span></a>
 </div>
 
-<!-- ========== TESLA MODEL Y LR 2023 ========== -->
-<div class="car-card">
+<!-- ===== TESLA MODEL Y LR 2023 ===== -->
+<div class="car-card ended">
   <div class="card-top">
     <div class="card-top-left">
       <div class="car-title">Tesla Model Y Long Range</div>
@@ -603,299 +323,113 @@ body {
     <span class="badge b-green">-7%</span>
   </div>
   <div class="price-row">
-    <div class="price-cell">
-      <div class="label"><span class="info-wrap">Drazba s DPH <button class="info-btn" onclick="event.stopPropagation();var b=this.nextElementSibling;b.classList.toggle('show')">i</button><div class="info-bubble"><button class="close-bubble" onclick="event.stopPropagation();this.parentElement.classList.remove('show')">&times;</button><strong>Co je v cene:</strong><br>Drazbova cena (bez DPH)<br>+ Naklady za krajinu (~285&euro;)<br>+ Poplatok za aukciu (~300&euro;)<br>+ 23% DPH na celu sumu<br><br>Klikni "Rozpad ceny" nizsie pre presny rozpocet.</div></span></div>
-      <div class="val">34 545 &euro;</div>
-      <div class="val-sub">27 500 &euro; bez DPH</div>
-    </div>
-    <div class="price-cell">
-      <div class="label">Priemer bazaru</div>
-      <div class="val">37 000 &euro;</div>
-      <div class="val-sub">s DPH</div>
-    </div>
+    <div class="price-cell"><div class="label"><span class="info-wrap">Drazba s DPH <button class="info-btn" onclick="togInfo(event,this)">i</button><div class="info-bubble"><button class="close-bubble" onclick="closeInfo(event,this)">&times;</button><strong>Co je v cene:</strong><br>Drazbova cena (bez DPH)<br>+ Naklady za krajinu (~285&euro;)<br>+ Poplatok za aukciu (~300&euro;)<br>+ 23% DPH na celu sumu</div></span></div><div class="val">34 545 &euro;</div><div class="val-sub">27 500 &euro; bez DPH</div></div>
+    <div class="price-cell"><div class="label">Priemer bazaru</div><div class="val">37 000 &euro;</div><div class="val-sub">s DPH</div></div>
   </div>
   <div class="diff-bar" style="color:var(--dex-success)">-2 455 &euro; lacnejsie <span class="pct">Pod trhom</span></div>
-  <button class="fee-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')"><span class="arrow">&#9654;</span> Rozpad ceny &amp; porovnanie</button>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Detail auta</button>
+  <div class="car-detail-panel">
+    <div class="detail-grid">
+      <div class="detail-item"><div class="detail-label">Prva registracia</div><div class="detail-value">02/2023</div></div>
+      <div class="detail-item"><div class="detail-label">Najazdene</div><div class="detail-value">44 923 km</div></div>
+      <div class="detail-item"><div class="detail-label">Vykon</div><div class="detail-value">153 kW / 208 k</div></div>
+      <div class="detail-item"><div class="detail-label">Pohon</div><div class="detail-value">4x4 AWD Dual Motor</div></div>
+      <div class="detail-item"><div class="detail-label">Bateria</div><div class="detail-value">75 kWh</div></div>
+      <div class="detail-item"><div class="detail-label">Karoseria</div><div class="detail-value">SUV</div></div>
+      <div class="detail-item"><div class="detail-label">Povod</div><div class="detail-value">Nemecko</div></div>
+      <div class="detail-item"><div class="detail-label">DPH rezim</div><div class="detail-value">Bez DPH</div></div>
+    </div>
+    <a class="detail-link" href="https://www.openlane.eu/sk/car/info?auctionId=10783262" target="_blank">Otvorit na OpenLane &#8599;</a>
+  </div>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Rozpad ceny</button>
   <div class="fee-detail">
-    <div class="fee-line"><span>Drazbova cena</span><span>27 500 &euro;</span></div>
-    <div class="fee-line"><span>Naklady za krajinu (DE)</span><span>~285 &euro;</span></div>
-    <div class="fee-line"><span>Poplatok za aukciu</span><span>~300 &euro;</span></div>
-    <div class="fee-line"><span>Spolu bez DPH</span><span>28 085 &euro;</span></div>
-    <div class="fee-line"><span>+ 23% DPH</span><span>+6 460 &euro;</span></div>
-    <div class="fee-line total"><span>Koncova cena</span><span>34 545 &euro;</span></div>
+    <div class="fee-line"><span>Drazbova cena</span><span>27 500 &euro;</span></div><div class="fee-line"><span>Naklady za krajinu (DE)</span><span>~285 &euro;</span></div><div class="fee-line"><span>Poplatok za aukciu</span><span>~300 &euro;</span></div><div class="fee-line"><span>Spolu bez DPH</span><span>28 085 &euro;</span></div><div class="fee-line"><span>+ 23% DPH</span><span>+6 460 &euro;</span></div><div class="fee-line total"><span>Koncova cena</span><span>34 545 &euro;</span></div>
   </div>
   <div class="comp-section">
     <div class="comp-title">Porovnatelne inzeraty</div>
-    <div class="comp-row"><a href="https://www.autobazar.eu/detail/tesla-model-y-dual-motor-long-range-75kwh-514k-4x4-36000km-tazne/AmTjS9cVv-I/" target="_blank"><span class="cp">38 490 &euro;</span> <span class="spec-tag spec-variant" style="font-size:10px;padding:1px 6px">LR</span> <span class="spec-tag spec-drive" style="font-size:10px;padding:1px 6px">4x4</span> 75kWh, 36k km <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
-    <div class="comp-row"><a href="https://www.autobazar.eu/en/detail/tesla-model-y-long-range-awd/AeqBCvBWAIi/" target="_blank"><span class="cp">32 750 &euro;</span> <span class="spec-tag spec-variant" style="font-size:10px;padding:1px 6px">LR</span> <span class="spec-tag spec-drive" style="font-size:10px;padding:1px 6px">AWD</span> Ryzen, ~47k km <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
-    <div class="comp-row"><a href="https://www.autobazar.eu/en/detail/tesla-model-y-dual-motor-long-range-75kwh-514k-4x4-25000km/Amk3nTTZuCy/" target="_blank"><span class="cp">39 990 &euro;</span> <span class="spec-tag spec-variant" style="font-size:10px;padding:1px 6px">LR</span> <span class="spec-tag spec-drive" style="font-size:10px;padding:1px 6px">4x4</span> 75kWh, 26k km <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
+    <div class="comp-row"><a href="https://www.autobazar.eu/detail/tesla-model-y-dual-motor-long-range-75kwh-514k-4x4-36000km-tazne/AmTjS9cVv-I/" target="_blank"><span class="cp">38 490 &euro;</span> <span class="spec-tag spec-variant spec-sm">LR</span> <span class="spec-tag spec-drive spec-sm">4x4</span> 75kWh, 36k km <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
+    <div class="comp-row"><a href="https://www.autobazar.eu/en/detail/tesla-model-y-long-range-awd/AeqBCvBWAIi/" target="_blank"><span class="cp">32 750 &euro;</span> <span class="spec-tag spec-variant spec-sm">LR</span> <span class="spec-tag spec-drive spec-sm">AWD</span> Ryzen, ~47k km <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
+    <div class="comp-row"><a href="https://www.autobazar.eu/en/detail/tesla-model-y-dual-motor-long-range-75kwh-514k-4x4-25000km/Amk3nTTZuCy/" target="_blank"><span class="cp">39 990 &euro;</span> <span class="spec-tag spec-variant spec-sm">LR</span> <span class="spec-tag spec-drive spec-sm">4x4</span> 75kWh, 26k km <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
   </div>
-  <a class="ol-link" href="https://www.openlane.eu/sk/car/info?auctionId=10783262" target="_blank">Zobrazit na OpenLane <span class="ext">&#8599;</span></a>
 </div>
 
-<!-- ========== SKODA KODIAQ 2023 ========== -->
-<div class="car-card">
-  <div class="card-top">
-    <div class="card-top-left">
-      <div class="car-title">Skoda Kodiaq 2.0 TDI</div>
-      <div class="car-meta">11/2023 &middot; 28 902 km &middot; 150 k &middot; DE &middot; Ref. 10762282</div>
-      <div class="specs">
-        <span class="spec-tag spec-variant">Style</span>
-        <span class="spec-tag spec-fuel">Nafta</span>
-        <span class="spec-tag spec-trans">DSG Automat</span>
-        <span class="spec-tag spec-info">SUV</span>
-      </div>
-    </div>
-    <span class="badge b-green">-6%</span>
-  </div>
-  <div class="price-row">
-    <div class="price-cell">
-      <div class="label"><span class="info-wrap">Drazba s DPH <button class="info-btn" onclick="event.stopPropagation();var b=this.nextElementSibling;b.classList.toggle('show')">i</button><div class="info-bubble"><button class="close-bubble" onclick="event.stopPropagation();this.parentElement.classList.remove('show')">&times;</button><strong>Co je v cene:</strong><br>Drazbova cena (bez DPH)<br>+ Naklady za krajinu (~285&euro;)<br>+ Poplatok za aukciu (~300&euro;)<br>+ 23% DPH na celu sumu<br><br>Klikni "Rozpad ceny" nizsie pre presny rozpocet.</div></span></div>
-      <div class="val">33 069 &euro;</div>
-      <div class="val-sub">26 300 &euro; bez DPH</div>
-    </div>
-    <div class="price-cell">
-      <div class="label">Priemer bazaru</div>
-      <div class="val">35 000 &euro;</div>
-      <div class="val-sub">s DPH</div>
-    </div>
-  </div>
+<!-- ===== SKODA KODIAQ 2023 ===== -->
+<div class="car-card ended">
+  <div class="card-top"><div class="card-top-left"><div class="car-title">Skoda Kodiaq 2.0 TDI</div><div class="car-meta">11/2023 &middot; 28 902 km &middot; 150 k &middot; DE &middot; Ref. 10762282</div><div class="specs"><span class="spec-tag spec-variant">Style</span><span class="spec-tag spec-fuel">Nafta</span><span class="spec-tag spec-trans">DSG Automat</span><span class="spec-tag spec-info">SUV</span></div></div><span class="badge b-green">-6%</span></div>
+  <div class="price-row"><div class="price-cell"><div class="label"><span class="info-wrap">Drazba s DPH <button class="info-btn" onclick="togInfo(event,this)">i</button><div class="info-bubble"><button class="close-bubble" onclick="closeInfo(event,this)">&times;</button><strong>Co je v cene:</strong><br>Drazbova cena + poplatky + 23% DPH</div></span></div><div class="val">33 069 &euro;</div><div class="val-sub">26 300 &euro; bez DPH</div></div><div class="price-cell"><div class="label">Priemer bazaru</div><div class="val">35 000 &euro;</div><div class="val-sub">s DPH</div></div></div>
   <div class="diff-bar" style="color:var(--dex-success)">-1 931 &euro; lacnejsie <span class="pct">Pod trhom</span></div>
-  <button class="fee-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')"><span class="arrow">&#9654;</span> Rozpad ceny &amp; porovnanie</button>
-  <div class="fee-detail">
-    <div class="fee-line"><span>Drazbova cena</span><span>26 300 &euro;</span></div>
-    <div class="fee-line"><span>Naklady za krajinu (DE)</span><span>~285 &euro;</span></div>
-    <div class="fee-line"><span>Poplatok za aukciu</span><span>~300 &euro;</span></div>
-    <div class="fee-line"><span>Spolu bez DPH</span><span>26 885 &euro;</span></div>
-    <div class="fee-line"><span>+ 23% DPH</span><span>+6 184 &euro;</span></div>
-    <div class="fee-line total"><span>Koncova cena</span><span>33 069 &euro;</span></div>
-  </div>
-  <div class="comp-section">
-    <div class="comp-title">Porovnatelne inzeraty</div>
-    <div class="comp-row"><a href="https://auto.bazos.sk/inzerat/186426511/skoda-kodiaq-ii-20-tdi-dsg-7miest34000kmzarukadph.php" target="_blank"><span class="cp">37 500 &euro;</span> Kodiaq II TDI <span class="spec-tag spec-trans" style="font-size:10px;padding:1px 6px">DSG</span> 7-miest, 34k km <span class="src">(bazos.sk, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
-    <div class="comp-row"><a href="https://www.autobazar.eu/en/detail/skoda-kodiaq-20-tdi-scr-evo-style-4x4-dsg/AmqBDlaVpYJ/" target="_blank"><span class="cp">36 999 &euro;</span> Style <span class="spec-tag spec-drive" style="font-size:10px;padding:1px 6px">4x4</span> <span class="spec-tag spec-trans" style="font-size:10px;padding:1px 6px">DSG</span> 01/2023 <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
-    <div class="comp-row"><a href="https://auto.bazos.sk/inzerat/190441738/skoda-kodiaq-style-20-tdi-110-kw-4x4-dsg-odpocet-dph.php" target="_blank"><span class="cp">29 999 &euro;</span> Style <span class="spec-tag spec-drive" style="font-size:10px;padding:1px 6px">4x4</span> <span class="spec-tag spec-trans" style="font-size:10px;padding:1px 6px">DSG</span> 95k km <span class="src">(bazos.sk, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
-  </div>
-  <a class="ol-link" href="https://www.openlane.eu/sk/car/info?auctionId=10762282" target="_blank">Zobrazit na OpenLane <span class="ext">&#8599;</span></a>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Detail auta</button>
+  <div class="car-detail-panel"><div class="detail-grid"><div class="detail-item"><div class="detail-label">Prva registracia</div><div class="detail-value">11/2023</div></div><div class="detail-item"><div class="detail-label">Najazdene</div><div class="detail-value">28 902 km</div></div><div class="detail-item"><div class="detail-label">Vykon</div><div class="detail-value">110 kW / 150 k</div></div><div class="detail-item"><div class="detail-label">Motor</div><div class="detail-value">2.0 TDI SCR EVO</div></div><div class="detail-item"><div class="detail-label">Prevodovka</div><div class="detail-value">7-st. DSG Automat</div></div><div class="detail-item"><div class="detail-label">Karoseria</div><div class="detail-value">SUV</div></div><div class="detail-item"><div class="detail-label">Emisie</div><div class="detail-value">140 g/km, EU6</div></div><div class="detail-item"><div class="detail-label">Povod</div><div class="detail-value">Nemecko</div></div></div><a class="detail-link" href="https://www.openlane.eu/sk/car/info?auctionId=10762282" target="_blank">Otvorit na OpenLane &#8599;</a></div>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Rozpad ceny</button>
+  <div class="fee-detail"><div class="fee-line"><span>Drazbova cena</span><span>26 300 &euro;</span></div><div class="fee-line"><span>Naklady za krajinu (DE)</span><span>~285 &euro;</span></div><div class="fee-line"><span>Poplatok za aukciu</span><span>~300 &euro;</span></div><div class="fee-line"><span>Spolu bez DPH</span><span>26 885 &euro;</span></div><div class="fee-line"><span>+ 23% DPH</span><span>+6 184 &euro;</span></div><div class="fee-line total"><span>Koncova cena</span><span>33 069 &euro;</span></div></div>
+  <div class="comp-section"><div class="comp-title">Porovnatelne inzeraty</div><div class="comp-row"><a href="https://auto.bazos.sk/inzerat/186426511/skoda-kodiaq-ii-20-tdi-dsg-7miest34000kmzarukadph.php" target="_blank"><span class="cp">37 500 &euro;</span> Kodiaq II <span class="spec-tag spec-trans spec-sm">DSG</span> 7-miest, 34k km <span class="src">(bazos.sk, s DPH)</span><span class="link-icon">&#8599;</span></a></div><div class="comp-row"><a href="https://www.autobazar.eu/en/detail/skoda-kodiaq-20-tdi-scr-evo-style-4x4-dsg/AmqBDlaVpYJ/" target="_blank"><span class="cp">36 999 &euro;</span> Style <span class="spec-tag spec-drive spec-sm">4x4</span> <span class="spec-tag spec-trans spec-sm">DSG</span> 01/2023 <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div><div class="comp-row"><a href="https://auto.bazos.sk/inzerat/190441738/skoda-kodiaq-style-20-tdi-110-kw-4x4-dsg-odpocet-dph.php" target="_blank"><span class="cp">29 999 &euro;</span> Style <span class="spec-tag spec-drive spec-sm">4x4</span> 95k km <span class="src">(bazos.sk, s DPH)</span><span class="link-icon">&#8599;</span></a></div></div>
 </div>
 
-<!-- ========== VW ID.4 2022 ========== -->
-<div class="car-card">
-  <div class="card-top">
-    <div class="card-top-left">
-      <div class="car-title">Volkswagen ID.4</div>
-      <div class="car-meta">12/2022 &middot; 28 041 km &middot; 204 k &middot; DE &middot; Ref. 10762620</div>
-      <div class="specs">
-        <span class="spec-tag spec-variant">Pro Performance</span>
-        <span class="spec-tag spec-drive">RWD</span>
-        <span class="spec-tag spec-battery">77 kWh</span>
-        <span class="spec-tag spec-fuel">Elektricke</span>
-        <span class="spec-tag spec-info">SUV</span>
-      </div>
-    </div>
-    <span class="badge b-yellow">~0%</span>
-  </div>
-  <div class="price-row">
-    <div class="price-cell">
-      <div class="label"><span class="info-wrap">Drazba s DPH <button class="info-btn" onclick="event.stopPropagation();var b=this.nextElementSibling;b.classList.toggle('show')">i</button><div class="info-bubble"><button class="close-bubble" onclick="event.stopPropagation();this.parentElement.classList.remove('show')">&times;</button><strong>Co je v cene:</strong><br>Drazbova cena (bez DPH)<br>+ Naklady za krajinu (~285&euro;)<br>+ Poplatok za aukciu (~300&euro;)<br>+ 23% DPH na celu sumu<br><br>Klikni "Rozpad ceny" nizsie pre presny rozpocet.</div></span></div>
-      <div class="val">25 320 &euro;</div>
-      <div class="val-sub">20 000 &euro; bez DPH</div>
-    </div>
-    <div class="price-cell">
-      <div class="label">Priemer bazaru</div>
-      <div class="val">25 500 &euro;</div>
-      <div class="val-sub">s DPH</div>
-    </div>
-  </div>
+<!-- ===== VW ID.4 2022 ===== -->
+<div class="car-card ended">
+  <div class="card-top"><div class="card-top-left"><div class="car-title">Volkswagen ID.4</div><div class="car-meta">12/2022 &middot; 28 041 km &middot; 204 k &middot; DE &middot; Ref. 10762620</div><div class="specs"><span class="spec-tag spec-variant">Pro Performance</span><span class="spec-tag spec-drive">RWD</span><span class="spec-tag spec-battery">77 kWh</span><span class="spec-tag spec-fuel">Elektricke</span></div></div><span class="badge b-yellow">~0%</span></div>
+  <div class="price-row"><div class="price-cell"><div class="label"><span class="info-wrap">Drazba s DPH <button class="info-btn" onclick="togInfo(event,this)">i</button><div class="info-bubble"><button class="close-bubble" onclick="closeInfo(event,this)">&times;</button><strong>Co je v cene:</strong><br>Drazbova cena + poplatky + 23% DPH</div></span></div><div class="val">25 320 &euro;</div><div class="val-sub">20 000 &euro; bez DPH</div></div><div class="price-cell"><div class="label">Priemer bazaru</div><div class="val">25 500 &euro;</div><div class="val-sub">s DPH</div></div></div>
   <div class="diff-bar" style="color:var(--dex-warning)">-180 &euro; <span class="pct">Trhova cena</span></div>
-  <button class="fee-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')"><span class="arrow">&#9654;</span> Rozpad ceny &amp; porovnanie</button>
-  <div class="fee-detail">
-    <div class="fee-line"><span>Drazbova cena</span><span>20 000 &euro;</span></div>
-    <div class="fee-line"><span>Naklady za krajinu (DE)</span><span>~285 &euro;</span></div>
-    <div class="fee-line"><span>Poplatok za aukciu</span><span>~300 &euro;</span></div>
-    <div class="fee-line"><span>Spolu bez DPH</span><span>20 585 &euro;</span></div>
-    <div class="fee-line"><span>+ 23% DPH</span><span>+4 735 &euro;</span></div>
-    <div class="fee-line total"><span>Koncova cena</span><span>25 320 &euro;</span></div>
-  </div>
-  <div class="comp-section">
-    <div class="comp-title">Porovnatelne inzeraty</div>
-    <div class="comp-row"><a href="https://www.autobazar.eu/detail/volkswagen-id4-pro-performance-77-kwh-easy/AmFl61u8vP5/" target="_blank"><span class="cp">24 900 &euro;</span> Pro Perf <span class="spec-tag spec-battery" style="font-size:10px;padding:1px 6px">77kWh</span> 12/2022 <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
-    <div class="comp-row"><a href="https://www.autobazar.eu/en/detail/volkswagen-id4-pro-performance-77-kwh-easy/AmAkES6Hb2E/" target="_blank"><span class="cp">25 900 &euro;</span> Pro Perf <span class="spec-tag spec-battery" style="font-size:10px;padding:1px 6px">77kWh</span> 12/2022 <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
-    <div class="comp-row"><a href="https://www.autobazar.eu/en/detail/volkswagen-id4-pro-performance-77-kwh/AmMnwGbIxIG/" target="_blank"><span class="cp">25 700 &euro;</span> Pro Perf, pano, tazne <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
-  </div>
-  <a class="ol-link" href="https://www.openlane.eu/sk/car/info?auctionId=10762620" target="_blank">Zobrazit na OpenLane <span class="ext">&#8599;</span></a>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Detail auta</button>
+  <div class="car-detail-panel"><div class="detail-grid"><div class="detail-item"><div class="detail-label">Prva registracia</div><div class="detail-value">12/2022</div></div><div class="detail-item"><div class="detail-label">Najazdene</div><div class="detail-value">28 041 km</div></div><div class="detail-item"><div class="detail-label">Vykon</div><div class="detail-value">150 kW / 204 k</div></div><div class="detail-item"><div class="detail-label">Pohon</div><div class="detail-value">RWD (zadny)</div></div><div class="detail-item"><div class="detail-label">Bateria</div><div class="detail-value">77 kWh</div></div><div class="detail-item"><div class="detail-label">Karoseria</div><div class="detail-value">SUV</div></div><div class="detail-item"><div class="detail-label">Povod</div><div class="detail-value">Nemecko</div></div><div class="detail-item"><div class="detail-label">DPH rezim</div><div class="detail-value">Bez DPH</div></div></div><a class="detail-link" href="https://www.openlane.eu/sk/car/info?auctionId=10762620" target="_blank">Otvorit na OpenLane &#8599;</a></div>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Rozpad ceny</button>
+  <div class="fee-detail"><div class="fee-line"><span>Drazbova cena</span><span>20 000 &euro;</span></div><div class="fee-line"><span>Naklady za krajinu (DE)</span><span>~285 &euro;</span></div><div class="fee-line"><span>Poplatok za aukciu</span><span>~300 &euro;</span></div><div class="fee-line"><span>Spolu bez DPH</span><span>20 585 &euro;</span></div><div class="fee-line"><span>+ 23% DPH</span><span>+4 735 &euro;</span></div><div class="fee-line total"><span>Koncova cena</span><span>25 320 &euro;</span></div></div>
+  <div class="comp-section"><div class="comp-title">Porovnatelne inzeraty</div><div class="comp-row"><a href="https://www.autobazar.eu/detail/volkswagen-id4-pro-performance-77-kwh-easy/AmFl61u8vP5/" target="_blank"><span class="cp">24 900 &euro;</span> Pro Perf <span class="spec-tag spec-battery spec-sm">77kWh</span> 12/2022 <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div><div class="comp-row"><a href="https://www.autobazar.eu/en/detail/volkswagen-id4-pro-performance-77-kwh-easy/AmAkES6Hb2E/" target="_blank"><span class="cp">25 900 &euro;</span> Pro Perf <span class="spec-tag spec-battery spec-sm">77kWh</span> 12/2022 <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div><div class="comp-row"><a href="https://www.autobazar.eu/en/detail/volkswagen-id4-pro-performance-77-kwh/AmMnwGbIxIG/" target="_blank"><span class="cp">25 700 &euro;</span> Pro Perf, pano, tazne <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div></div>
 </div>
 
-<!-- ========== VW PASSAT 2023 ========== -->
-<div class="car-card">
-  <div class="card-top">
-    <div class="card-top-left">
-      <div class="car-title">VW Passat Variant 2.0 TDI</div>
-      <div class="car-meta">02/2023 &middot; 98 570 km &middot; 150 k &middot; DE &middot; Ref. 10762627</div>
-      <div class="specs">
-        <span class="spec-tag spec-fuel">Nafta</span>
-        <span class="spec-tag spec-trans">DSG Automat</span>
-        <span class="spec-tag spec-info">Kombi</span>
-      </div>
-    </div>
-    <span class="badge b-red">+5%</span>
-  </div>
-  <div class="price-row">
-    <div class="price-cell">
-      <div class="label"><span class="info-wrap">Drazba s DPH <button class="info-btn" onclick="event.stopPropagation();var b=this.nextElementSibling;b.classList.toggle('show')">i</button><div class="info-bubble"><button class="close-bubble" onclick="event.stopPropagation();this.parentElement.classList.remove('show')">&times;</button><strong>Co je v cene:</strong><br>Drazbova cena (bez DPH)<br>+ Naklady za krajinu (~285&euro;)<br>+ Poplatok za aukciu (~300&euro;)<br>+ 23% DPH na celu sumu<br><br>Klikni "Rozpad ceny" nizsie pre presny rozpocet.</div></span></div>
-      <div class="val">19 416 &euro;</div>
-      <div class="val-sub">15 200 &euro; bez DPH</div>
-    </div>
-    <div class="price-cell">
-      <div class="label">Priemer bazaru</div>
-      <div class="val">18 566 &euro;</div>
-      <div class="val-sub">s DPH</div>
-    </div>
-  </div>
+<!-- ===== VW PASSAT 2023 ===== -->
+<div class="car-card ended">
+  <div class="card-top"><div class="card-top-left"><div class="car-title">VW Passat Variant 2.0 TDI</div><div class="car-meta">02/2023 &middot; 98 570 km &middot; 150 k &middot; DE &middot; Ref. 10762627</div><div class="specs"><span class="spec-tag spec-fuel">Nafta</span><span class="spec-tag spec-trans">DSG Automat</span><span class="spec-tag spec-info">Kombi</span></div></div><span class="badge b-red">+5%</span></div>
+  <div class="price-row"><div class="price-cell"><div class="label"><span class="info-wrap">Drazba s DPH <button class="info-btn" onclick="togInfo(event,this)">i</button><div class="info-bubble"><button class="close-bubble" onclick="closeInfo(event,this)">&times;</button><strong>Co je v cene:</strong><br>Drazbova cena + poplatky + 23% DPH</div></span></div><div class="val">19 416 &euro;</div><div class="val-sub">15 200 &euro; bez DPH</div></div><div class="price-cell"><div class="label">Priemer bazaru</div><div class="val">18 566 &euro;</div><div class="val-sub">s DPH</div></div></div>
   <div class="diff-bar" style="color:var(--dex-error)">+850 &euro; drahsie <span class="pct">Nad trhom</span></div>
-  <button class="fee-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')"><span class="arrow">&#9654;</span> Rozpad ceny &amp; porovnanie</button>
-  <div class="fee-detail">
-    <div class="fee-line"><span>Drazbova cena</span><span>15 200 &euro;</span></div>
-    <div class="fee-line"><span>Naklady za krajinu (DE)</span><span>~285 &euro;</span></div>
-    <div class="fee-line"><span>Poplatok za aukciu</span><span>~300 &euro;</span></div>
-    <div class="fee-line"><span>Spolu bez DPH</span><span>15 785 &euro;</span></div>
-    <div class="fee-line"><span>+ 23% DPH</span><span>+3 631 &euro;</span></div>
-    <div class="fee-line total"><span>Koncova cena</span><span>19 416 &euro;</span></div>
-  </div>
-  <div class="comp-section">
-    <div class="comp-title">Porovnatelne inzeraty</div>
-    <div class="comp-row"><a href="https://auto.bazos.sk/inzerat/188845577/volkswagen-passat-variant-comfortline-20tdi-110kw-dsg-2023.php" target="_blank"><span class="cp">17 999 &euro;</span> Comfortline <span class="spec-tag spec-trans" style="font-size:10px;padding:1px 6px">DSG</span> 105k km <span class="src">(bazos.sk, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
-    <div class="comp-row"><a href="https://www.autobazar.eu/detail/volkswagen-passat-variant-20-tdi-110kw-dsg-eleg/Ablm6Gzd28x/" target="_blank"><span class="cp">18 710 &euro;</span> <span class="spec-tag spec-variant" style="font-size:10px;padding:1px 6px">Elegance</span> <span class="spec-tag spec-trans" style="font-size:10px;padding:1px 6px">DSG</span> 83k km <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
-    <div class="comp-row"><a href="https://auto.bazos.sk/inzerat/190350174/vw-passat-variant-20-tdi-dsg-business-2023-110kw-naviled.php" target="_blank"><span class="cp">18 990 &euro;</span> <span class="spec-tag spec-variant" style="font-size:10px;padding:1px 6px">Business</span> <span class="spec-tag spec-trans" style="font-size:10px;padding:1px 6px">DSG</span> 53k km <span class="src">(bazos.sk, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
-  </div>
-  <a class="ol-link" href="https://www.openlane.eu/sk/car/info?auctionId=10762627" target="_blank">Zobrazit na OpenLane <span class="ext">&#8599;</span></a>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Detail auta</button>
+  <div class="car-detail-panel"><div class="detail-grid"><div class="detail-item"><div class="detail-label">Prva registracia</div><div class="detail-value">02/2023</div></div><div class="detail-item"><div class="detail-label">Najazdene</div><div class="detail-value">98 570 km</div></div><div class="detail-item"><div class="detail-label">Vykon</div><div class="detail-value">110 kW / 150 k</div></div><div class="detail-item"><div class="detail-label">Motor</div><div class="detail-value">2.0 TDI 110 kW</div></div><div class="detail-item"><div class="detail-label">Prevodovka</div><div class="detail-value">7-st. DSG Automat</div></div><div class="detail-item"><div class="detail-label">Karoseria</div><div class="detail-value">Kombi</div></div><div class="detail-item"><div class="detail-label">Povod</div><div class="detail-value">Nemecko</div></div><div class="detail-item"><div class="detail-label">DPH rezim</div><div class="detail-value">Bez DPH</div></div></div><a class="detail-link" href="https://www.openlane.eu/sk/car/info?auctionId=10762627" target="_blank">Otvorit na OpenLane &#8599;</a></div>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Rozpad ceny</button>
+  <div class="fee-detail"><div class="fee-line"><span>Drazbova cena</span><span>15 200 &euro;</span></div><div class="fee-line"><span>Naklady za krajinu (DE)</span><span>~285 &euro;</span></div><div class="fee-line"><span>Poplatok za aukciu</span><span>~300 &euro;</span></div><div class="fee-line"><span>Spolu bez DPH</span><span>15 785 &euro;</span></div><div class="fee-line"><span>+ 23% DPH</span><span>+3 631 &euro;</span></div><div class="fee-line total"><span>Koncova cena</span><span>19 416 &euro;</span></div></div>
+  <div class="comp-section"><div class="comp-title">Porovnatelne inzeraty</div><div class="comp-row"><a href="https://auto.bazos.sk/inzerat/188845577/volkswagen-passat-variant-comfortline-20tdi-110kw-dsg-2023.php" target="_blank"><span class="cp">17 999 &euro;</span> Comfortline <span class="spec-tag spec-trans spec-sm">DSG</span> 105k km <span class="src">(bazos.sk, s DPH)</span><span class="link-icon">&#8599;</span></a></div><div class="comp-row"><a href="https://www.autobazar.eu/detail/volkswagen-passat-variant-20-tdi-110kw-dsg-eleg/Ablm6Gzd28x/" target="_blank"><span class="cp">18 710 &euro;</span> <span class="spec-tag spec-variant spec-sm">Elegance</span> <span class="spec-tag spec-trans spec-sm">DSG</span> 83k km <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div><div class="comp-row"><a href="https://auto.bazos.sk/inzerat/190350174/vw-passat-variant-20-tdi-dsg-business-2023-110kw-naviled.php" target="_blank"><span class="cp">18 990 &euro;</span> <span class="spec-tag spec-variant spec-sm">Business</span> <span class="spec-tag spec-trans spec-sm">DSG</span> 53k km <span class="src">(bazos.sk, s DPH)</span><span class="link-icon">&#8599;</span></a></div></div>
 </div>
 
-<!-- ========== TESLA MODEL 3 2020 ========== -->
-<div class="car-card">
-  <div class="card-top">
-    <div class="card-top-left">
-      <div class="car-title">Tesla Model 3 Standard Range Plus</div>
-      <div class="car-meta">03/2020 &middot; 40 944 km &middot; 306 k &middot; Ref. 10772756</div>
-      <div class="specs">
-        <span class="spec-tag spec-variant">Standard Range</span>
-        <span class="spec-tag spec-drive">RWD</span>
-        <span class="spec-tag spec-battery">60 kWh LFP</span>
-        <span class="spec-tag spec-fuel">Elektricke</span>
-      </div>
-    </div>
-    <span class="badge b-red">+13%</span>
-  </div>
-  <div class="price-row">
-    <div class="price-cell">
-      <div class="label"><span class="info-wrap">Drazba s DPH <button class="info-btn" onclick="event.stopPropagation();var b=this.nextElementSibling;b.classList.toggle('show')">i</button><div class="info-bubble"><button class="close-bubble" onclick="event.stopPropagation();this.parentElement.classList.remove('show')">&times;</button><strong>Co je v cene:</strong><br>Drazbova cena (bez DPH)<br>+ Naklady za krajinu (~285&euro;)<br>+ Poplatok za aukciu (~300&euro;)<br>+ 23% DPH na celu sumu<br><br>Klikni "Rozpad ceny" nizsie pre presny rozpocet.</div></span></div>
-      <div class="val">21 876 &euro;</div>
-      <div class="val-sub">17 200 &euro; bez DPH</div>
-    </div>
-    <div class="price-cell">
-      <div class="label">Priemer bazaru</div>
-      <div class="val">19 400 &euro;</div>
-      <div class="val-sub">s DPH</div>
-    </div>
-  </div>
+<!-- ===== TESLA MODEL 3 2020 ===== -->
+<div class="car-card ended">
+  <div class="card-top"><div class="card-top-left"><div class="car-title">Tesla Model 3 Standard Range Plus</div><div class="car-meta">03/2020 &middot; 40 944 km &middot; 306 k &middot; Ref. 10772756</div><div class="specs"><span class="spec-tag spec-variant">Standard Range</span><span class="spec-tag spec-drive">RWD</span><span class="spec-tag spec-battery">60 kWh LFP</span><span class="spec-tag spec-fuel">Elektricke</span></div></div><span class="badge b-red">+13%</span></div>
+  <div class="price-row"><div class="price-cell"><div class="label"><span class="info-wrap">Drazba s DPH <button class="info-btn" onclick="togInfo(event,this)">i</button><div class="info-bubble"><button class="close-bubble" onclick="closeInfo(event,this)">&times;</button><strong>Co je v cene:</strong><br>Drazbova cena + poplatky + 23% DPH</div></span></div><div class="val">21 876 &euro;</div><div class="val-sub">17 200 &euro; bez DPH</div></div><div class="price-cell"><div class="label">Priemer bazaru</div><div class="val">19 400 &euro;</div><div class="val-sub">s DPH</div></div></div>
   <div class="diff-bar" style="color:var(--dex-error)">+2 476 &euro; drahsie <span class="pct">Nad trhom</span></div>
-  <button class="fee-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')"><span class="arrow">&#9654;</span> Rozpad ceny &amp; porovnanie</button>
-  <div class="fee-detail">
-    <div class="fee-line"><span>Drazbova cena</span><span>17 200 &euro;</span></div>
-    <div class="fee-line"><span>Naklady za krajinu</span><span>~285 &euro;</span></div>
-    <div class="fee-line"><span>Poplatok za aukciu</span><span>~300 &euro;</span></div>
-    <div class="fee-line"><span>Spolu bez DPH</span><span>17 785 &euro;</span></div>
-    <div class="fee-line"><span>+ 23% DPH</span><span>+4 091 &euro;</span></div>
-    <div class="fee-line total"><span>Koncova cena</span><span>21 876 &euro;</span></div>
-  </div>
-  <div class="comp-section">
-    <div class="comp-title">Porovnatelne inzeraty</div>
-    <div class="comp-row"><a href="https://www.autobazar.eu/en/detail/tesla-model-3-standard-range-plus-60kwh-rwd-lfp-bateria-prvky-z-noveho-modelu/AeYpdBehY1w/" target="_blank"><span class="cp">18 800 &euro;</span> <span class="spec-tag spec-variant" style="font-size:10px;padding:1px 6px">SR+</span> <span class="spec-tag spec-battery" style="font-size:10px;padding:1px 6px">LFP</span> 12/2020 <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
-    <div class="comp-row"><a href="https://www.autobazar.eu/en/detail-aaa/tesla-model-3-std-range-plus-lfp/AmFfj-K7vpT/" target="_blank"><span class="cp">19 600 &euro;</span> <span class="spec-tag spec-variant" style="font-size:10px;padding:1px 6px">SR+</span> <span class="spec-tag spec-battery" style="font-size:10px;padding:1px 6px">LFP</span> AAA Auto <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
-    <div class="comp-row"><a href="https://www.autobazar.eu/en/detail/tesla-model-3-standard-range-plus-rwd/Am5KBwfjCHT/" target="_blank"><span class="cp">19 790 &euro;</span> <span class="spec-tag spec-variant" style="font-size:10px;padding:1px 6px">SR+</span> <span class="spec-tag spec-drive" style="font-size:10px;padding:1px 6px">RWD</span> 07/2019 <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
-  </div>
-  <a class="ol-link" href="https://www.openlane.eu/sk/car/info?auctionId=10772756" target="_blank">Zobrazit na OpenLane <span class="ext">&#8599;</span></a>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Detail auta</button>
+  <div class="car-detail-panel"><div class="detail-grid"><div class="detail-item"><div class="detail-label">Prva registracia</div><div class="detail-value">03/2020</div></div><div class="detail-item"><div class="detail-label">Najazdene</div><div class="detail-value">40 944 km</div></div><div class="detail-item"><div class="detail-label">Vykon</div><div class="detail-value">225 kW / 306 k</div></div><div class="detail-item"><div class="detail-label">Pohon</div><div class="detail-value">RWD (zadny)</div></div><div class="detail-item"><div class="detail-label">Bateria</div><div class="detail-value">60 kWh LFP</div></div><div class="detail-item"><div class="detail-label">Karoseria</div><div class="detail-value">Sedan</div></div><div class="detail-item"><div class="detail-label">Emisie</div><div class="detail-value">0 g/km</div></div><div class="detail-item"><div class="detail-label">DPH rezim</div><div class="detail-value">Bez DPH</div></div></div><a class="detail-link" href="https://www.openlane.eu/sk/car/info?auctionId=10772756" target="_blank">Otvorit na OpenLane &#8599;</a></div>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Rozpad ceny</button>
+  <div class="fee-detail"><div class="fee-line"><span>Drazbova cena</span><span>17 200 &euro;</span></div><div class="fee-line"><span>Naklady za krajinu</span><span>~285 &euro;</span></div><div class="fee-line"><span>Poplatok za aukciu</span><span>~300 &euro;</span></div><div class="fee-line"><span>Spolu bez DPH</span><span>17 785 &euro;</span></div><div class="fee-line"><span>+ 23% DPH</span><span>+4 091 &euro;</span></div><div class="fee-line total"><span>Koncova cena</span><span>21 876 &euro;</span></div></div>
+  <div class="comp-section"><div class="comp-title">Porovnatelne inzeraty</div><div class="comp-row"><a href="https://www.autobazar.eu/en/detail/tesla-model-3-standard-range-plus-60kwh-rwd-lfp-bateria-prvky-z-noveho-modelu/AeYpdBehY1w/" target="_blank"><span class="cp">18 800 &euro;</span> <span class="spec-tag spec-variant spec-sm">SR+</span> <span class="spec-tag spec-battery spec-sm">LFP</span> 12/2020 <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div><div class="comp-row"><a href="https://www.autobazar.eu/en/detail-aaa/tesla-model-3-std-range-plus-lfp/AmFfj-K7vpT/" target="_blank"><span class="cp">19 600 &euro;</span> <span class="spec-tag spec-variant spec-sm">SR+</span> <span class="spec-tag spec-battery spec-sm">LFP</span> AAA Auto <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div><div class="comp-row"><a href="https://www.autobazar.eu/en/detail/tesla-model-3-standard-range-plus-rwd/Am5KBwfjCHT/" target="_blank"><span class="cp">19 790 &euro;</span> <span class="spec-tag spec-variant spec-sm">SR+</span> <span class="spec-tag spec-drive spec-sm">RWD</span> 07/2019 <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div></div>
 </div>
 
-<!-- ========== SKODA OCTAVIA 2022 ========== -->
-<div class="car-card">
-  <div class="card-top">
-    <div class="card-top-left">
-      <div class="car-title">Skoda Octavia Combi 2.0 TDI</div>
-      <div class="car-meta">02/2022 &middot; 25 301 km &middot; 150 k &middot; DE &middot; Ref. 10783236</div>
-      <div class="specs">
-        <span class="spec-tag spec-variant">Style</span>
-        <span class="spec-tag spec-fuel">Nafta</span>
-        <span class="spec-tag spec-trans">DSG Automat</span>
-        <span class="spec-tag spec-info">Kombi</span>
-      </div>
-    </div>
-    <span class="badge b-red">+10%</span>
-  </div>
-  <div class="price-row">
-    <div class="price-cell">
-      <div class="label"><span class="info-wrap">Drazba s DPH <button class="info-btn" onclick="event.stopPropagation();var b=this.nextElementSibling;b.classList.toggle('show')">i</button><div class="info-bubble"><button class="close-bubble" onclick="event.stopPropagation();this.parentElement.classList.remove('show')">&times;</button><strong>Co je v cene:</strong><br>Drazbova cena (bez DPH)<br>+ Naklady za krajinu (~285&euro;)<br>+ Poplatok za aukciu (~300&euro;)<br>+ 23% DPH na celu sumu<br><br>Klikni "Rozpad ceny" nizsie pre presny rozpocet.</div></span></div>
-      <div class="val">23 721 &euro;</div>
-      <div class="val-sub">18 700 &euro; bez DPH</div>
-    </div>
-    <div class="price-cell">
-      <div class="label">Priemer bazaru</div>
-      <div class="val">21 600 &euro;</div>
-      <div class="val-sub">s DPH</div>
-    </div>
-  </div>
+<!-- ===== SKODA OCTAVIA 2022 ===== -->
+<div class="car-card ended">
+  <div class="card-top"><div class="card-top-left"><div class="car-title">Skoda Octavia Combi 2.0 TDI</div><div class="car-meta">02/2022 &middot; 25 301 km &middot; 150 k &middot; DE &middot; Ref. 10783236</div><div class="specs"><span class="spec-tag spec-variant">Style</span><span class="spec-tag spec-fuel">Nafta</span><span class="spec-tag spec-trans">DSG Automat</span><span class="spec-tag spec-info">Kombi</span></div></div><span class="badge b-red">+10%</span></div>
+  <div class="price-row"><div class="price-cell"><div class="label"><span class="info-wrap">Drazba s DPH <button class="info-btn" onclick="togInfo(event,this)">i</button><div class="info-bubble"><button class="close-bubble" onclick="closeInfo(event,this)">&times;</button><strong>Co je v cene:</strong><br>Drazbova cena + poplatky + 23% DPH</div></span></div><div class="val">23 721 &euro;</div><div class="val-sub">18 700 &euro; bez DPH</div></div><div class="price-cell"><div class="label">Priemer bazaru</div><div class="val">21 600 &euro;</div><div class="val-sub">s DPH</div></div></div>
   <div class="diff-bar" style="color:var(--dex-error)">+2 121 &euro; drahsie <span class="pct">Nad trhom</span></div>
-  <button class="fee-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('show')"><span class="arrow">&#9654;</span> Rozpad ceny &amp; porovnanie</button>
-  <div class="fee-detail">
-    <div class="fee-line"><span>Drazbova cena</span><span>18 700 &euro;</span></div>
-    <div class="fee-line"><span>Naklady za krajinu (DE)</span><span>~285 &euro;</span></div>
-    <div class="fee-line"><span>Poplatok za aukciu</span><span>~300 &euro;</span></div>
-    <div class="fee-line"><span>Spolu bez DPH</span><span>19 285 &euro;</span></div>
-    <div class="fee-line"><span>+ 23% DPH</span><span>+4 436 &euro;</span></div>
-    <div class="fee-line total"><span>Koncova cena</span><span>23 721 &euro;</span></div>
-  </div>
-  <div class="comp-section">
-    <div class="comp-title">Porovnatelne inzeraty</div>
-    <div class="comp-row"><a href="https://auto.bazos.sk/inzeraty/skoda-octavia-2,0-tdi/" target="_blank"><span class="cp">23 370 &euro;</span> <span class="spec-tag spec-variant" style="font-size:10px;padding:1px 6px">Style</span> TDI <span class="spec-tag spec-trans" style="font-size:10px;padding:1px 6px">DSG</span> 47k km <span class="src">(bazos.sk, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
-    <div class="comp-row"><a href="https://www.autobazar.eu/en/detail/skoda-octavia-combi-style-20-tdi/AbHDRAv8ZxM/" target="_blank"><span class="cp">19 990 &euro;</span> <span class="spec-tag spec-variant" style="font-size:10px;padding:1px 6px">Style</span> TDI M6, 09/2022 <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
-    <div class="comp-row"><a href="https://www.autobazar.eu/en/detail/skoda-octavia-2-0-tdi-110kw-dsg-joy-plus-a7/AbKp_6nr86t/" target="_blank"><span class="cp">21 499 &euro;</span> <span class="spec-tag spec-variant" style="font-size:10px;padding:1px 6px">Joy Plus</span> TDI <span class="spec-tag spec-trans" style="font-size:10px;padding:1px 6px">DSG</span> <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
-  </div>
-  <a class="ol-link" href="https://www.openlane.eu/sk/car/info?auctionId=10783236" target="_blank">Zobrazit na OpenLane <span class="ext">&#8599;</span></a>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Detail auta</button>
+  <div class="car-detail-panel"><div class="detail-grid"><div class="detail-item"><div class="detail-label">Prva registracia</div><div class="detail-value">02/2022</div></div><div class="detail-item"><div class="detail-label">Najazdene</div><div class="detail-value">25 301 km</div></div><div class="detail-item"><div class="detail-label">Vykon</div><div class="detail-value">110 kW / 150 k</div></div><div class="detail-item"><div class="detail-label">Motor</div><div class="detail-value">2.0 TDI 1 968 cm3</div></div><div class="detail-item"><div class="detail-label">Prevodovka</div><div class="detail-value">7-st. DSG Automat</div></div><div class="detail-item"><div class="detail-label">Karoseria</div><div class="detail-value">Kombi</div></div><div class="detail-item"><div class="detail-label">Emisie</div><div class="detail-value">121 g/km, EU6</div></div><div class="detail-item"><div class="detail-label">Povod</div><div class="detail-value">Nemecko</div></div></div><a class="detail-link" href="https://www.openlane.eu/sk/car/info?auctionId=10783236" target="_blank">Otvorit na OpenLane &#8599;</a></div>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Rozpad ceny</button>
+  <div class="fee-detail"><div class="fee-line"><span>Drazbova cena</span><span>18 700 &euro;</span></div><div class="fee-line"><span>Naklady za krajinu (DE)</span><span>~285 &euro;</span></div><div class="fee-line"><span>Poplatok za aukciu</span><span>~300 &euro;</span></div><div class="fee-line"><span>Spolu bez DPH</span><span>19 285 &euro;</span></div><div class="fee-line"><span>+ 23% DPH</span><span>+4 436 &euro;</span></div><div class="fee-line total"><span>Koncova cena</span><span>23 721 &euro;</span></div></div>
+  <div class="comp-section"><div class="comp-title">Porovnatelne inzeraty</div><div class="comp-row"><a href="https://auto.bazos.sk/inzeraty/skoda-octavia-2,0-tdi/" target="_blank"><span class="cp">23 370 &euro;</span> <span class="spec-tag spec-variant spec-sm">Style</span> TDI <span class="spec-tag spec-trans spec-sm">DSG</span> 47k km <span class="src">(bazos.sk, s DPH)</span><span class="link-icon">&#8599;</span></a></div><div class="comp-row"><a href="https://www.autobazar.eu/en/detail/skoda-octavia-combi-style-20-tdi/AbHDRAv8ZxM/" target="_blank"><span class="cp">19 990 &euro;</span> <span class="spec-tag spec-variant spec-sm">Style</span> TDI M6, 09/2022 <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div><div class="comp-row"><a href="https://www.autobazar.eu/en/detail/skoda-octavia-2-0-tdi-110kw-dsg-joy-plus-a7/AbKp_6nr86t/" target="_blank"><span class="cp">21 499 &euro;</span> <span class="spec-tag spec-variant spec-sm">Joy Plus</span> TDI <span class="spec-tag spec-trans spec-sm">DSG</span> <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div></div>
 </div>
 
-<!-- ========== MERCEDES A 250e #1 ========== -->
-<div class="car-card unsold">
-  <div class="card-top">
-    <div class="card-top-left">
-      <div class="car-title">Mercedes-Benz A 250e</div>
-      <div class="car-meta">03/2023 &middot; 41 917 km &middot; 163 k &middot; DE &middot; Ref. 10786455</div>
-      <div class="specs">
-        <span class="spec-tag spec-fuel">Hybridne</span>
-        <span class="spec-tag spec-info">Hatchback</span>
-      </div>
-    </div>
-    <span class="badge b-gray">Nepredane</span>
-  </div>
+<!-- ===== MERCEDES A 250e #1 ===== -->
+<div class="car-card unsold ended">
+  <div class="card-top"><div class="card-top-left"><div class="car-title">Mercedes-Benz A 250e</div><div class="car-meta">03/2023 &middot; 41 917 km &middot; 163 k &middot; DE &middot; Ref. 10786455</div><div class="specs"><span class="spec-tag spec-fuel">Hybridne</span><span class="spec-tag spec-info">Hatchback</span></div></div><span class="badge b-gray">Nepredane</span></div>
   <div class="diff-bar" style="color:var(--dex-muted)">Aukcia skoncila bez ponuky (09.04.)</div>
-  <a class="ol-link" href="https://www.openlane.eu/sk/car/info?auctionId=10786455" target="_blank">Zobrazit na OpenLane <span class="ext">&#8599;</span></a>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Detail auta</button>
+  <div class="car-detail-panel"><div class="detail-grid"><div class="detail-item"><div class="detail-label">Prva registracia</div><div class="detail-value">03/2023</div></div><div class="detail-item"><div class="detail-label">Najazdene</div><div class="detail-value">41 917 km</div></div><div class="detail-item"><div class="detail-label">Vykon</div><div class="detail-value">120 kW / 163 k</div></div><div class="detail-item"><div class="detail-label">Palivo</div><div class="detail-value">Plug-in Hybrid</div></div><div class="detail-item"><div class="detail-label">Karoseria</div><div class="detail-value">Hatchback</div></div><div class="detail-item"><div class="detail-label">Povod</div><div class="detail-value">Nemecko</div></div></div><a class="detail-link" href="https://www.openlane.eu/sk/car/info?auctionId=10786455" target="_blank">Otvorit na OpenLane &#8599;</a></div>
 </div>
 
-<!-- ========== MERCEDES A 250e #2 ========== -->
-<div class="car-card unsold">
-  <div class="card-top">
-    <div class="card-top-left">
-      <div class="car-title">Mercedes-Benz A 250e</div>
-      <div class="car-meta">03/2023 &middot; 37 042 km &middot; 163 k &middot; DE &middot; Ref. 10786799</div>
-      <div class="specs">
-        <span class="spec-tag spec-fuel">Hybridne</span>
-        <span class="spec-tag spec-info">Hatchback</span>
-      </div>
-    </div>
-    <span class="badge b-gray">Nepredane</span>
-  </div>
+<!-- ===== MERCEDES A 250e #2 ===== -->
+<div class="car-card unsold ended">
+  <div class="card-top"><div class="card-top-left"><div class="car-title">Mercedes-Benz A 250e</div><div class="car-meta">03/2023 &middot; 37 042 km &middot; 163 k &middot; DE &middot; Ref. 10786799</div><div class="specs"><span class="spec-tag spec-fuel">Hybridne</span><span class="spec-tag spec-info">Hatchback</span></div></div><span class="badge b-gray">Nepredane</span></div>
   <div class="diff-bar" style="color:var(--dex-muted)">Aukcia skoncila bez ponuky (09.04.)</div>
-  <a class="ol-link" href="https://www.openlane.eu/sk/car/info?auctionId=10786799" target="_blank">Zobrazit na OpenLane <span class="ext">&#8599;</span></a>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Detail auta</button>
+  <div class="car-detail-panel"><div class="detail-grid"><div class="detail-item"><div class="detail-label">Prva registracia</div><div class="detail-value">03/2023</div></div><div class="detail-item"><div class="detail-label">Najazdene</div><div class="detail-value">37 042 km</div></div><div class="detail-item"><div class="detail-label">Vykon</div><div class="detail-value">120 kW / 163 k</div></div><div class="detail-item"><div class="detail-label">Palivo</div><div class="detail-value">Plug-in Hybrid</div></div><div class="detail-item"><div class="detail-label">Karoseria</div><div class="detail-value">Hatchback</div></div><div class="detail-item"><div class="detail-label">Povod</div><div class="detail-value">Nemecko</div></div></div><a class="detail-link" href="https://www.openlane.eu/sk/car/info?auctionId=10786799" target="_blank">Otvorit na OpenLane &#8599;</a></div>
 </div>
+
+</div><!-- /tab-content history -->
 
 <!-- NOTES -->
 <div class="notes">
