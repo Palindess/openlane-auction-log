@@ -246,7 +246,7 @@ function switchTab(n){
 </script>
 
 <div class="tabs">
-  <button class="tab-btn active" onclick="switchTab(0)"><span class="tab-count"><span class="live-dot"></span>3</span>Zive</button>
+  <button class="tab-btn active" onclick="switchTab(0)"><span class="tab-count"><span class="live-dot"></span>6</span>Zive</button>
   <button class="tab-btn" onclick="switchTab(1)"><span class="tab-count">9</span>History</button>
   <button class="tab-btn" onclick="switchTab(2)"><span class="tab-count">🔍</span>Hladat</button>
 </div>
@@ -254,7 +254,103 @@ function switchTab(n){
 <!-- ==================== TAB 1: ZIVE AUKCIE ==================== -->
 <div class="tab-content active">
 
-<div class="section-head"><h2><span class="live-dot"></span>Zive aukcie</h2><span class="pill">3 sledovane</span></div>
+<div class="section-head"><h2><span class="live-dot"></span>Zive aukcie</h2><span class="pill">6 sledovanych</span></div>
+
+<!-- LIVE: Tesla Model Y LR DM 105k — BEST DEAL -->
+<div class="car-card">
+  <div class="card-top"><div class="card-top-left"><div class="car-title">Tesla Model Y Long Range Dual Motor</div><div class="car-meta">03/2023 &middot; 104 580 km &middot; 514 k &middot; DE &middot; Ref. 10801210</div><div class="countdown"><span class="timer-label">Konci:</span> 1d 16h</div><div class="specs"><span class="spec-tag spec-variant">Long Range</span><span class="spec-tag spec-drive">4x4 AWD</span><span class="spec-tag spec-battery">78 kWh</span><span class="spec-tag spec-fuel">Elektricke</span></div></div><span class="badge b-green">NEW</span></div>
+  <div class="price-row">
+    <div class="price-cell"><div class="label"><span class="info-wrap">Drazba s DPH <button class="info-btn" onclick="togInfo(event,this)">i</button><div class="info-bubble"><button class="close-bubble" onclick="closeInfo(event,this)">&times;</button><strong>Co je v cene:</strong><br>Aktualna ponuka + poplatky (~585 &euro;) + 23% DPH</div></span></div><div class="val">29 255 &euro;</div><div class="val-sub">23 200 &euro; aktualna ponuka</div></div>
+    <div class="price-cell"><div class="label">Priemer bazaru</div><div class="val">35 000 &euro;</div><div class="val-sub">s DPH</div></div>
+  </div>
+  <div class="margin-bar">
+    <div class="margin-left"><strong>Ak vydrazis za 23 200 &euro;</strong><br>S poplatkami + DPH = 29 255 &euro;</div>
+    <div><div class="margin-val" style="color:var(--dex-success)">+5 745 &euro;</div><div class="margin-sub">marza vs. trh ~35 000 &euro;</div></div>
+  </div>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Detail auta</button>
+  <div class="car-detail-panel"><div class="detail-grid"><div class="detail-item"><div class="detail-label">Prva registracia</div><div class="detail-value">31/03/2023</div></div><div class="detail-item"><div class="detail-label">Najazdene</div><div class="detail-value">104 580 km</div></div><div class="detail-item"><div class="detail-label">Vykon</div><div class="detail-value">378 kW / 514 k</div></div><div class="detail-item"><div class="detail-label">Pohon</div><div class="detail-value">4x4 AWD Dual Motor</div></div><div class="detail-item"><div class="detail-label">Bateria</div><div class="detail-value">78 kWh</div></div><div class="detail-item"><div class="detail-label">Karoseria</div><div class="detail-value">SUV, Cierna</div></div><div class="detail-item"><div class="detail-label">Odhadovana cena</div><div class="detail-value">22 935 &euro;</div></div><div class="detail-item"><div class="detail-label">Predajca</div><div class="detail-value">Ayvens, Leipzig (DE)</div></div></div><a class="detail-link" href="https://www.openlane.eu/sk/car/info?auctionId=10801210" target="_blank">Otvorit na OpenLane &#8599;</a></div>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Porovnanie s bazarom</button>
+  <div class="fee-detail">
+    <div class="comp-title">Porovnatelne inzeraty</div>
+    <div class="comp-row"><a href="https://auto.bazos.sk/inzerat/188891095/tesla-model-y-2023-long-range-dual-motor-berlin-378-kw.php" target="_blank"><span class="cp">35 095 &euro;</span> <span class="spec-tag spec-variant spec-sm">LR</span> <span class="spec-tag spec-drive spec-sm">AWD</span> 104k km, 2023, Berlin <span class="src">(bazos.sk, odpocet DPH)</span><span class="link-icon">&#8599;</span></a></div>
+    <div class="comp-row"><a href="https://www.autobazar.eu/en/detail/tesla-model-y-long-range-dual-motor/AmGZVROjtNM/" target="_blank"><span class="cp">36 800 &euro;</span> <span class="spec-tag spec-variant spec-sm">LR</span> <span class="spec-tag spec-drive spec-sm">AWD</span> 83k km, 08/2023 <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
+    <div class="comp-row"><a href="https://www.autobazar.eu/en/detail/tesla-model-y-long-range-dual-motor/Am-9PHv04GD/" target="_blank"><span class="cp">29 999 &euro;</span> <span class="spec-tag spec-variant spec-sm">LR</span> <span class="spec-tag spec-drive spec-sm">AWD</span> 02/2022 <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
+  </div>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Rozpad ceny</button>
+  <div class="fee-detail">
+    <div class="fee-line"><span>Aktualna drazbova cena</span><span>23 200 &euro;</span></div>
+    <div class="fee-line"><span>Naklady za krajinu (DE)</span><span>~285 &euro;</span></div>
+    <div class="fee-line"><span>Poplatok za aukciu</span><span>~300 &euro;</span></div>
+    <div class="fee-line"><span>Spolu bez DPH</span><span>23 785 &euro;</span></div>
+    <div class="fee-line"><span>+ 23% DPH</span><span>+5 471 &euro;</span></div>
+    <div class="fee-line total"><span>Koncova cena</span><span>29 255 &euro;</span></div>
+  </div>
+  <a class="bid-btn hot" href="https://www.openlane.eu/sk/car/info?auctionId=10801210" target="_blank"><span class="emoji">🔥</span> Pod ho drazit!! Marza +5 745 &euro;</a>
+</div>
+
+<!-- LIVE: Tesla Model 3 LR 156k -->
+<div class="car-card">
+  <div class="card-top"><div class="card-top-left"><div class="car-title">Tesla Model 3 Long Range</div><div class="car-meta">03/2022 &middot; 156 170 km &middot; 476 k &middot; BE &middot; Ref. 10800600</div><div class="countdown"><span class="timer-label">Konci:</span> 2d 16h</div><div class="specs"><span class="spec-tag spec-variant">Long Range</span><span class="spec-tag spec-drive">4x4 AWD</span><span class="spec-tag spec-fuel">Elektricke</span><span class="spec-tag spec-info">Sedan</span></div></div><span class="badge b-yellow">NEW</span></div>
+  <div class="price-row">
+    <div class="price-cell"><div class="label"><span class="info-wrap">Drazba s DPH <button class="info-btn" onclick="togInfo(event,this)">i</button><div class="info-bubble"><button class="close-bubble" onclick="closeInfo(event,this)">&times;</button><strong>Co je v cene:</strong><br>Odhadovana cena + poplatky (~585 &euro;) + 23% DPH</div></span></div><div class="val">22 121 &euro;</div><div class="val-sub">17 400 &euro; odhadovana cena</div></div>
+    <div class="price-cell"><div class="label">Priemer bazaru</div><div class="val">21 500 &euro;</div><div class="val-sub">s DPH</div></div>
+  </div>
+  <div class="margin-bar">
+    <div class="margin-left"><strong>Ak sa vydrazi za ~17 400 &euro;</strong><br>S poplatkami + DPH = 22 121 &euro;</div>
+    <div><div class="margin-val" style="color:var(--dex-error)">-621 &euro;</div><div class="margin-sub">mierne nad trhom</div></div>
+  </div>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Detail auta</button>
+  <div class="car-detail-panel"><div class="detail-grid"><div class="detail-item"><div class="detail-label">Prva registracia</div><div class="detail-value">11/03/2022</div></div><div class="detail-item"><div class="detail-label">Najazdene</div><div class="detail-value">156 170 km</div></div><div class="detail-item"><div class="detail-label">Vykon</div><div class="detail-value">350 kW / 476 k</div></div><div class="detail-item"><div class="detail-label">Pohon</div><div class="detail-value">AWD Dual Motor</div></div><div class="detail-item"><div class="detail-label">Karoseria</div><div class="detail-value">Sedan, Seda</div></div><div class="detail-item"><div class="detail-label">Predajca</div><div class="detail-value">Arval, Bilzen (BE)</div></div><div class="detail-item"><div class="detail-label">Typ aukcie</div><div class="detail-value">Dynamicka aukcia</div></div><div class="detail-item"><div class="detail-label">DPH rezim</div><div class="detail-value">Bez DPH</div></div></div><a class="detail-link" href="https://www.openlane.eu/sk/car/info?auctionId=10800600" target="_blank">Otvorit na OpenLane &#8599;</a></div>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Porovnanie s bazarom</button>
+  <div class="fee-detail">
+    <div class="comp-title">Porovnatelne inzeraty</div>
+    <div class="comp-row"><a href="https://auto.bazos.sk/inzerat/190288590/tesla-model-3-long-range-awd-dual-motor-zaruka-odpocet-dph.php" target="_blank"><span class="cp">21 500 &euro;</span> <span class="spec-tag spec-variant spec-sm">LR</span> <span class="spec-tag spec-drive spec-sm">AWD</span> 158k km, 2020 <span class="src">(bazos.sk, s DPH / odpocet)</span><span class="link-icon">&#8599;</span></a></div>
+    <div class="comp-row"><a href="https://www.autobazar.sk/27748272/tesla-model-3-long-range-dual-motor-refresh-odpocet-dph/" target="_blank"><span class="cp">26 199 &euro;</span> <span class="spec-tag spec-variant spec-sm">LR</span> <span class="spec-tag spec-drive spec-sm">AWD</span> Refresh, 131k km, 2021 <span class="src">(autobazar.sk, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
+    <div class="comp-row"><a href="https://www.autobazar.eu/en/detail-aaa/tesla-model-3-long-range-4wd-78kwh-digi-klima-infotainment/Am6gdR1_eto/" target="_blank"><span class="cp">19 100 &euro;</span> <span class="spec-tag spec-variant spec-sm">LR</span> <span class="spec-tag spec-drive spec-sm">4WD</span> 78kWh, AAA Auto <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
+  </div>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Rozpad ceny</button>
+  <div class="fee-detail">
+    <div class="fee-line"><span>Odhadovana drazbova cena</span><span>17 400 &euro;</span></div>
+    <div class="fee-line"><span>Naklady za krajinu (BE)</span><span>~285 &euro;</span></div>
+    <div class="fee-line"><span>Poplatok za aukciu</span><span>~300 &euro;</span></div>
+    <div class="fee-line"><span>Spolu bez DPH</span><span>17 985 &euro;</span></div>
+    <div class="fee-line"><span>+ 23% DPH</span><span>+4 137 &euro;</span></div>
+    <div class="fee-line total"><span>Koncova cena</span><span>22 121 &euro;</span></div>
+  </div>
+  <a class="bid-btn warn" href="https://www.openlane.eu/sk/car/info?auctionId=10800600" target="_blank"><span class="emoji">🤯</span> Tesna — takmer ziadna marza</a>
+</div>
+
+<!-- LIVE: Tesla Model Y LR 197k -->
+<div class="car-card">
+  <div class="card-top"><div class="card-top-left"><div class="car-title">Tesla Model Y Long Range 78 kWh</div><div class="car-meta">12/2021 &middot; 197 532 km &middot; 208 k &middot; IT &middot; Ref. 10794553</div><div class="countdown"><span class="timer-label">Konci:</span> 1d 11h</div><div class="specs"><span class="spec-tag spec-variant">Long Range</span><span class="spec-tag spec-drive">RWD</span><span class="spec-tag spec-battery">78 kWh</span><span class="spec-tag spec-fuel">Elektricke</span></div></div><span class="badge b-red">NEW</span></div>
+  <div class="price-row">
+    <div class="price-cell"><div class="label"><span class="info-wrap">Drazba s DPH <button class="info-btn" onclick="togInfo(event,this)">i</button><div class="info-bubble"><button class="close-bubble" onclick="closeInfo(event,this)">&times;</button><strong>Co je v cene:</strong><br>Aktualna ponuka + poplatky (~585 &euro;) + 23% DPH</div></span></div><div class="val">22 983 &euro;</div><div class="val-sub">18 100 &euro; aktualna ponuka</div></div>
+    <div class="price-cell"><div class="label">Priemer bazaru</div><div class="val">20 000 &euro;</div><div class="val-sub">s DPH</div></div>
+  </div>
+  <div class="margin-bar">
+    <div class="margin-left"><strong>Ak vydrazis za 18 100 &euro;</strong><br>S poplatkami + DPH = 22 983 &euro;</div>
+    <div><div class="margin-val" style="color:var(--dex-error)">-2 983 &euro;</div><div class="margin-sub">vyrazne nad trhom!</div></div>
+  </div>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Detail auta</button>
+  <div class="car-detail-panel"><div class="detail-grid"><div class="detail-item"><div class="detail-label">Prva registracia</div><div class="detail-value">17/12/2021</div></div><div class="detail-item"><div class="detail-label">Najazdene</div><div class="detail-value">197 532 km</div></div><div class="detail-item"><div class="detail-label">Vykon</div><div class="detail-value">153 kW / 208 k</div></div><div class="detail-item"><div class="detail-label">Pohon</div><div class="detail-value">RWD (zadny, single motor)</div></div><div class="detail-item"><div class="detail-label">Bateria</div><div class="detail-value">78 kWh</div></div><div class="detail-item"><div class="detail-label">Karoseria</div><div class="detail-value">SUV, Cierna</div></div><div class="detail-item"><div class="detail-label">Odhadovana cena</div><div class="detail-value">24 949 &euro;</div></div><div class="detail-item"><div class="detail-label">Predajca</div><div class="detail-value">Ayvens, Drizzona (IT)</div></div></div><a class="detail-link" href="https://www.openlane.eu/sk/car/info?auctionId=10794553" target="_blank">Otvorit na OpenLane &#8599;</a></div>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Porovnanie s bazarom</button>
+  <div class="fee-detail">
+    <div class="comp-title">Porovnatelne inzeraty</div>
+    <div class="comp-row"><a href="https://auto.bazos.sk/inzeraty/tesla-model-y/" target="_blank"><span class="cp">20 990 &euro;</span> <span class="spec-tag spec-variant spec-sm">LR</span> <span class="spec-tag spec-drive spec-sm">AWD</span> 181k km, 12/2021 <span class="src">(bazos.sk, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
+    <div class="comp-row"><a href="https://auto.bazos.sk/inzerat/189338691/tesla-model-y-long-range.php" target="_blank"><span class="cp">27 650 &euro;</span> <span class="spec-tag spec-variant spec-sm">LR</span> Ryzen, 141k km, 03/2022 <span class="src">(bazos.sk, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
+    <div style="font-size:11px;color:var(--dex-error);margin-top:8px;padding-top:6px;border-top:1px dashed #E5E7EB;font-weight:500">Pozor: 197k km + RWD single motor = tazko predajne. Bazarove ceny su pre AWD verzie s nizsim najazdom.</div>
+  </div>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Rozpad ceny</button>
+  <div class="fee-detail">
+    <div class="fee-line"><span>Aktualna drazbova cena</span><span>18 100 &euro;</span></div>
+    <div class="fee-line"><span>Naklady za krajinu (IT)</span><span>~285 &euro;</span></div>
+    <div class="fee-line"><span>Poplatok za aukciu</span><span>~300 &euro;</span></div>
+    <div class="fee-line"><span>Spolu bez DPH</span><span>18 685 &euro;</span></div>
+    <div class="fee-line"><span>+ 23% DPH</span><span>+4 298 &euro;</span></div>
+    <div class="fee-line total"><span>Koncova cena</span><span>22 983 &euro;</span></div>
+  </div>
+  <a class="bid-btn warn" href="https://www.openlane.eu/sk/car/info?auctionId=10794553" target="_blank"><span class="emoji">🤯</span> Neoplati sa — vysoko nad trhom</a>
+</div>
 
 <!-- LIVE: Octavia Combi Style 69k -->
 <div class="car-card">
