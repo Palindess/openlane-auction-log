@@ -205,6 +205,14 @@ body { font-family:'Poppins',Arial,sans-serif; background:var(--dex-light-bg); c
 .copy-prompt:active { background:var(--dex-blue-10); }
 .copy-prompt.copied { background:var(--dex-blue); color:var(--dex-white); border-style:solid; }
 
+/* REFRESH BUTTON */
+.refresh-bar { display:flex; gap:8px; margin-bottom:14px; }
+.refresh-btn { flex:1; display:flex; align-items:center; justify-content:center; gap:6px; padding:12px 14px; border:2px solid var(--dex-blue); border-radius:12px; background:transparent; font-family:inherit; font-size:13px; font-weight:600; color:var(--dex-blue); cursor:pointer; transition:all 0.15s; }
+.refresh-btn:active { background:var(--dex-blue); color:var(--dex-white); transform:scale(0.98); }
+.refresh-btn.copied { background:var(--dex-blue); color:var(--dex-white); border-color:var(--dex-blue); }
+.refresh-btn .r-icon { font-size:16px; }
+.refresh-hint { font-size:11px; color:var(--dex-muted); text-align:center; margin-bottom:14px; line-height:1.5; }
+
 /* NOTES */
 .notes { background:var(--dex-white); border-radius:var(--radius); padding:18px 16px; margin-top:20px; margin-bottom:40px; box-shadow:var(--shadow); border-left:3px solid var(--dex-warning); }
 .notes h3 { font-size:13px; font-weight:700; color:var(--dex-navy); margin-bottom:8px; }
@@ -255,6 +263,11 @@ function switchTab(n){
 <div class="tab-content active">
 
 <div class="section-head"><h2><span class="live-dot"></span>Zive aukcie</h2><span class="pill">6 sledovanych</span></div>
+
+<div class="refresh-bar">
+  <button class="refresh-btn" id="refresh-btn" onclick="copyRefresh()"><span class="r-icon">🔄</span> Refresh stav aukcii</button>
+</div>
+<div class="refresh-hint">Skopiruje prompt do schranky &rarr; vloz do Claude &rarr; DexLane aktualizuje ceny a marze</div>
 
 <!-- LIVE: Tesla Model Y LR DM 105k — BEST DEAL -->
 <div class="car-card">
@@ -775,6 +788,23 @@ function fillSearch(model,variant,fuel,trans,price){
   if(price){var pi=document.getElementById('s-price');pi.value=price;pi.dispatchEvent(new Event('input'));}
   document.querySelectorAll('.chip').forEach(function(c){c.classList.remove('selected')});
   event.target.closest('.chip').classList.add('selected');
+}
+
+// Refresh auctions
+function copyRefresh(){
+  // Collect all live auction IDs from the page
+  var ids=[];
+  document.querySelectorAll('.tab-content.active .car-card a[href*="openlane.eu"]').forEach(function(a){
+    var m=a.href.match(/auctionId=(\d+)/);
+    if(m && ids.indexOf(m[1])===-1) ids.push(m[1]);
+  });
+  var prompt='/dexlane Refresh zivych aukcii. Skontroluj aktualny stav tychto aukcii na OpenLane bidding dashboarde (https://www.openlane.eu/sk/myaccount/biddingdashboard): '+ids.join(', ')+'. Pre kazdu aukciu zisti aktualnu cenu, ci este prebieha alebo skoncila, a prepocitaj marzu oproti trhu. Ak sa aukcia skoncila, presun ju do History Logu. Aktualizuj dashboard.';
+  navigator.clipboard.writeText(prompt).then(function(){
+    var btn=document.getElementById('refresh-btn');
+    btn.innerHTML='<span class="r-icon">✅</span> Skopirovane — vloz do Claude!';
+    btn.classList.add('copied');
+    setTimeout(function(){btn.innerHTML='<span class="r-icon">🔄</span> Refresh stav aukcii';btn.classList.remove('copied');},3000);
+  });
 }
 
 // Copy prompt
