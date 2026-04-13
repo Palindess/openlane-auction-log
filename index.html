@@ -233,14 +233,14 @@ body { font-family:'Poppins',Arial,sans-serif; background:var(--dex-light-bg); c
   <img src="https://www.dexfinity.com/wp-content/uploads/2021/03/Logo-Small-Dark-Landscape@2x.png" alt="Dexfinity" class="logo-img">
   <div class="brand-name">Dex<span>Lane</span></div>
   <div class="brand-sub">Auto Aukcie Tracker</div>
-  <div class="date-badge">Aktualizovane 11. april 2026</div>
+  <div class="date-badge">Aktualizovane 13. april 2026</div>
 </div>
 
 <div class="summary">
-  <div class="stat"><div class="num">9</div><div class="lbl">Aukcii</div><div class="detail">7 predanych</div></div>
-  <div class="stat"><div class="num" style="color:var(--dex-success)">4/7</div><div class="lbl">Pod trhom</div><div class="detail">vyhodnych</div></div>
-  <div class="stat"><div class="num" style="color:var(--dex-success)">-2 143&euro;</div><div class="lbl">Priem. uspora</div><div class="detail">vs. bazar</div></div>
-  <div class="stat"><div class="num" style="color:var(--dex-success)">-4 110&euro;</div><div class="lbl">Najlepsi deal</div><div class="detail">Tesla Y '24</div></div>
+  <div class="stat"><div class="num">14</div><div class="lbl">Aukcii</div><div class="detail">1 ziva, 13 uzavretych</div></div>
+  <div class="stat"><div class="num" style="color:var(--dex-success)">5</div><div class="lbl">Pod trhom</div><div class="detail">z 10 predanych</div></div>
+  <div class="stat"><div class="num" style="color:var(--dex-success)">-5 745&euro;</div><div class="lbl">Najlepsi deal</div><div class="detail">Tesla Y DM '23</div></div>
+  <div class="stat"><div class="num" style="color:var(--dex-error)">4</div><div class="lbl">Nepredane</div><div class="detail">0&euro; aukcie</div></div>
 </div>
 
 <script>
@@ -254,63 +254,31 @@ function switchTab(n){
 </script>
 
 <div class="tabs">
-  <button class="tab-btn active" onclick="switchTab(0)"><span class="tab-count"><span class="live-dot"></span>6</span>Zive</button>
-  <button class="tab-btn" onclick="switchTab(1)"><span class="tab-count">9</span>History</button>
+  <button class="tab-btn active" onclick="switchTab(0)"><span class="tab-count"><span class="live-dot"></span>1</span>Zive</button>
+  <button class="tab-btn" onclick="switchTab(1)"><span class="tab-count">14</span>History</button>
   <button class="tab-btn" onclick="switchTab(2)"><span class="tab-count">🔍</span>Hladat</button>
 </div>
 
 <!-- ==================== TAB 1: ZIVE AUKCIE ==================== -->
 <div class="tab-content active">
 
-<div class="section-head"><h2><span class="live-dot"></span>Zive aukcie</h2><span class="pill">6 sledovanych</span></div>
+<div class="section-head"><h2><span class="live-dot"></span>Zive aukcie</h2><span class="pill">1 sledovana</span></div>
 
 <div class="refresh-bar">
   <button class="refresh-btn" id="refresh-btn" onclick="copyRefresh()"><span class="r-icon">🔄</span> Refresh stav aukcii</button>
 </div>
-<div class="refresh-hint">Skopiruje prompt do schranky &rarr; vloz do Claude &rarr; DexLane aktualizuje ceny a marze</div>
+<div class="refresh-hint">Posledny refresh: 13. april 2026 &middot; 5 aukcii presunytych do History</div>
 
-<!-- LIVE: Tesla Model Y LR DM 105k — BEST DEAL -->
+<!-- LIVE: Tesla Model 3 LR 156k — AKTUALIZOVANE 13.04.2026 -->
 <div class="car-card">
-  <div class="card-top"><div class="card-top-left"><div class="car-title">Tesla Model Y Long Range Dual Motor</div><div class="car-meta">03/2023 &middot; 104 580 km &middot; 514 k &middot; DE &middot; Ref. 10801210</div><div class="countdown"><span class="timer-label">Konci:</span> 1d 16h</div><div class="specs"><span class="spec-tag spec-variant">Long Range</span><span class="spec-tag spec-drive">4x4 AWD</span><span class="spec-tag spec-battery">78 kWh</span><span class="spec-tag spec-fuel">Elektricke</span></div></div><span class="badge b-green">NEW</span></div>
+  <div class="card-top"><div class="card-top-left"><div class="car-title">Tesla Model 3 Long Range</div><div class="car-meta">03/2022 &middot; 156 170 km &middot; 476 k &middot; BE &middot; Ref. 10800600</div><div class="countdown"><span class="timer-label">Konci:</span> 14/04/2026 15:00</div><div class="specs"><span class="spec-tag spec-variant">Long Range</span><span class="spec-tag spec-drive">4x4 AWD</span><span class="spec-tag spec-fuel">Elektricke</span><span class="spec-tag spec-info">Sedan</span></div></div><span class="badge b-yellow">LIVE</span></div>
   <div class="price-row">
-    <div class="price-cell"><div class="label"><span class="info-wrap">Drazba s DPH <button class="info-btn" onclick="togInfo(event,this)">i</button><div class="info-bubble"><button class="close-bubble" onclick="closeInfo(event,this)">&times;</button><strong>Co je v cene:</strong><br>Aktualna ponuka + poplatky (~585 &euro;) + 23% DPH</div></span></div><div class="val">29 255 &euro;</div><div class="val-sub">23 200 &euro; aktualna ponuka</div></div>
-    <div class="price-cell"><div class="label">Priemer bazaru</div><div class="val">35 000 &euro;</div><div class="val-sub">s DPH</div></div>
-  </div>
-  <div class="margin-bar">
-    <div class="margin-left"><strong>Ak vydrazis za 23 200 &euro;</strong><br>S poplatkami + DPH = 29 255 &euro;</div>
-    <div><div class="margin-val" style="color:var(--dex-success)">+5 745 &euro;</div><div class="margin-sub">marza vs. trh ~35 000 &euro;</div></div>
-  </div>
-  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Detail auta</button>
-  <div class="car-detail-panel"><div class="detail-grid"><div class="detail-item"><div class="detail-label">Prva registracia</div><div class="detail-value">31/03/2023</div></div><div class="detail-item"><div class="detail-label">Najazdene</div><div class="detail-value">104 580 km</div></div><div class="detail-item"><div class="detail-label">Vykon</div><div class="detail-value">378 kW / 514 k</div></div><div class="detail-item"><div class="detail-label">Pohon</div><div class="detail-value">4x4 AWD Dual Motor</div></div><div class="detail-item"><div class="detail-label">Bateria</div><div class="detail-value">78 kWh</div></div><div class="detail-item"><div class="detail-label">Karoseria</div><div class="detail-value">SUV, Cierna</div></div><div class="detail-item"><div class="detail-label">Odhadovana cena</div><div class="detail-value">22 935 &euro;</div></div><div class="detail-item"><div class="detail-label">Predajca</div><div class="detail-value">Ayvens, Leipzig (DE)</div></div></div><a class="detail-link" href="https://www.openlane.eu/sk/car/info?auctionId=10801210" target="_blank">Otvorit na OpenLane &#8599;</a></div>
-  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Porovnanie s bazarom</button>
-  <div class="fee-detail">
-    <div class="comp-title">Porovnatelne inzeraty</div>
-    <div class="comp-row"><a href="https://auto.bazos.sk/inzerat/188891095/tesla-model-y-2023-long-range-dual-motor-berlin-378-kw.php" target="_blank"><span class="cp">35 095 &euro;</span> <span class="spec-tag spec-variant spec-sm">LR</span> <span class="spec-tag spec-drive spec-sm">AWD</span> 104k km, 2023, Berlin <span class="src">(bazos.sk, odpocet DPH)</span><span class="link-icon">&#8599;</span></a></div>
-    <div class="comp-row"><a href="https://www.autobazar.eu/en/detail/tesla-model-y-long-range-dual-motor/AmGZVROjtNM/" target="_blank"><span class="cp">36 800 &euro;</span> <span class="spec-tag spec-variant spec-sm">LR</span> <span class="spec-tag spec-drive spec-sm">AWD</span> 83k km, 08/2023 <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
-    <div class="comp-row"><a href="https://www.autobazar.eu/en/detail/tesla-model-y-long-range-dual-motor/Am-9PHv04GD/" target="_blank"><span class="cp">29 999 &euro;</span> <span class="spec-tag spec-variant spec-sm">LR</span> <span class="spec-tag spec-drive spec-sm">AWD</span> 02/2022 <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
-  </div>
-  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Rozpad ceny</button>
-  <div class="fee-detail">
-    <div class="fee-line"><span>Aktualna drazbova cena</span><span>23 200 &euro;</span></div>
-    <div class="fee-line"><span>Naklady za krajinu (DE)</span><span>~285 &euro;</span></div>
-    <div class="fee-line"><span>Poplatok za aukciu</span><span>~300 &euro;</span></div>
-    <div class="fee-line"><span>Spolu bez DPH</span><span>23 785 &euro;</span></div>
-    <div class="fee-line"><span>+ 23% DPH</span><span>+5 471 &euro;</span></div>
-    <div class="fee-line total"><span>Koncova cena</span><span>29 255 &euro;</span></div>
-  </div>
-  <a class="bid-btn hot" href="https://www.openlane.eu/sk/car/info?auctionId=10801210" target="_blank"><span class="emoji">🔥</span> Pod ho drazit!! Marza +5 745 &euro;</a>
-</div>
-
-<!-- LIVE: Tesla Model 3 LR 156k -->
-<div class="car-card">
-  <div class="card-top"><div class="card-top-left"><div class="car-title">Tesla Model 3 Long Range</div><div class="car-meta">03/2022 &middot; 156 170 km &middot; 476 k &middot; BE &middot; Ref. 10800600</div><div class="countdown"><span class="timer-label">Konci:</span> 2d 16h</div><div class="specs"><span class="spec-tag spec-variant">Long Range</span><span class="spec-tag spec-drive">4x4 AWD</span><span class="spec-tag spec-fuel">Elektricke</span><span class="spec-tag spec-info">Sedan</span></div></div><span class="badge b-yellow">NEW</span></div>
-  <div class="price-row">
-    <div class="price-cell"><div class="label"><span class="info-wrap">Drazba s DPH <button class="info-btn" onclick="togInfo(event,this)">i</button><div class="info-bubble"><button class="close-bubble" onclick="closeInfo(event,this)">&times;</button><strong>Co je v cene:</strong><br>Odhadovana cena + poplatky (~585 &euro;) + 23% DPH</div></span></div><div class="val">22 121 &euro;</div><div class="val-sub">17 400 &euro; odhadovana cena</div></div>
+    <div class="price-cell"><div class="label"><span class="info-wrap">Drazba s DPH <button class="info-btn" onclick="togInfo(event,this)">i</button><div class="info-bubble"><button class="close-bubble" onclick="closeInfo(event,this)">&times;</button><strong>Co je v cene:</strong><br>Aktualna ponuka + poplatky (~585 &euro;) + 23% DPH</div></span></div><div class="val">21 261 &euro;</div><div class="val-sub">16 700 &euro; aktualna ponuka</div></div>
     <div class="price-cell"><div class="label">Priemer bazaru</div><div class="val">21 500 &euro;</div><div class="val-sub">s DPH</div></div>
   </div>
   <div class="margin-bar">
-    <div class="margin-left"><strong>Ak sa vydrazi za ~17 400 &euro;</strong><br>S poplatkami + DPH = 22 121 &euro;</div>
-    <div><div class="margin-val" style="color:var(--dex-error)">-621 &euro;</div><div class="margin-sub">mierne nad trhom</div></div>
+    <div class="margin-left"><strong>Ak vydrazis za 16 700 &euro;</strong><br>S poplatkami + DPH = 21 261 &euro;</div>
+    <div><div class="margin-val" style="color:var(--dex-warning)">+239 &euro;</div><div class="margin-sub">tesna marza vs. trh</div></div>
   </div>
   <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Detail auta</button>
   <div class="car-detail-panel"><div class="detail-grid"><div class="detail-item"><div class="detail-label">Prva registracia</div><div class="detail-value">11/03/2022</div></div><div class="detail-item"><div class="detail-label">Najazdene</div><div class="detail-value">156 170 km</div></div><div class="detail-item"><div class="detail-label">Vykon</div><div class="detail-value">350 kW / 476 k</div></div><div class="detail-item"><div class="detail-label">Pohon</div><div class="detail-value">AWD Dual Motor</div></div><div class="detail-item"><div class="detail-label">Karoseria</div><div class="detail-value">Sedan, Seda</div></div><div class="detail-item"><div class="detail-label">Predajca</div><div class="detail-value">Arval, Bilzen (BE)</div></div><div class="detail-item"><div class="detail-label">Typ aukcie</div><div class="detail-value">Dynamicka aukcia</div></div><div class="detail-item"><div class="detail-label">DPH rezim</div><div class="detail-value">Bez DPH</div></div></div><a class="detail-link" href="https://www.openlane.eu/sk/car/info?auctionId=10800600" target="_blank">Otvorit na OpenLane &#8599;</a></div>
@@ -323,156 +291,64 @@ function switchTab(n){
   </div>
   <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Rozpad ceny</button>
   <div class="fee-detail">
-    <div class="fee-line"><span>Odhadovana drazbova cena</span><span>17 400 &euro;</span></div>
+    <div class="fee-line"><span>Aktualna drazbova cena</span><span>16 700 &euro;</span></div>
     <div class="fee-line"><span>Naklady za krajinu (BE)</span><span>~285 &euro;</span></div>
     <div class="fee-line"><span>Poplatok za aukciu</span><span>~300 &euro;</span></div>
-    <div class="fee-line"><span>Spolu bez DPH</span><span>17 985 &euro;</span></div>
-    <div class="fee-line"><span>+ 23% DPH</span><span>+4 137 &euro;</span></div>
-    <div class="fee-line total"><span>Koncova cena</span><span>22 121 &euro;</span></div>
+    <div class="fee-line"><span>Spolu bez DPH</span><span>17 285 &euro;</span></div>
+    <div class="fee-line"><span>+ 23% DPH</span><span>+3 976 &euro;</span></div>
+    <div class="fee-line total"><span>Koncova cena</span><span>21 261 &euro;</span></div>
   </div>
-  <a class="bid-btn warn" href="https://www.openlane.eu/sk/car/info?auctionId=10800600" target="_blank"><span class="emoji">🤯</span> Tesna — takmer ziadna marza</a>
+  <a class="bid-btn" href="https://www.openlane.eu/sk/car/info?auctionId=10800600" target="_blank"><span class="emoji">😮‍💨</span> Tesna marza — zvaz ci sa oplati</a>
 </div>
 
-<!-- LIVE: Tesla Model Y LR 197k -->
-<div class="car-card">
-  <div class="card-top"><div class="card-top-left"><div class="car-title">Tesla Model Y Long Range 78 kWh</div><div class="car-meta">12/2021 &middot; 197 532 km &middot; 208 k &middot; IT &middot; Ref. 10794553</div><div class="countdown"><span class="timer-label">Konci:</span> 1d 11h</div><div class="specs"><span class="spec-tag spec-variant">Long Range</span><span class="spec-tag spec-drive">RWD</span><span class="spec-tag spec-battery">78 kWh</span><span class="spec-tag spec-fuel">Elektricke</span></div></div><span class="badge b-red">NEW</span></div>
-  <div class="price-row">
-    <div class="price-cell"><div class="label"><span class="info-wrap">Drazba s DPH <button class="info-btn" onclick="togInfo(event,this)">i</button><div class="info-bubble"><button class="close-bubble" onclick="closeInfo(event,this)">&times;</button><strong>Co je v cene:</strong><br>Aktualna ponuka + poplatky (~585 &euro;) + 23% DPH</div></span></div><div class="val">22 983 &euro;</div><div class="val-sub">18 100 &euro; aktualna ponuka</div></div>
-    <div class="price-cell"><div class="label">Priemer bazaru</div><div class="val">20 000 &euro;</div><div class="val-sub">s DPH</div></div>
-  </div>
-  <div class="margin-bar">
-    <div class="margin-left"><strong>Ak vydrazis za 18 100 &euro;</strong><br>S poplatkami + DPH = 22 983 &euro;</div>
-    <div><div class="margin-val" style="color:var(--dex-error)">-2 983 &euro;</div><div class="margin-sub">vyrazne nad trhom!</div></div>
-  </div>
-  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Detail auta</button>
-  <div class="car-detail-panel"><div class="detail-grid"><div class="detail-item"><div class="detail-label">Prva registracia</div><div class="detail-value">17/12/2021</div></div><div class="detail-item"><div class="detail-label">Najazdene</div><div class="detail-value">197 532 km</div></div><div class="detail-item"><div class="detail-label">Vykon</div><div class="detail-value">153 kW / 208 k</div></div><div class="detail-item"><div class="detail-label">Pohon</div><div class="detail-value">RWD (zadny, single motor)</div></div><div class="detail-item"><div class="detail-label">Bateria</div><div class="detail-value">78 kWh</div></div><div class="detail-item"><div class="detail-label">Karoseria</div><div class="detail-value">SUV, Cierna</div></div><div class="detail-item"><div class="detail-label">Odhadovana cena</div><div class="detail-value">24 949 &euro;</div></div><div class="detail-item"><div class="detail-label">Predajca</div><div class="detail-value">Ayvens, Drizzona (IT)</div></div></div><a class="detail-link" href="https://www.openlane.eu/sk/car/info?auctionId=10794553" target="_blank">Otvorit na OpenLane &#8599;</a></div>
-  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Porovnanie s bazarom</button>
-  <div class="fee-detail">
-    <div class="comp-title">Porovnatelne inzeraty</div>
-    <div class="comp-row"><a href="https://auto.bazos.sk/inzerat/189567032/tesla-model-y-long-range-dual-motor-092021-top-stav.php" target="_blank"><span class="cp">20 990 &euro;</span> <span class="spec-tag spec-variant spec-sm">LR</span> <span class="spec-tag spec-drive spec-sm">AWD</span> 181k km, 12/2021 <span class="src">(bazos.sk, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
-    <div class="comp-row"><a href="https://auto.bazos.sk/inzerat/189338691/tesla-model-y-long-range.php" target="_blank"><span class="cp">27 650 &euro;</span> <span class="spec-tag spec-variant spec-sm">LR</span> Ryzen, 141k km, 03/2022 <span class="src">(bazos.sk, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
-    <div style="font-size:11px;color:var(--dex-error);margin-top:8px;padding-top:6px;border-top:1px dashed #E5E7EB;font-weight:500">Pozor: 197k km + RWD single motor = tazko predajne. Bazarove ceny su pre AWD verzie s nizsim najazdom.</div>
-  </div>
-  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Rozpad ceny</button>
-  <div class="fee-detail">
-    <div class="fee-line"><span>Aktualna drazbova cena</span><span>18 100 &euro;</span></div>
-    <div class="fee-line"><span>Naklady za krajinu (IT)</span><span>~285 &euro;</span></div>
-    <div class="fee-line"><span>Poplatok za aukciu</span><span>~300 &euro;</span></div>
-    <div class="fee-line"><span>Spolu bez DPH</span><span>18 685 &euro;</span></div>
-    <div class="fee-line"><span>+ 23% DPH</span><span>+4 298 &euro;</span></div>
-    <div class="fee-line total"><span>Koncova cena</span><span>22 983 &euro;</span></div>
-  </div>
-  <a class="bid-btn warn" href="https://www.openlane.eu/sk/car/info?auctionId=10794553" target="_blank"><span class="emoji">🤯</span> Neoplati sa — vysoko nad trhom</a>
-</div>
-
-<!-- LIVE: Octavia Combi Style 69k -->
-<div class="car-card">
-  <div class="card-top"><div class="card-top-left"><div class="car-title">Skoda Octavia Combi 2.0 TDI Style</div><div class="car-meta">02/2023 &middot; 69 672 km &middot; 150 k &middot; DE &middot; Ref. 10795564</div><div class="countdown"><span class="timer-label">Konci:</span> 13/04/2026 10:25</div><div class="specs"><span class="spec-tag spec-variant">Style</span><span class="spec-tag spec-fuel">Nafta</span><span class="spec-tag spec-trans">DSG 7-st.</span><span class="spec-tag spec-info">Kombi</span></div></div><span class="badge" style="background:var(--dex-blue-10);color:var(--dex-blue)">Sledovane</span></div>
-  <div class="price-row">
-    <div class="price-cell"><div class="label">Aktualna cena</div><div class="val">14 800 &euro;</div><div class="val-sub">bez DPH</div></div>
-    <div class="price-cell"><div class="label">Odhadovana cena</div><div class="val">16 500 &euro;</div><div class="val-sub">bez DPH</div></div>
-  </div>
-  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Detail auta</button>
-  <div class="car-detail-panel"><div class="detail-grid"><div class="detail-item"><div class="detail-label">Prva registracia</div><div class="detail-value">02/02/2023</div></div><div class="detail-item"><div class="detail-label">Rok vyroby</div><div class="detail-value">12/2022</div></div><div class="detail-item"><div class="detail-label">Najazdene</div><div class="detail-value">69 672 km</div></div><div class="detail-item"><div class="detail-label">Vykon</div><div class="detail-value">110 kW / 150 k</div></div><div class="detail-item"><div class="detail-label">Motor</div><div class="detail-value">2.0 TDI 1 968 cm3</div></div><div class="detail-item"><div class="detail-label">Prevodovka</div><div class="detail-value">7-st. DSG Automat</div></div><div class="detail-item"><div class="detail-label">Emisie</div><div class="detail-value">100 g/km, EU6d</div></div><div class="detail-item"><div class="detail-label">Karoseria</div><div class="detail-value">Kombi, Modra</div></div><div class="detail-item"><div class="detail-label">Posledna udrzba</div><div class="detail-value">68 580 km (02/2026)</div></div><div class="detail-item"><div class="detail-label">Povod / Predajca</div><div class="detail-value">DE &middot; Athlon (3.4/5)</div></div><div class="detail-item"><div class="detail-label">Doklady</div><div class="detail-value">Kompletne + COC</div></div><div class="detail-item"><div class="detail-label">VIN (kratke)</div><div class="detail-value">049892</div></div></div></div>
-  <div class="margin-bar">
-    <div class="margin-left"><strong>Ak vydrazis za 14 800 &euro;</strong><br>S poplatkami + DPH = 18 924 &euro;</div>
-    <div><div class="margin-val" style="color:var(--dex-success)">+2 576 &euro;</div><div class="margin-sub">marza vs. trh ~21 500 &euro;</div></div>
-  </div>
-  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Porovnanie s bazarom</button>
-  <div class="fee-detail">
-    <div class="comp-title">Porovnatelne inzeraty</div>
-    <div class="comp-row"><a href="https://auto.bazos.sk/inzerat/183603712/skoda-octavia-20235-style-dsg-20-tdi-110kw.php" target="_blank"><span class="cp">21 500 &euro;</span> <span class="spec-tag spec-variant spec-sm">Style</span> <span class="spec-tag spec-trans spec-sm">DSG</span> 81k km, 05/2023 <span class="src">(bazos.sk, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
-    <div class="comp-row"><a href="https://www.autobazar.eu/en/detail/skoda-octavia-combi-20-tdi-scr-style-dsg/AmFTlB89_eg/" target="_blank"><span class="cp">17 999 &euro;</span> <span class="spec-tag spec-variant spec-sm">Style</span> <span class="spec-tag spec-trans spec-sm">DSG</span> 04/2023 <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
-    <div class="comp-row"><a href="https://www.autobazar.eu/detail/skoda-octavia-combi-20-tdi-scr-style-dsg/Am-SqtnVARO/" target="_blank"><span class="cp">16 990 &euro;</span> <span class="spec-tag spec-variant spec-sm">Style</span> <span class="spec-tag spec-trans spec-sm">DSG</span> 2022 <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
-  </div>
-  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Rozpad ceny</button>
-  <div class="fee-detail">
-    <div class="fee-line"><span>Aktualna drazbova cena</span><span>14 800 &euro;</span></div>
-    <div class="fee-line"><span>Naklady za krajinu (DE)</span><span>~285 &euro;</span></div>
-    <div class="fee-line"><span>Poplatok za aukciu</span><span>~300 &euro;</span></div>
-    <div class="fee-line"><span>Spolu bez DPH</span><span>15 385 &euro;</span></div>
-    <div class="fee-line"><span>+ 23% DPH</span><span>+3 539 &euro;</span></div>
-    <div class="fee-line total"><span>Koncova cena</span><span>18 924 &euro;</span></div>
-  </div>
-  <a class="bid-btn" href="https://www.openlane.eu/sk/car/info?auctionId=10795564" target="_blank"><span class="emoji">👍</span> Drazit — este je tu marza!</a>
-</div>
-
-<!-- LIVE: Octavia Combi RS -->
-<div class="car-card">
-  <div class="card-top"><div class="card-top-left"><div class="car-title">Skoda Octavia Combi RS 2.0 TDI</div><div class="car-meta">01/2023 &middot; 82 884 km &middot; 200 k &middot; DE &middot; Ref. 10791828</div><div class="countdown"><span class="timer-label">Konci:</span> 13/04/2026 13:00</div><div class="specs"><span class="spec-tag spec-variant">RS</span><span class="spec-tag spec-fuel">Nafta</span><span class="spec-tag spec-trans">DSG Automat</span><span class="spec-tag spec-info">Kombi</span></div></div><span class="badge" style="background:var(--dex-blue-10);color:var(--dex-blue)">Sledovane</span></div>
-  <div class="price-row">
-    <div class="price-cell"><div class="label">Aktualna cena</div><div class="val">22 900 &euro;</div><div class="val-sub">bez DPH</div></div>
-    <div class="price-cell"><div class="label">Odhadovana cena</div><div class="val">23 400 &euro;</div><div class="val-sub">bez DPH</div></div>
-  </div>
-  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Detail auta</button>
-  <div class="car-detail-panel"><div class="detail-grid"><div class="detail-item"><div class="detail-label">Prva registracia</div><div class="detail-value">01/2023</div></div><div class="detail-item"><div class="detail-label">Najazdene</div><div class="detail-value">82 884 km</div></div><div class="detail-item"><div class="detail-label">Vykon</div><div class="detail-value">147 kW / 200 k</div></div><div class="detail-item"><div class="detail-label">Motor</div><div class="detail-value">2.0 TDI</div></div><div class="detail-item"><div class="detail-label">Typ aukcie</div><div class="detail-value">Dynamicka aukcia</div></div><div class="detail-item"><div class="detail-label">Povod</div><div class="detail-value">Nemecko</div></div></div></div>
-  <div class="margin-bar">
-    <div class="margin-left"><strong>Ak vydrazis za 22 900 &euro;</strong><br>S poplatkami + DPH = 28 887 &euro;</div>
-    <div><div class="margin-val" style="color:var(--dex-warning)">-187 &euro;</div><div class="margin-sub">~trhova cena (~28 700 &euro;)</div></div>
-  </div>
-  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Porovnanie s bazarom</button>
-  <div class="fee-detail">
-    <div class="comp-title">Porovnatelne inzeraty (RS verzia!)</div>
-    <div class="comp-row"><a href="https://www.autobazar.sk/27991799/skoda-octavia-rs-2-0-tdi/" target="_blank"><span class="cp">27 100 &euro;</span> <span class="spec-tag spec-variant spec-sm">RS</span> TDI 147kW, 90k km, 02/2022 <span class="src">(autobazar.sk, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
-    <div class="comp-row"><a href="https://www.autobazar.eu/detail/skoda-octavia-combi-octavia-combi-20-tdi-rs-dsg-147kw200hp-a7/AeR6WjYXRw-/" target="_blank"><span class="cp">30 350 &euro;</span> <span class="spec-tag spec-variant spec-sm">RS</span> TDI DSG 147kW, 79k km, 01/2023 <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
-    <div style="font-size:11px;color:var(--dex-muted);margin-top:8px;padding-top:6px;border-top:1px dashed #E5E7EB">Priemer bazaru pre RS TDI 147kW, 80-90k km: ~28 700 &euro; s DPH</div>
-  </div>
-  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Rozpad ceny</button>
-  <div class="fee-detail">
-    <div class="fee-line"><span>Aktualna drazbova cena</span><span>22 900 &euro;</span></div>
-    <div class="fee-line"><span>Naklady za krajinu (DE)</span><span>~285 &euro;</span></div>
-    <div class="fee-line"><span>Poplatok za aukciu</span><span>~300 &euro;</span></div>
-    <div class="fee-line"><span>Spolu bez DPH</span><span>23 485 &euro;</span></div>
-    <div class="fee-line"><span>+ 23% DPH</span><span>+5 402 &euro;</span></div>
-    <div class="fee-line total"><span>Koncova cena</span><span>28 887 &euro;</span></div>
-  </div>
-  <a class="bid-btn" href="https://www.openlane.eu/sk/car/info?auctionId=10791828" target="_blank"><span class="emoji">😮‍💨</span> Trhova cena — tesna marza</a>
-</div>
-
-<!-- LIVE: Octavia Combi 42k -->
-<div class="car-card">
-  <div class="card-top"><div class="card-top-left"><div class="car-title">Skoda Octavia Combi 2.0 TDI</div><div class="car-meta">02/2023 &middot; 42 641 km &middot; 150 k &middot; DE &middot; Ref. 10788943</div><div class="countdown"><span class="timer-label">Konci:</span> 13/04/2026 13:00</div><div class="specs"><span class="spec-tag spec-fuel">Nafta</span><span class="spec-tag spec-trans">DSG Automat</span><span class="spec-tag spec-info">Kombi</span></div></div><span class="badge" style="background:var(--dex-blue-10);color:var(--dex-blue)">Sledovane</span></div>
-  <div class="price-row">
-    <div class="price-cell"><div class="label">Aktualna cena</div><div class="val">12 700 &euro;</div><div class="val-sub">bez DPH</div></div>
-    <div class="price-cell"><div class="label">Odhadovana cena</div><div class="val" style="color:var(--dex-muted);font-size:14px">&mdash;</div><div class="val-sub">nedostupna</div></div>
-  </div>
-  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Detail auta</button>
-  <div class="car-detail-panel"><div class="detail-grid"><div class="detail-item"><div class="detail-label">Prva registracia</div><div class="detail-value">02/2023</div></div><div class="detail-item"><div class="detail-label">Najazdene</div><div class="detail-value">42 641 km</div></div><div class="detail-item"><div class="detail-label">Vykon</div><div class="detail-value">110 kW / 150 k</div></div><div class="detail-item"><div class="detail-label">Motor</div><div class="detail-value">2.0 TDI</div></div><div class="detail-item"><div class="detail-label">Typ aukcie</div><div class="detail-value">Cielova aukcia</div></div><div class="detail-item"><div class="detail-label">Povod</div><div class="detail-value">Nemecko</div></div></div></div>
-  <div class="margin-bar">
-    <div class="margin-left"><strong>Ak vydrazis za 12 700 &euro;</strong><br>S poplatkami + DPH = 16 341 &euro;</div>
-    <div><div class="margin-val" style="color:var(--dex-success)">+5 659 &euro;</div><div class="margin-sub">marza vs. trh ~22 000 &euro;</div></div>
-  </div>
-  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Porovnanie s bazarom</button>
-  <div class="fee-detail">
-    <div class="comp-title">Porovnatelne inzeraty</div>
-    <div class="comp-row"><a href="https://auto.bazos.sk/inzerat/183603712/skoda-octavia-20235-style-dsg-20-tdi-110kw.php" target="_blank"><span class="cp">21 500 &euro;</span> <span class="spec-tag spec-variant spec-sm">Style</span> <span class="spec-tag spec-trans spec-sm">DSG</span> 81k km, 05/2023 <span class="src">(bazos.sk, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
-    <div class="comp-row"><a href="https://auto.bazos.sk/inzerat/190137726/skoda-octavia-combi-iv-20-tdi-scr-style-dsg.php" target="_blank"><span class="cp">17 799 &euro;</span> <span class="spec-tag spec-variant spec-sm">Style</span> <span class="spec-tag spec-trans spec-sm">DSG</span> 159k km, 07/2022 <span class="src">(bazos.sk, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
-    <div class="comp-row"><a href="https://www.autobazar.eu/detail/skoda-octavia-combi-20-tdi-scr-style-dsg/AmjHAJz-tnW/" target="_blank"><span class="cp">16 290 &euro;</span> <span class="spec-tag spec-variant spec-sm">Style</span> <span class="spec-tag spec-trans spec-sm">DSG</span> 172k km, 02/2023 <span class="src">(autobazar.eu, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
-    <div style="font-size:11px;color:var(--dex-muted);margin-top:8px;padding-top:6px;border-top:1px dashed #E5E7EB">Toto auto ma len 42k km — na trhu je to rarita. Podobne auta s 40-50k km sa predavaju za 22 000+ &euro;</div>
-  </div>
-  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Rozpad ceny</button>
-  <div class="fee-detail">
-    <div class="fee-line"><span>Aktualna drazbova cena</span><span>12 700 &euro;</span></div>
-    <div class="fee-line"><span>Naklady za krajinu (DE)</span><span>~285 &euro;</span></div>
-    <div class="fee-line"><span>Poplatok za aukciu</span><span>~300 &euro;</span></div>
-    <div class="fee-line"><span>Spolu bez DPH</span><span>13 285 &euro;</span></div>
-    <div class="fee-line"><span>+ 23% DPH</span><span>+3 056 &euro;</span></div>
-    <div class="fee-line total"><span>Koncova cena</span><span>16 341 &euro;</span></div>
-  </div>
-  <a class="bid-btn hot" href="https://www.openlane.eu/sk/car/info?auctionId=10788943" target="_blank"><span class="emoji">🔥</span> Pod ho drazit!! Marza +5 659 &euro;</a>
-</div>
 
 </div>
 
 <!-- ==================== TAB 2: HISTORY LOG ==================== -->
 <div class="tab-content">
 
-<div class="section-head"><h2>History Log</h2><span class="pill">9 uzavretych</span></div>
+<div class="section-head"><h2>History Log</h2><span class="pill">14 uzavretych</span></div>
 <div class="legend">
   <div class="leg"><div class="dot" style="background:var(--dex-success)"></div>Pod trhom</div>
   <div class="leg"><div class="dot" style="background:var(--dex-warning)"></div>Trhova cena</div>
   <div class="leg"><div class="dot" style="background:var(--dex-error)"></div>Nad trhom</div>
   <div class="leg"><div class="dot" style="background:#D1D5DB"></div>Nepredane</div>
+</div>
+
+<!-- ===== NOVE ZAZNAMY z refreshu 13.04.2026 ===== -->
+
+<!-- Octavia Style 69k — skoncene za 15000, marza by bola +2576 = missed -->
+<div class="car-card ended missed">
+  <div class="card-top"><div class="card-top-left"><div class="car-title">Skoda Octavia Combi 2.0 TDI Style</div><div class="car-meta">02/2023 &middot; 69 672 km &middot; 150 k &middot; DE &middot; Ref. 10795564</div><div class="specs"><span class="spec-tag spec-variant">Style</span><span class="spec-tag spec-fuel">Nafta</span><span class="spec-tag spec-trans">DSG 7-st.</span></div></div><span class="badge b-green">-12%</span></div>
+  <div class="price-row"><div class="price-cell"><div class="label">Vydrazene s DPH</div><div class="val">19 171 &euro;</div><div class="val-sub">15 000 &euro; bez DPH</div></div><div class="price-cell"><div class="label">Priemer bazaru</div><div class="val">21 500 &euro;</div><div class="val-sub">s DPH</div></div></div>
+  <div class="diff-bar" style="color:var(--dex-success)">Usla nam marza +2 329 &euro; <span class="pct">13.04.</span></div>
+</div>
+
+<!-- Octavia RS 82k — skoncene za 0€, nepredane -->
+<div class="car-card unsold ended">
+  <div class="card-top"><div class="card-top-left"><div class="car-title">Skoda Octavia Combi RS 2.0 TDI</div><div class="car-meta">01/2023 &middot; 82 884 km &middot; 200 k &middot; DE &middot; Ref. 10791828</div><div class="specs"><span class="spec-tag spec-variant">RS</span><span class="spec-tag spec-fuel">Nafta</span><span class="spec-tag spec-trans">DSG Automat</span></div></div><span class="badge b-gray">Nepredane</span></div>
+  <div class="diff-bar" style="color:var(--dex-muted)">Aukcia skoncila bez ponuky (13.04.)</div>
+</div>
+
+<!-- Octavia 42k — skoncene za 18300, marza by bola: (18300+585)*1.23=23219 vs trh 22000 = -1219 over -->
+<div class="car-card ended over">
+  <div class="card-top"><div class="card-top-left"><div class="car-title">Skoda Octavia Combi 2.0 TDI</div><div class="car-meta">02/2023 &middot; 42 641 km &middot; 150 k &middot; DE &middot; Ref. 10788943</div><div class="specs"><span class="spec-tag spec-fuel">Nafta</span><span class="spec-tag spec-trans">DSG Automat</span><span class="spec-tag spec-info">Kombi</span></div></div><span class="badge b-red">+6%</span></div>
+  <div class="price-row"><div class="price-cell"><div class="label">Vydrazene s DPH</div><div class="val">23 219 &euro;</div><div class="val-sub">18 300 &euro; bez DPH</div></div><div class="price-cell"><div class="label">Priemer bazaru</div><div class="val">22 000 &euro;</div><div class="val-sub">s DPH</div></div></div>
+  <div class="diff-bar" style="color:var(--dex-error)">+1 219 &euro; nad trhom <span class="pct">13.04.</span></div>
+</div>
+
+<!-- Tesla Y LR DM 105k — skoncene, drazba ukoncena -->
+<div class="car-card ended missed">
+  <div class="card-top"><div class="card-top-left"><div class="car-title">Tesla Model Y Long Range Dual Motor</div><div class="car-meta">03/2023 &middot; 104 580 km &middot; 514 k &middot; DE &middot; Ref. 10801210</div><div class="specs"><span class="spec-tag spec-variant">Long Range</span><span class="spec-tag spec-drive">4x4 AWD</span><span class="spec-tag spec-battery">78 kWh</span><span class="spec-tag spec-fuel">Elektricke</span></div></div><span class="badge b-green">Missed</span></div>
+  <div class="price-row"><div class="price-cell"><div class="label">Posledna ponuka s DPH</div><div class="val">~29 255 &euro;</div><div class="val-sub">~23 200 &euro; bez DPH</div></div><div class="price-cell"><div class="label">Priemer bazaru</div><div class="val">35 000 &euro;</div><div class="val-sub">s DPH</div></div></div>
+  <div class="diff-bar" style="color:var(--dex-success)">Usla nam marza ~+5 745 &euro; <span class="pct">13.04.</span></div>
+</div>
+
+<!-- Tesla Y LR 197k — skoncene, drazba ukoncena -->
+<div class="car-card ended over">
+  <div class="card-top"><div class="card-top-left"><div class="car-title">Tesla Model Y Long Range 78 kWh</div><div class="car-meta">12/2021 &middot; 197 532 km &middot; 208 k &middot; IT &middot; Ref. 10794553</div><div class="specs"><span class="spec-tag spec-variant">Long Range</span><span class="spec-tag spec-drive">RWD</span><span class="spec-tag spec-battery">78 kWh</span><span class="spec-tag spec-fuel">Elektricke</span></div></div><span class="badge b-red">Nad trhom</span></div>
+  <div class="price-row"><div class="price-cell"><div class="label">Posledna ponuka s DPH</div><div class="val">~22 983 &euro;</div><div class="val-sub">~18 100 &euro; bez DPH</div></div><div class="price-cell"><div class="label">Priemer bazaru</div><div class="val">20 000 &euro;</div><div class="val-sub">s DPH</div></div></div>
+  <div class="diff-bar" style="color:var(--dex-error)">~-2 983 &euro; nad trhom <span class="pct">13.04.</span></div>
 </div>
 
 <!-- ===== TESLA MODEL Y LR 2024 ===== -->
