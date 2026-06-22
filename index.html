@@ -237,7 +237,7 @@ body { font-family:'Poppins',Arial,sans-serif; background:var(--dex-light-bg); c
 </div>
 
 <div class="summary">
-  <div class="stat"><div class="num">16</div><div class="lbl">Aukcii</div><div class="detail">2 zive, 14 uzavretych</div></div>
+  <div class="stat"><div class="num">17</div><div class="lbl">Aukcii</div><div class="detail">3 zive, 14 uzavretych</div></div>
   <div class="stat"><div class="num" style="color:var(--dex-success)">+9 858&euro;</div><div class="lbl">Ziva marza</div><div class="detail">Model X Plaid</div></div>
   <div class="stat"><div class="num" style="color:var(--dex-success)">-5 745&euro;</div><div class="lbl">Najlepsi deal</div><div class="detail">Tesla Y DM '23</div></div>
   <div class="stat"><div class="num" style="color:var(--dex-error)">4</div><div class="lbl">Nepredane</div><div class="detail">0&euro; aukcie</div></div>
@@ -254,7 +254,7 @@ function switchTab(n){
 </script>
 
 <div class="tabs">
-  <button class="tab-btn active" onclick="switchTab(0)"><span class="tab-count"><span class="live-dot"></span>2</span>Zive</button>
+  <button class="tab-btn active" onclick="switchTab(0)"><span class="tab-count"><span class="live-dot"></span>3</span>Zive</button>
   <button class="tab-btn" onclick="switchTab(1)"><span class="tab-count">15</span>History</button>
   <button class="tab-btn" onclick="switchTab(2)"><span class="tab-count">🔍</span>Hladat</button>
 </div>
@@ -262,12 +262,12 @@ function switchTab(n){
 <!-- ==================== TAB 1: ZIVE AUKCIE ==================== -->
 <div class="tab-content active">
 
-<div class="section-head"><h2><span class="live-dot"></span>Zive aukcie</h2><span class="pill">2 sledovane</span></div>
+<div class="section-head"><h2><span class="live-dot"></span>Zive aukcie</h2><span class="pill">3 sledovane &middot; 2 platformy</span></div>
 
 <div class="refresh-bar">
   <button class="refresh-btn" id="refresh-btn" onclick="copyRefresh()"><span class="r-icon">🔄</span> Refresh stav aukcii</button>
 </div>
-<div class="refresh-hint">Posledny refresh: 22. jun 2026 &middot; x-Time aukcia, zaciatok cca 23.6. rano</div>
+<div class="refresh-hint">Posledny refresh: 22. jun 2026 &middot; 3 zive aukcie (OpenLane + Troostwijk)</div>
 
 <!-- LIVE: Tesla Model X Plaid — AKTUALIZOVANE 22.06.2026 -->
 <div class="car-card">
@@ -340,6 +340,40 @@ function switchTab(n){
     <div class="fee-line total"><span>Koncova cena (bez transportu)</span><span>23 502 &euro;</span></div>
   </div>
   <a class="bid-btn" href="https://www.openlane.eu/sk/car/info?auctionId=11139803" target="_blank"><span class="emoji">👍</span> Drazit, ale tesna marza po transporte (strop ~23 800 &euro;)</a>
+</div>
+
+<!-- LIVE: Tesla Model X LR 6p 2019 — TROOSTWIJK — 22.06.2026 -->
+<div class="car-card">
+  <div class="card-top"><div class="card-top-left"><div class="car-title">Tesla Model X Long Range 6p</div><div class="car-meta"><span class="spec-tag spec-sm" style="background:#1a1a2e;color:#fff;margin-right:4px">Troostwijk</span>11/2019 &middot; 101 406 km &middot; Hasselt (NL) &middot; Lot A1-46613-26</div><div class="countdown"><span class="timer-label">Konci:</span> 28.6.2026 20:39</div><div class="specs"><span class="spec-tag spec-variant">Long Range</span><span class="spec-tag spec-drive">4x4</span><span class="spec-tag spec-battery">100 kWh</span><span class="spec-tag spec-fuel">Elektricke</span><span class="spec-tag spec-info">SUV 6-miest</span></div></div><span class="badge b-yellow">Rezerva!</span></div>
+  <div class="price-row">
+    <div class="price-cell"><div class="label"><span class="info-wrap">Odhad nakladu <button class="info-btn" onclick="togInfo(event,this)">i</button><div class="info-bubble"><button class="close-bubble" onclick="closeInfo(event,this)">&times;</button><strong>Troostwijk &middot; rezim Marza</strong><br>Cena auta bez 23% DPH (margin).<br><br>Aktualny bid (17 000 &euro;)<br>+ Aukcny poplatok ~18% (ODHAD): 3 060 &euro;<br>+ 21% DPH z poplatku: 643 &euro;<br>= ~20 700 &euro;<br><br>&#9888; Presny buyer's premium TWK NIE je bez prihlasenia viditelny. Over ho v aukcii! Transport NL + prepis (~800-1 000 &euro;) nezahrnute.</div></span></div><div class="val">~20 700 &euro;</div><div class="val-sub">17 000 &euro; bid &middot; rezerva nesplnena</div></div>
+    <div class="price-cell"><div class="label">Odhad trhu s DPH</div><div class="val">~37 000 &euro;</div><div class="val-sub">X 100D/LR 2018-19</div></div>
+  </div>
+  <div class="margin-bar">
+    <div class="margin-left"><strong>Aktualny bid 17 000 &euro;</strong><br>Odhad all-in = ~20 700 &euro;</div>
+    <div><div class="margin-val" style="color:var(--dex-success)">~+16 000 &euro;</div><div class="margin-sub">pri akt. cene (porastie!)</div></div>
+  </div>
+  <div class="comp-section" style="border-top:1px solid #E5E7EB;background:#FFF7ED">
+    <div class="comp-title" style="color:#92400E">Pozor pred drazbou</div>
+    <div class="comp-row" style="border:none;color:#92400E;font-size:12px;line-height:1.6">Ina platforma (Troostwijk) &middot; <strong>buyer's premium ~18% je len ODHAD</strong>, over presne cislo po prihlaseni &middot; rezerva zatial nesplnena, takze cena vyrazne porastie do 28.6. &middot; bez zaruky, serviska neznama, prezri Carfax + viewing 26.6. &middot; transport z NL. Strop kde ostava ~5k marza: bid cca <strong>24 500 &euro;</strong>.</div>
+  </div>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Detail auta</button>
+  <div class="car-detail-panel"><div class="detail-grid"><div class="detail-item"><div class="detail-label">Prva registracia</div><div class="detail-value">25/11/2019</div></div><div class="detail-item"><div class="detail-label">Najazdene</div><div class="detail-value">101 406 km</div></div><div class="detail-item"><div class="detail-label">Pohon</div><div class="detail-value">4x4 (Front + Rear)</div></div><div class="detail-item"><div class="detail-label">Karoseria</div><div class="detail-value">MPV/SUV, 6-miest</div></div><div class="detail-item"><div class="detail-label">Farba</div><div class="detail-value">Cierna</div></div><div class="detail-item"><div class="detail-label">APK (TK) do</div><div class="detail-value">25/11/2027</div></div><div class="detail-item"><div class="detail-label">Pohotovostna hmotnost</div><div class="detail-value">2 433 kg</div></div><div class="detail-item"><div class="detail-label">DPH rezim</div><div class="detail-value">Marza (Yes)</div></div><div class="detail-item"><div class="detail-label">Lokalita / vyzdvih</div><div class="detail-value">Hasselt NL, od 7.7.</div></div><div class="detail-item"><div class="detail-label">EC znacka</div><div class="detail-value">G-163-SJ (NL)</div></div></div><a class="detail-link" href="https://www.troostwijkauctions.com/en/l/tesla-model-x-long-range-6p-car-2019-A1-46613-26" target="_blank">Otvorit na Troostwijk &#8599;</a></div>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Porovnanie s trhom</button>
+  <div class="fee-detail">
+    <div class="comp-title">Porovnatelne inzeraty (Model X 100D/LR)</div>
+    <div class="comp-row"><a href="https://auto.bazos.sk/inzerat/192135788/tesla-model-x-100d-long-range-4x4.php" target="_blank"><span class="cp">39 900 &euro;</span> <span class="spec-tag spec-variant spec-sm">100D LR</span> <span class="spec-tag spec-drive spec-sm">4x4</span> <span class="src">(bazos.sk, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
+    <div class="comp-row"><a href="https://auto.bazos.sk/inzerat/192721098/tesla-model-x-100d-6-miest.php" target="_blank"><span class="cp">33 500 &euro;</span> <span class="spec-tag spec-variant spec-sm">100D</span> 2018, 6-miest, MCU2 <span class="src">(bazos.sk, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
+    <div class="comp-row"><a href="https://auto.bazos.sk/inzerat/192422811/tesla-model-x-p100d-supercharger-free-7-miest.php" target="_blank"><span class="cp">39 500 &euro;</span> <span class="spec-tag spec-variant spec-sm">P100D</span> 7-miest, Free SC <span class="src">(bazos.sk, s DPH)</span><span class="link-icon">&#8599;</span></a></div>
+  </div>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Rozpad ceny (odhad)</button>
+  <div class="fee-detail">
+    <div class="fee-line"><span>Aktualny bid</span><span>17 000 &euro;</span></div>
+    <div class="fee-line"><span>Aukcny poplatok ~18% (odhad)</span><span>~3 060 &euro;</span></div>
+    <div class="fee-line"><span>21% DPH z poplatku</span><span>~643 &euro;</span></div>
+    <div class="fee-line total"><span>Odhad all-in (bez transportu)</span><span>~20 700 &euro;</span></div>
+  </div>
+  <a class="bid-btn hot" href="https://www.troostwijkauctions.com/en/l/tesla-model-x-long-range-6p-car-2019-A1-46613-26" target="_blank"><span class="emoji">🔥</span> Sleduj a draz! Strop ~24 500 &euro; (over premium!)</a>
 </div>
 
 
@@ -769,7 +803,8 @@ function copyPrompt(){
   <p>
     <strong>Koncova cena:</strong> Drazbova cena + poplatky OpenLane + 23% DPH. Pre Model X Plaid (Ref. 11129662) su poplatky presne z detailu aukcie: 285&euro; krajina (DE) + 615&euro; aukcia.<br>
     <strong>Odhad trhu:</strong> Model X Plaid sa na SK/CZ bazaroch aktualne NEPONUKA. Odhad ~78 000&euro; je triangulovany z Model S Plaid 2023 (rovnaky pohon, sedan, ~74-80k&euro;), Model X Long Range 2023 (lacnejsia verzia, ~70-75k&euro;) a DE trhu Plaid X (autoscout24, ~74-88k&euro; brutto). Ber ho ako orientacny, nie presny.<br>
-    <strong>Pozor:</strong> Bazarove ceny su "asking price" (skutocna cena moze byt -3 az -8%). Transport z DE (~1 000-1 500&euro;) NIE je zahrnuty. Vysoky najazd (92k km), chybajuca serviska a nezname poskodenie znizuju realnu predajnu cenu.
+    <strong>Pozor:</strong> Bazarove ceny su "asking price" (skutocna cena moze byt -3 az -8%). Transport (DE ~1 000-1 500&euro;, BE/NL podobne) NIE je zahrnuty. Vysoky najazd, chybajuca serviska a nezname poskodenie znizuju realnu predajnu cenu.<br>
+    <strong>Platformy:</strong> Tracker uz sleduje 2 platformy. OpenLane (poplatky krajina+aukcia, niektore Bez DPH, niektore Marza) a Troostwijk (buyer's premium % + 21% DPH z poplatku, vacsinou Marza). Pri Troostwijk je premium ODHAD ~18%, presne cislo treba overit po prihlaseni.
   </p>
 </div>
 
