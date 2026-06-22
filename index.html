@@ -237,7 +237,7 @@ body { font-family:'Poppins',Arial,sans-serif; background:var(--dex-light-bg); c
 </div>
 
 <div class="summary">
-  <div class="stat"><div class="num">15</div><div class="lbl">Aukcii</div><div class="detail">1 ziva, 14 uzavretych</div></div>
+  <div class="stat"><div class="num">16</div><div class="lbl">Aukcii</div><div class="detail">2 zive, 14 uzavretych</div></div>
   <div class="stat"><div class="num" style="color:var(--dex-success)">+9 858&euro;</div><div class="lbl">Ziva marza</div><div class="detail">Model X Plaid</div></div>
   <div class="stat"><div class="num" style="color:var(--dex-success)">-5 745&euro;</div><div class="lbl">Najlepsi deal</div><div class="detail">Tesla Y DM '23</div></div>
   <div class="stat"><div class="num" style="color:var(--dex-error)">4</div><div class="lbl">Nepredane</div><div class="detail">0&euro; aukcie</div></div>
@@ -254,7 +254,7 @@ function switchTab(n){
 </script>
 
 <div class="tabs">
-  <button class="tab-btn active" onclick="switchTab(0)"><span class="tab-count"><span class="live-dot"></span>1</span>Zive</button>
+  <button class="tab-btn active" onclick="switchTab(0)"><span class="tab-count"><span class="live-dot"></span>2</span>Zive</button>
   <button class="tab-btn" onclick="switchTab(1)"><span class="tab-count">15</span>History</button>
   <button class="tab-btn" onclick="switchTab(2)"><span class="tab-count">🔍</span>Hladat</button>
 </div>
@@ -262,7 +262,7 @@ function switchTab(n){
 <!-- ==================== TAB 1: ZIVE AUKCIE ==================== -->
 <div class="tab-content active">
 
-<div class="section-head"><h2><span class="live-dot"></span>Zive aukcie</h2><span class="pill">1 sledovana</span></div>
+<div class="section-head"><h2><span class="live-dot"></span>Zive aukcie</h2><span class="pill">2 sledovane</span></div>
 
 <div class="refresh-bar">
   <button class="refresh-btn" id="refresh-btn" onclick="copyRefresh()"><span class="r-icon">🔄</span> Refresh stav aukcii</button>
@@ -305,6 +305,41 @@ function switchTab(n){
     <div class="fee-line total"><span>Koncova cena (bez transportu)</span><span>68 142 &euro;</span></div>
   </div>
   <a class="bid-btn hot" href="https://www.openlane.eu/sk/car/info?auctionId=11129662" target="_blank"><span class="emoji">🔥</span> Pod ho drazit! Marza +9 858 &euro; (strop ~58 000 &euro;)</a>
+</div>
+
+<!-- LIVE: Tesla Model X 75D Executive Edition — AKTUALIZOVANE 22.06.2026 -->
+<div class="car-card">
+  <div class="card-top"><div class="card-top-left"><div class="car-title">Tesla Model X 75D Executive Edition</div><div class="car-meta">11/2017 &middot; 109 960 km &middot; 524 k &middot; BE &middot; Ref. 11139803</div><div class="countdown"><span class="timer-label">Zostavajuci cas:</span> ~1d 11h</div><div class="specs"><span class="spec-tag spec-variant">75D Executive</span><span class="spec-tag spec-drive">4x4 Dual Motor</span><span class="spec-tag spec-battery">75 kWh</span><span class="spec-tag spec-fuel">Elektricke</span><span class="spec-tag spec-info">SUV 5-miest</span></div></div><span class="badge b-green">~-13%</span></div>
+  <div class="price-row">
+    <div class="price-cell"><div class="label"><span class="info-wrap">Cena s DPH (Marza) <button class="info-btn" onclick="togInfo(event,this)">i</button><div class="info-bubble"><button class="close-bubble" onclick="closeInfo(event,this)">&times;</button><strong>Rezim Marza!</strong><br>Cena je uz vratane DPH, NEpridava sa 23% dovozna DPH.<br><br>Aktualna ponuka (22 800 &euro;)<br>+ Krajina BE: 185 &euro;<br>+ Poplatok za aukciu: 395 &euro;<br>+ DPH z poplatkov: 122 &euro;<br>= 23 502 &euro;<br><br>Transport z BE (~800-1 200 &euro;) nie je zahrnuty.</div></span></div><div class="val">23 502 &euro;</div><div class="val-sub">22 800 &euro; ponuka &middot; Marza</div></div>
+    <div class="price-cell"><div class="label">Odhad trhu s DPH</div><div class="val">~27 000 &euro;</div><div class="val-sub">75D 2017, 110k km</div></div>
+  </div>
+  <div class="margin-bar">
+    <div class="margin-left"><strong>Aktualna cena 22 800 &euro;</strong><br>All-in (Marza) = 23 502 &euro;</div>
+    <div><div class="margin-val" style="color:var(--dex-success)">+3 498 &euro;</div><div class="margin-sub">marza pred transportom</div></div>
+  </div>
+  <div class="comp-section" style="border-top:1px solid #E5E7EB;background:#FFF7ED">
+    <div class="comp-title" style="color:#92400E">Pozor pred drazbou</div>
+    <div class="comp-row" style="border:none;color:#92400E;font-size:12px;line-height:1.6">Stare Model X (2017) &middot; serviska NIE je k dispozicii &middot; poskodenie "Nezname" &middot; znama rizika 2017 X: MCU1, degradacia baterie, vzduchovy podvozok &middot; po transporte (~1k) marza klesa na ~2,5k &middot; cena v aukcii porastie. Strop kde ostava rozumna marza: cca <strong>23 800 &euro; ponuka</strong>.</div>
+  </div>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Detail auta</button>
+  <div class="car-detail-panel"><div class="detail-grid"><div class="detail-item"><div class="detail-label">Prva registracia</div><div class="detail-value">20/11/2017</div></div><div class="detail-item"><div class="detail-label">Najazdene</div><div class="detail-value">109 960 km</div></div><div class="detail-item"><div class="detail-label">Vykon</div><div class="detail-value">386 kW / 524 k</div></div><div class="detail-item"><div class="detail-label">Pohon</div><div class="detail-value">4x4 Dual Motor</div></div><div class="detail-item"><div class="detail-label">Bateria</div><div class="detail-value">75 kWh</div></div><div class="detail-item"><div class="detail-label">Karoseria</div><div class="detail-value">SUV, 5-miest</div></div><div class="detail-item"><div class="detail-label">Farba</div><div class="detail-value">Cierna / cierny interier</div></div><div class="detail-item"><div class="detail-label">COC</div><div class="detail-value">K dispozicii</div></div><div class="detail-item"><div class="detail-label">Serviska</div><div class="detail-value">Nie je k dispozicii</div></div><div class="detail-item"><div class="detail-label">TK platna do</div><div class="detail-value">11/12/2026</div></div><div class="detail-item"><div class="detail-label">Povod</div><div class="detail-value">Bilzen (Belgicko)</div></div><div class="detail-item"><div class="detail-label">DPH rezim</div><div class="detail-value">Marza</div></div><div class="detail-full"><div class="detail-label">VIN</div><div class="detail-value">5YJXCCE26HF067684</div></div></div><a class="detail-link" href="https://www.openlane.eu/sk/car/info?auctionId=11139803" target="_blank">Otvorit na OpenLane &#8599;</a></div>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Porovnanie s trhom</button>
+  <div class="fee-detail">
+    <div class="comp-title">Porovnatelne inzeraty (vsetky maju viac km nez nase)</div>
+    <div class="comp-row"><a href="https://auto.bazos.sk/inzerat/191651831/tesla-model-x-75d-free-supercharging.php" target="_blank"><span class="cp">24 400 &euro;</span> <span class="spec-tag spec-variant spec-sm">75D</span> 2016, 149k km, Free SC <span class="src" style="color:var(--dex-warning)">(bazos.sk &middot; +39k km)</span><span class="link-icon">&#8599;</span></a></div>
+    <div class="comp-row"><a href="https://auto.bazos.sk/inzerat/192763780/2018-tesla-model-x.php" target="_blank"><span class="cp">23 999 &euro;</span> <span class="spec-tag spec-variant spec-sm">75D</span> 2018, 170k km <span class="src" style="color:var(--dex-warning)">(bazos.sk &middot; +60k km)</span><span class="link-icon">&#8599;</span></a></div>
+    <div class="comp-row"><a href="https://auto.bazos.sk/inzerat/192772955/tesla-model-x-75d-2017-5-miest-220tkm.php" target="_blank"><span class="cp">21 900 &euro;</span> <span class="spec-tag spec-variant spec-sm">75D</span> 2017, 220k km <span class="src" style="color:var(--dex-warning)">(bazos.sk &middot; 2x km, bez odpoctu)</span><span class="link-icon">&#8599;</span></a></div>
+  </div>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Rozpad ceny</button>
+  <div class="fee-detail">
+    <div class="fee-line"><span>Aktualna ponuka (vratane DPH)</span><span>22 800 &euro;</span></div>
+    <div class="fee-line"><span>Naklady za krajinu (BE)</span><span>185 &euro;</span></div>
+    <div class="fee-line"><span>Poplatok za aukciu</span><span>395 &euro;</span></div>
+    <div class="fee-line"><span>DPH z poplatkov</span><span>+122 &euro;</span></div>
+    <div class="fee-line total"><span>Koncova cena (bez transportu)</span><span>23 502 &euro;</span></div>
+  </div>
+  <a class="bid-btn" href="https://www.openlane.eu/sk/car/info?auctionId=11139803" target="_blank"><span class="emoji">👍</span> Drazit, ale tesna marza po transporte (strop ~23 800 &euro;)</a>
 </div>
 
 
