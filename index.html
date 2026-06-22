@@ -237,7 +237,7 @@ body { font-family:'Poppins',Arial,sans-serif; background:var(--dex-light-bg); c
 </div>
 
 <div class="summary">
-  <div class="stat"><div class="num">18</div><div class="lbl">Aukcii</div><div class="detail">4 zive, 14 uzavretych</div></div>
+  <div class="stat"><div class="num">17</div><div class="lbl">Aukcii</div><div class="detail">3 zive, 14 uzavretych</div></div>
   <div class="stat"><div class="num" style="color:var(--dex-success)">+9 858&euro;</div><div class="lbl">Ziva marza</div><div class="detail">Model X Plaid</div></div>
   <div class="stat"><div class="num" style="color:var(--dex-success)">-5 745&euro;</div><div class="lbl">Najlepsi deal</div><div class="detail">Tesla Y DM '23</div></div>
   <div class="stat"><div class="num" style="color:var(--dex-error)">4</div><div class="lbl">Nepredane</div><div class="detail">0&euro; aukcie</div></div>
@@ -254,7 +254,7 @@ function switchTab(n){
 </script>
 
 <div class="tabs">
-  <button class="tab-btn active" onclick="switchTab(0)"><span class="tab-count"><span class="live-dot"></span>4</span>Zive</button>
+  <button class="tab-btn active" onclick="switchTab(0)"><span class="tab-count"><span class="live-dot"></span>3</span>Zive</button>
   <button class="tab-btn" onclick="switchTab(1)"><span class="tab-count">15</span>History</button>
   <button class="tab-btn" onclick="switchTab(2)"><span class="tab-count">🔍</span>Hladat</button>
 </div>
@@ -262,12 +262,12 @@ function switchTab(n){
 <!-- ==================== TAB 1: ZIVE AUKCIE ==================== -->
 <div class="tab-content active">
 
-<div class="section-head"><h2><span class="live-dot"></span>Zive aukcie</h2><span class="pill">4 sledovane &middot; 2 platformy</span></div>
+<div class="section-head"><h2><span class="live-dot"></span>Zive aukcie</h2><span class="pill">3 sledovane &middot; 2 platformy</span></div>
 
 <div class="refresh-bar">
   <button class="refresh-btn" id="refresh-btn" onclick="copyRefresh()"><span class="r-icon">🔄</span> Refresh stav aukcii</button>
 </div>
-<div class="refresh-hint">Posledny refresh: 22. jun 2026 &middot; 4 zive aukcie (OpenLane + Troostwijk)</div>
+<div class="refresh-hint">Posledny refresh: 22. jun 2026 &middot; 3 zive aukcie (OpenLane + Troostwijk) &middot; poskodene auta vylucene</div>
 
 <!-- LIVE: Tesla Model X Plaid — AKTUALIZOVANE 22.06.2026 -->
 <div class="car-card">
@@ -374,33 +374,6 @@ function switchTab(n){
   </div>
   <a class="bid-btn hot" href="https://www.troostwijkauctions.com/en/l/tesla-model-x-long-range-6p-car-2019-A1-46613-26" target="_blank"><span class="emoji">🔥</span> Sleduj a draz! Strop bid ~26 000 &euro;</a>
 </div>
-
-<!-- LIVE: Land Rover Defender 110 Td5 2000 — TROOSTWIJK — 22.06.2026 -->
-<div class="car-card">
-  <div class="card-top"><div class="card-top-left"><div class="car-title">Land Rover Defender 110 Td5</div><div class="car-meta"><span class="spec-tag spec-sm" style="background:#1a1a2e;color:#fff;margin-right:4px">Troostwijk</span>12/2000 &middot; 122 hp &middot; Oostkamp (BE) &middot; Lot A3-43555-12291</div><div class="countdown"><span class="timer-label">Otvara sa:</span> 24.6.2026 18:00</div><div class="specs"><span class="spec-tag spec-variant">Td5 klasik</span><span class="spec-tag spec-drive">4x4</span><span class="spec-tag spec-fuel">Nafta 2.5</span><span class="spec-tag spec-trans">Manual</span><span class="spec-tag spec-info">9-miest</span></div></div><span class="badge b-yellow">Otvara sa 24.6.</span></div>
-  <div class="price-row">
-    <div class="price-cell"><div class="label"><span class="info-wrap">Startovaci bid <button class="info-btn" onclick="togInfo(event,this)">i</button><div class="info-bubble"><button class="close-bubble" onclick="closeInfo(event,this)">&times;</button><strong>Troostwijk &middot; rezim Marza</strong><br>Otvara sa na 2 500 &euro;, ma skrytu rezervu.<br><br>All-in = bid + ~19% poplatky (odhad, ina aukcia "Cars &amp; transport" / Vavato podmienky, over!) + OPRAVA hlavy + transport BE.</div></span></div><div class="val">2 500 &euro;</div><div class="val-sub">rezerva &middot; 0 prihozov</div></div>
-    <div class="price-cell"><div class="label">Trh (dobry jazdiaci)</div><div class="val">~24 000 &euro;</div><div class="val-sub">Td5/klasik 110</div></div>
-  </div>
-  <div class="comp-section" style="border-top:1px solid #E5E7EB;background:#FEE2E2">
-    <div class="comp-title" style="color:#991B1B">Velky chytak!</div>
-    <div class="comp-row" style="border:none;color:#991B1B;font-size:12px;line-height:1.6"><strong>Defektne tesnenie hlavy valcov</strong> (z popisu: "Cylinder head gasket defective"). Td5 byva nasledne prasknuta hlava/blok. Oprava ~1 500 az 5 000 &euro; podla rozsahu. <strong>"No visit possible"</strong> = nedas obhliadnut, hrdzu chassis/bulkhead ani stav motora neoveris. Spanielske doklady + BE + prepis na SK. <strong>Projekt pre znalca Defenderov, nie cisty flip.</strong></div>
-  </div>
-  <div class="margin-bar">
-    <div class="margin-left"><strong>Projekt s rizikom</strong><br>Marza zavisi od motora (gasket vs blok)</div>
-    <div><div class="margin-val" style="color:var(--dex-warning)">?</div><div class="margin-sub">neoveritelne (bez obhliadky)</div></div>
-  </div>
-  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Detail auta</button>
-  <div class="car-detail-panel"><div class="detail-grid"><div class="detail-item"><div class="detail-label">Prva registracia</div><div class="detail-value">21/12/2000</div></div><div class="detail-item"><div class="detail-label">Motor</div><div class="detail-value">2.5 Td5, 2495 cm3</div></div><div class="detail-item"><div class="detail-label">Vykon</div><div class="detail-value">90 kW / 122 hp</div></div><div class="detail-item"><div class="detail-label">Pohon</div><div class="detail-value">4x4, manual</div></div><div class="detail-item"><div class="detail-label">Miesta / dvere</div><div class="detail-value">9-miest, 5 dveri</div></div><div class="detail-item"><div class="detail-label">Stav</div><div class="detail-value">Startuje a jazdi, vadna hlava</div></div><div class="detail-item"><div class="detail-label">COC / TP cast 1</div><div class="detail-value">Oboje k dispozicii</div></div><div class="detail-item"><div class="detail-label">Doklady</div><div class="detail-value">Spanielske (ES)</div></div><div class="detail-item"><div class="detail-label">Obhliadka</div><div class="detail-value">Nie je mozna</div></div><div class="detail-item"><div class="detail-label">DPH rezim</div><div class="detail-value">Marza (Yes)</div></div></div><a class="detail-link" href="https://www.troostwijkauctions.com/en/l/2000-land-rover-defender-110-td5-passenger-car-A3-43555-12291" target="_blank">Otvorit na Troostwijk &#8599;</a></div>
-  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Porovnanie s trhom</button>
-  <div class="fee-detail">
-    <div class="comp-title">Porovnatelne inzeraty (klasik Td5/Puma 110)</div>
-    <div class="comp-row"><a href="https://auto.bazos.sk/inzerat/192931461/land-rover-defender-110-25-td5-hc-pickup.php" target="_blank"><span class="cp">26 900 &euro;</span> <span class="spec-tag spec-variant spec-sm">2.5 Td5</span> HC PickUp, cierny <span class="src">(bazos.sk, jazdiaci)</span><span class="link-icon">&#8599;</span></a></div>
-    <div class="comp-row"><a href="https://auto.bazos.sk/inzerat/192888033/land-rover-defender-110-24-sw-se.php" target="_blank"><span class="cp">19 999 &euro;</span> <span class="spec-tag spec-variant spec-sm">2.4 SW SE</span> 2007, station wagon <span class="src">(bazos.sk, jazdiaci)</span><span class="link-icon">&#8599;</span></a></div>
-  </div>
-  <a class="bid-btn warn" href="https://www.troostwijkauctions.com/en/l/2000-land-rover-defender-110-td5-passenger-car-A3-43555-12291" target="_blank"><span class="emoji">🛠️</span> Projekt s rizikom, len pre znalca Defenderov</a>
-</div>
-
 
 </div>
 
