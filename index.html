@@ -233,12 +233,12 @@ body { font-family:'Poppins',Arial,sans-serif; background:var(--dex-light-bg); c
   <img src="https://www.dexfinity.com/wp-content/uploads/2021/03/Logo-Small-Dark-Landscape@2x.png" alt="Dexfinity" class="logo-img">
   <div class="brand-name">Dex<span>Lane</span></div>
   <div class="brand-sub">Auto Aukcie Tracker</div>
-  <div class="date-badge">Aktualizovane 22. jun 2026</div>
+  <div class="date-badge">Aktualizovane 26. jun 2026</div>
 </div>
 
 <div class="summary">
-  <div class="stat"><div class="num">17</div><div class="lbl">Aukcii</div><div class="detail">3 zive, 14 uzavretych</div></div>
-  <div class="stat"><div class="num" style="color:var(--dex-success)">+9 858&euro;</div><div class="lbl">Ziva marza</div><div class="detail">Model X Plaid</div></div>
+  <div class="stat"><div class="num">17</div><div class="lbl">Aukcii</div><div class="detail">1 ziva, 16 uzavretych</div></div>
+  <div class="stat"><div class="num" style="color:var(--dex-success)">+16 770&euro;</div><div class="lbl">Ziva marza</div><div class="detail">Troostwijk X LR (est.)</div></div>
   <div class="stat"><div class="num" style="color:var(--dex-success)">-5 745&euro;</div><div class="lbl">Najlepsi deal</div><div class="detail">Tesla Y DM '23</div></div>
   <div class="stat"><div class="num" style="color:var(--dex-error)">4</div><div class="lbl">Nepredane</div><div class="detail">0&euro; aukcie</div></div>
 </div>
@@ -254,95 +254,22 @@ function switchTab(n){
 </script>
 
 <div class="tabs">
-  <button class="tab-btn active" onclick="switchTab(0)"><span class="tab-count"><span class="live-dot"></span>3</span>Zive</button>
-  <button class="tab-btn" onclick="switchTab(1)"><span class="tab-count">15</span>History</button>
+  <button class="tab-btn active" onclick="switchTab(0)"><span class="tab-count"><span class="live-dot"></span>1</span>Zive</button>
+  <button class="tab-btn" onclick="switchTab(1)"><span class="tab-count">16</span>History</button>
   <button class="tab-btn" onclick="switchTab(2)"><span class="tab-count">🔍</span>Hladat</button>
 </div>
 
 <!-- ==================== TAB 1: ZIVE AUKCIE ==================== -->
 <div class="tab-content active">
 
-<div class="section-head"><h2><span class="live-dot"></span>Zive aukcie</h2><span class="pill">3 sledovane &middot; 2 platformy</span></div>
+<div class="section-head"><h2><span class="live-dot"></span>Zive aukcie</h2><span class="pill">1 sledovana &middot; Troostwijk</span></div>
 
 <div class="refresh-bar">
   <button class="refresh-btn" id="refresh-btn" onclick="copyRefresh()"><span class="r-icon">🔄</span> Refresh stav aukcii</button>
 </div>
-<div class="refresh-hint">Posledny refresh: 22. jun 2026 &middot; 3 zive aukcie (OpenLane + Troostwijk) &middot; poskodene auta vylucene</div>
+<div class="refresh-hint">Posledny refresh: 26. jun 2026 &middot; 1 ziva aukcia (Troostwijk) &middot; 2 aukcie ukoncene, presunte do History</div>
 
-<!-- LIVE: Tesla Model X Plaid — AKTUALIZOVANE 22.06.2026 -->
-<div class="car-card">
-  <div class="card-top"><div class="card-top-left"><div class="car-title">Tesla Model X Plaid</div><div class="car-meta">03/2023 &middot; 91 619 km &middot; 1035 k &middot; DE &middot; Ref. 11129662</div><div class="countdown"><span class="timer-label">x-Time aukcia, zaciatok:</span> cca 23.6. rano</div><div class="specs"><span class="spec-tag spec-variant">Plaid</span><span class="spec-tag spec-drive">4x4 Tri Motor</span><span class="spec-tag spec-battery">95 kWh</span><span class="spec-tag spec-fuel">Elektricke</span><span class="spec-tag spec-info">SUV 6-miest</span></div></div><span class="badge b-green">~-13%</span></div>
-  <div class="price-row">
-    <div class="price-cell"><div class="label"><span class="info-wrap">Drazba s DPH <button class="info-btn" onclick="togInfo(event,this)">i</button><div class="info-bubble"><button class="close-bubble" onclick="closeInfo(event,this)">&times;</button><strong>Co je v cene:</strong><br>Aktualna ponuka (54 500 &euro;)<br>+ Krajina DE: 285 &euro;<br>+ Poplatok za aukciu: 615 &euro;<br>+ 23% DPH<br>= 68 142 &euro;<br><br>Transport z DE (~1 000-1 500 &euro;) nie je zahrnuty.</div></span></div><div class="val">68 142 &euro;</div><div class="val-sub">54 500 &euro; aktualna ponuka</div></div>
-    <div class="price-cell"><div class="label">Odhad trhu s DPH</div><div class="val">~78 000 &euro;</div><div class="val-sub" style="color:var(--dex-warning)">&#9888; ziadny presny Plaid X na SK</div></div>
-  </div>
-  <div class="margin-bar">
-    <div class="margin-left"><strong>Aktualna cena 54 500 &euro;</strong><br>S poplatkami + DPH = 68 142 &euro;</div>
-    <div><div class="margin-val" style="color:var(--dex-success)">+9 858 &euro;</div><div class="margin-sub">marza pri akt. cene</div></div>
-  </div>
-  <div class="comp-section" style="border-top:1px solid #E5E7EB;background:#FFF7ED">
-    <div class="comp-title" style="color:#92400E">Pozor pred drazbou</div>
-    <div class="comp-row" style="border:none;color:#92400E;font-size:12px;line-height:1.6">91 619 km je vela na rok 2023 &middot; serviska NIE je k dispozicii &middot; poskodenie "Nezname" + existuje externy protokol o skode (precitaj ho!) &middot; Model X Plaid sa na SK predava tazko (tenky trh) &middot; cena v aukcii este porastie. Strop kde ostava ~5k marza: cca <strong>58 000 &euro; bez DPH</strong>.</div>
-  </div>
-  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Detail auta</button>
-  <div class="car-detail-panel"><div class="detail-grid"><div class="detail-item"><div class="detail-label">Prva registracia</div><div class="detail-value">25/03/2023</div></div><div class="detail-item"><div class="detail-label">Najazdene</div><div class="detail-value">91 619 km</div></div><div class="detail-item"><div class="detail-label">Vykon</div><div class="detail-value">761 kW / 1035 k</div></div><div class="detail-item"><div class="detail-label">Pohon</div><div class="detail-value">4x4 Tri Motor</div></div><div class="detail-item"><div class="detail-label">Bateria</div><div class="detail-value">95 kWh</div></div><div class="detail-item"><div class="detail-label">Karoseria</div><div class="detail-value">SUV, 6-miest</div></div><div class="detail-item"><div class="detail-label">Farba</div><div class="detail-value">Cierna / cierny interier</div></div><div class="detail-item"><div class="detail-label">COC</div><div class="detail-value">K dispozicii</div></div><div class="detail-item"><div class="detail-label">Serviska</div><div class="detail-value">Nie je k dispozicii</div></div><div class="detail-item"><div class="detail-label">TK platna do</div><div class="detail-value">01/05/2026</div></div><div class="detail-item"><div class="detail-label">Povod / predajca</div><div class="detail-value">Moenchengladbach, Santander 4.7/5</div></div><div class="detail-item"><div class="detail-label">DPH rezim</div><div class="detail-value">Bez DPH</div></div><div class="detail-full"><div class="detail-label">VIN</div><div class="detail-value">7SAXCCE68PF386833</div></div></div><a class="detail-link" href="https://www.openlane.eu/sk/car/info?auctionId=11129662" target="_blank">Otvorit na OpenLane &#8599;</a></div>
-  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Porovnanie s trhom</button>
-  <div class="fee-detail">
-    <div class="comp-title">Najblizsie inzeraty (presny Plaid X chyba)</div>
-    <div class="comp-row"><a href="https://auto.bazos.sk/inzerat/192904110/tesla-s-plaid-2023-full-black-awd-750kw.php" target="_blank"><span class="cp">73 800 &euro;</span> <span class="spec-tag spec-variant spec-sm">Plaid</span> <span class="spec-tag spec-drive spec-sm">AWD</span> 2023, 56k km <span class="src" style="color:var(--dex-warning)">(bazos.sk &middot; Model S, sedan &middot; rovnaky pohon)</span><span class="link-icon">&#8599;</span></a></div>
-    <div class="comp-row"><a href="https://auto.bazos.sk/inzerat/192354619/tesla-model-s-bev-awd-plaid-verzia-750-kw-cca-1020-ps.php" target="_blank"><span class="cp">77 990 &euro;</span> <span class="spec-tag spec-variant spec-sm">Plaid</span> <span class="spec-tag spec-drive spec-sm">AWD</span> 750 kW <span class="src" style="color:var(--dex-warning)">(bazos.sk &middot; Model S, sedan)</span><span class="link-icon">&#8599;</span></a></div>
-    <div class="comp-row"><a href="https://auto.bazos.sk/inzerat/192678261/tesla-model-x-long-range-2023-bono.php" target="_blank"><span class="cp">74 907 &euro;</span> <span class="spec-tag spec-variant spec-sm">Long Range</span> <span class="spec-tag spec-drive spec-sm">4x4</span> 2023, 58k km <span class="src" style="color:var(--dex-warning)">(bazos.sk &middot; Model X, ale LR = nizsia verzia)</span><span class="link-icon">&#8599;</span></a></div>
-    <div class="comp-row"><a href="https://auto.bazos.sk/inzerat/192869183/tesla-model-x-awd-504kw-a-5d-2023.php" target="_blank"><span class="cp">69 690 &euro;</span> <span class="spec-tag spec-variant spec-sm">LR</span> <span class="spec-tag spec-drive spec-sm">AWD</span> 2023, 122k km <span class="src" style="color:var(--dex-warning)">(bazos.sk &middot; Model X 504 kW = LR, nie Plaid)</span><span class="link-icon">&#8599;</span></a></div>
-    <div class="comp-row"><a href="https://www.autoscout24.de/lst/tesla/model-x?powertype=kw&fregfrom=2022&fregto=2024&sort=price&body=4" target="_blank"><span class="cp">~74-88k &euro;</span> <span class="spec-tag spec-variant spec-sm">Plaid</span> 2022-2024 <span class="src">(autoscout24.de &middot; DE Plaid X, brutto)</span><span class="link-icon">&#8599;</span></a></div>
-  </div>
-  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Rozpad ceny</button>
-  <div class="fee-detail">
-    <div class="fee-line"><span>Aktualna drazbova cena</span><span>54 500 &euro;</span></div>
-    <div class="fee-line"><span>Naklady za krajinu (DE)</span><span>285 &euro;</span></div>
-    <div class="fee-line"><span>Poplatok za aukciu</span><span>615 &euro;</span></div>
-    <div class="fee-line"><span>Spolu bez DPH</span><span>55 400 &euro;</span></div>
-    <div class="fee-line"><span>+ 23% DPH</span><span>+12 742 &euro;</span></div>
-    <div class="fee-line total"><span>Koncova cena (bez transportu)</span><span>68 142 &euro;</span></div>
-  </div>
-  <a class="bid-btn hot" href="https://www.openlane.eu/sk/car/info?auctionId=11129662" target="_blank"><span class="emoji">🔥</span> Pod ho drazit! Marza +9 858 &euro; (strop ~58 000 &euro;)</a>
-</div>
-
-<!-- LIVE: Tesla Model X 75D Executive Edition — AKTUALIZOVANE 22.06.2026 -->
-<div class="car-card">
-  <div class="card-top"><div class="card-top-left"><div class="car-title">Tesla Model X 75D Executive Edition</div><div class="car-meta">11/2017 &middot; 109 960 km &middot; 524 k &middot; BE &middot; Ref. 11139803</div><div class="countdown"><span class="timer-label">Zostavajuci cas:</span> ~1d 11h</div><div class="specs"><span class="spec-tag spec-variant">75D Executive</span><span class="spec-tag spec-drive">4x4 Dual Motor</span><span class="spec-tag spec-battery">75 kWh</span><span class="spec-tag spec-fuel">Elektricke</span><span class="spec-tag spec-info">SUV 5-miest</span></div></div><span class="badge b-green">~-13%</span></div>
-  <div class="price-row">
-    <div class="price-cell"><div class="label"><span class="info-wrap">Cena s DPH (Marza) <button class="info-btn" onclick="togInfo(event,this)">i</button><div class="info-bubble"><button class="close-bubble" onclick="closeInfo(event,this)">&times;</button><strong>Rezim Marza!</strong><br>Cena je uz vratane DPH, NEpridava sa 23% dovozna DPH.<br><br>Aktualna ponuka (22 800 &euro;)<br>+ Krajina BE: 185 &euro;<br>+ Poplatok za aukciu: 395 &euro;<br>+ DPH z poplatkov: 122 &euro;<br>= 23 502 &euro;<br><br>Transport z BE (~800-1 200 &euro;) nie je zahrnuty.</div></span></div><div class="val">23 502 &euro;</div><div class="val-sub">22 800 &euro; ponuka &middot; Marza</div></div>
-    <div class="price-cell"><div class="label">Odhad trhu s DPH</div><div class="val">~27 000 &euro;</div><div class="val-sub">75D 2017, 110k km</div></div>
-  </div>
-  <div class="margin-bar">
-    <div class="margin-left"><strong>Aktualna cena 22 800 &euro;</strong><br>All-in (Marza) = 23 502 &euro;</div>
-    <div><div class="margin-val" style="color:var(--dex-success)">+3 498 &euro;</div><div class="margin-sub">marza pred transportom</div></div>
-  </div>
-  <div class="comp-section" style="border-top:1px solid #E5E7EB;background:#FFF7ED">
-    <div class="comp-title" style="color:#92400E">Pozor pred drazbou</div>
-    <div class="comp-row" style="border:none;color:#92400E;font-size:12px;line-height:1.6">Stare Model X (2017) &middot; serviska NIE je k dispozicii &middot; poskodenie "Nezname" &middot; znama rizika 2017 X: MCU1, degradacia baterie, vzduchovy podvozok &middot; po transporte (~1k) marza klesa na ~2,5k &middot; cena v aukcii porastie. Strop kde ostava rozumna marza: cca <strong>23 800 &euro; ponuka</strong>.</div>
-  </div>
-  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Detail auta</button>
-  <div class="car-detail-panel"><div class="detail-grid"><div class="detail-item"><div class="detail-label">Prva registracia</div><div class="detail-value">20/11/2017</div></div><div class="detail-item"><div class="detail-label">Najazdene</div><div class="detail-value">109 960 km</div></div><div class="detail-item"><div class="detail-label">Vykon</div><div class="detail-value">386 kW / 524 k</div></div><div class="detail-item"><div class="detail-label">Pohon</div><div class="detail-value">4x4 Dual Motor</div></div><div class="detail-item"><div class="detail-label">Bateria</div><div class="detail-value">75 kWh</div></div><div class="detail-item"><div class="detail-label">Karoseria</div><div class="detail-value">SUV, 5-miest</div></div><div class="detail-item"><div class="detail-label">Farba</div><div class="detail-value">Cierna / cierny interier</div></div><div class="detail-item"><div class="detail-label">COC</div><div class="detail-value">K dispozicii</div></div><div class="detail-item"><div class="detail-label">Serviska</div><div class="detail-value">Nie je k dispozicii</div></div><div class="detail-item"><div class="detail-label">TK platna do</div><div class="detail-value">11/12/2026</div></div><div class="detail-item"><div class="detail-label">Povod</div><div class="detail-value">Bilzen (Belgicko)</div></div><div class="detail-item"><div class="detail-label">DPH rezim</div><div class="detail-value">Marza</div></div><div class="detail-full"><div class="detail-label">VIN</div><div class="detail-value">5YJXCCE26HF067684</div></div></div><a class="detail-link" href="https://www.openlane.eu/sk/car/info?auctionId=11139803" target="_blank">Otvorit na OpenLane &#8599;</a></div>
-  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Porovnanie s trhom</button>
-  <div class="fee-detail">
-    <div class="comp-title">Porovnatelne inzeraty (vsetky maju viac km nez nase)</div>
-    <div class="comp-row"><a href="https://auto.bazos.sk/inzerat/191651831/tesla-model-x-75d-free-supercharging.php" target="_blank"><span class="cp">24 400 &euro;</span> <span class="spec-tag spec-variant spec-sm">75D</span> 2016, 149k km, Free SC <span class="src" style="color:var(--dex-warning)">(bazos.sk &middot; +39k km)</span><span class="link-icon">&#8599;</span></a></div>
-    <div class="comp-row"><a href="https://auto.bazos.sk/inzerat/192763780/2018-tesla-model-x.php" target="_blank"><span class="cp">23 999 &euro;</span> <span class="spec-tag spec-variant spec-sm">75D</span> 2018, 170k km <span class="src" style="color:var(--dex-warning)">(bazos.sk &middot; +60k km)</span><span class="link-icon">&#8599;</span></a></div>
-    <div class="comp-row"><a href="https://auto.bazos.sk/inzerat/192772955/tesla-model-x-75d-2017-5-miest-220tkm.php" target="_blank"><span class="cp">21 900 &euro;</span> <span class="spec-tag spec-variant spec-sm">75D</span> 2017, 220k km <span class="src" style="color:var(--dex-warning)">(bazos.sk &middot; 2x km, bez odpoctu)</span><span class="link-icon">&#8599;</span></a></div>
-  </div>
-  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Rozpad ceny</button>
-  <div class="fee-detail">
-    <div class="fee-line"><span>Aktualna ponuka (vratane DPH)</span><span>22 800 &euro;</span></div>
-    <div class="fee-line"><span>Naklady za krajinu (BE)</span><span>185 &euro;</span></div>
-    <div class="fee-line"><span>Poplatok za aukciu</span><span>395 &euro;</span></div>
-    <div class="fee-line"><span>DPH z poplatkov</span><span>+122 &euro;</span></div>
-    <div class="fee-line total"><span>Koncova cena (bez transportu)</span><span>23 502 &euro;</span></div>
-  </div>
-  <a class="bid-btn" href="https://www.openlane.eu/sk/car/info?auctionId=11139803" target="_blank"><span class="emoji">👍</span> Drazit, ale tesna marza po transporte (strop ~23 800 &euro;)</a>
-</div>
-
-<!-- LIVE: Tesla Model X LR 6p 2019 — TROOSTWIJK — 22.06.2026 -->
+<!-- LIVE: Tesla Model X LR 6p 2019 — TROOSTWIJK — ukoncenie 28.6.2026 -->
 <div class="car-card">
   <div class="card-top"><div class="card-top-left"><div class="car-title">Tesla Model X Long Range 6p</div><div class="car-meta"><span class="spec-tag spec-sm" style="background:#1a1a2e;color:#fff;margin-right:4px">Troostwijk</span>11/2019 &middot; 101 406 km &middot; Hasselt (NL) &middot; Lot A1-46613-26</div><div class="countdown"><span class="timer-label">Konci:</span> 28.6.2026 20:39</div><div class="specs"><span class="spec-tag spec-variant">Long Range</span><span class="spec-tag spec-drive">4x4</span><span class="spec-tag spec-battery">100 kWh</span><span class="spec-tag spec-fuel">Elektricke</span><span class="spec-tag spec-info">SUV 6-miest</span></div></div><span class="badge b-yellow">Rezerva!</span></div>
   <div class="price-row">
@@ -380,12 +307,59 @@ function switchTab(n){
 <!-- ==================== TAB 2: HISTORY LOG ==================== -->
 <div class="tab-content">
 
-<div class="section-head"><h2>History Log</h2><span class="pill">14 uzavretych</span></div>
+<div class="section-head"><h2>History Log</h2><span class="pill">16 uzavretych</span></div>
 <div class="legend">
   <div class="leg"><div class="dot" style="background:var(--dex-success)"></div>Pod trhom</div>
   <div class="leg"><div class="dot" style="background:var(--dex-warning)"></div>Trhova cena</div>
   <div class="leg"><div class="dot" style="background:var(--dex-error)"></div>Nad trhom</div>
   <div class="leg"><div class="dot" style="background:#D1D5DB"></div>Nepredane</div>
+</div>
+
+<!-- HISTORY: Tesla Model X Plaid — ukoncene 26.06.2026 -->
+<div class="car-card ended missed">
+  <div class="card-top"><div class="card-top-left"><div class="car-title">😔 Tesla Model X Plaid (3 Motor)</div><div class="car-meta">03/2023 &middot; 91 619 km &middot; 761 kW / 1035 k &middot; DE &middot; Ref. 11129662</div><div class="specs"><span class="spec-tag spec-variant">Plaid</span><span class="spec-tag spec-drive">4x4 Tri Motor</span><span class="spec-tag spec-battery">95 kWh</span><span class="spec-tag spec-fuel">Elektricke</span><span class="spec-tag spec-info">SUV 6-miest</span></div></div><span class="badge" style="background:#E5E7EB;color:#6B7280">Ukoncene</span></div>
+  <div class="price-row">
+    <div class="price-cell"><div class="label">Posledna ponuka (bez DPH)</div><div class="val">54 500 &euro;</div><div class="val-sub">All-in s DPH = 68 142 &euro;</div></div>
+    <div class="price-cell"><div class="label">Odhad trhu s DPH</div><div class="val">~78 000 &euro;</div><div class="val-sub" style="color:var(--dex-warning)">tenky trh na SK pre Plaid X</div></div>
+  </div>
+  <div class="diff-bar" style="background:#F0FDF4;border-top:1px solid #BBF7D0">
+    <div style="font-size:13px;color:#166534"><strong>+9 858 &euro;</strong> marza pri poslednej cene &middot; finalna cena neznama (login required)</div>
+    <div style="font-size:11px;color:#6B7280;margin-top:2px">Drazba ukoncena 26.6.2026 &middot; OpenLane &middot; Bez DPH rezim &middot; Santander DE</div>
+  </div>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Detail + rozpad ceny</button>
+  <div class="fee-detail">
+    <div class="fee-line"><span>Posledna ponuka v aukcii</span><span>54 500 &euro;</span></div>
+    <div class="fee-line"><span>Naklady za krajinu (DE)</span><span>285 &euro;</span></div>
+    <div class="fee-line"><span>Poplatok za aukciu</span><span>615 &euro;</span></div>
+    <div class="fee-line"><span>Spolu bez DPH</span><span>55 400 &euro;</span></div>
+    <div class="fee-line"><span>+ 23% DPH</span><span>+12 742 &euro;</span></div>
+    <div class="fee-line total"><span>Odhadovane all-in (bez transportu)</span><span>68 142 &euro;</span></div>
+    <div class="fee-line" style="color:#9CA3AF;font-size:11px"><span colspan="2">Poznamka: finalna vydrazbena cena neznama &mdash; login required na OpenLane. Vypocet z poslednej viditelnej ponudy 54 500 &euro;.</span></div>
+  </div>
+  <a class="detail-link" href="https://www.openlane.eu/sk/car/info?auctionId=11129662" target="_blank" style="display:block;margin-top:8px;font-size:12px">Otvorit na OpenLane &#8599;</a>
+</div>
+
+<!-- HISTORY: Tesla Model X 75D Executive Edition — ukoncene 26.06.2026 -->
+<div class="car-card ended missed">
+  <div class="card-top"><div class="card-top-left"><div class="car-title">😔 Tesla Model X 75D Executive Edition</div><div class="car-meta">11/2017 &middot; 109 960 km &middot; 386 kW / 524 k &middot; BE &middot; Ref. 11139803</div><div class="specs"><span class="spec-tag spec-variant">75D Executive</span><span class="spec-tag spec-drive">4x4 Dual Motor</span><span class="spec-tag spec-battery">75 kWh</span><span class="spec-tag spec-fuel">Elektricke</span><span class="spec-tag spec-info">SUV 5-miest</span></div></div><span class="badge" style="background:#E5E7EB;color:#6B7280">Ukoncene</span></div>
+  <div class="price-row">
+    <div class="price-cell"><div class="label">Posledna ponuka (Marza)</div><div class="val">22 800 &euro;</div><div class="val-sub">All-in (Marza) = 23 502 &euro;</div></div>
+    <div class="price-cell"><div class="label">Odhad trhu s DPH</div><div class="val">~27 000 &euro;</div><div class="val-sub">75D 2017, 110k km</div></div>
+  </div>
+  <div class="diff-bar" style="background:#F0FDF4;border-top:1px solid #BBF7D0">
+    <div style="font-size:13px;color:#166534"><strong>+3 498 &euro;</strong> marza pri poslednej cene (pred transportom) &middot; finalna cena neznama (login required)</div>
+    <div style="font-size:11px;color:#6B7280;margin-top:2px">Drazba ukoncena 26.6.2026 &middot; OpenLane &middot; Marza rezim &middot; Belgicko</div>
+  </div>
+  <button class="toggle-btn" onclick="tog(this)"><span class="arrow">&#9654;</span> Detail + rozpad ceny</button>
+  <div class="fee-detail">
+    <div class="fee-line"><span>Posledna ponuka (vratane DPH &mdash; Marza)</span><span>22 800 &euro;</span></div>
+    <div class="fee-line"><span>Naklady za krajinu (BE)</span><span>185 &euro;</span></div>
+    <div class="fee-line"><span>Poplatok za aukciu</span><span>395 &euro;</span></div>
+    <div class="fee-line"><span>DPH z poplatkov</span><span>+122 &euro;</span></div>
+    <div class="fee-line total"><span>Odhadovane all-in (bez transportu)</span><span>23 502 &euro;</span></div>
+    <div class="fee-line" style="color:#9CA3AF;font-size:11px"><span colspan="2">Poznamka: finalna vydrazbena cena neznama &mdash; login required na OpenLane. Vypocet z poslednej viditelnej ponudy 22 800 &euro;.</span></div>
+  </div>
+  <a class="detail-link" href="https://www.openlane.eu/sk/car/info?auctionId=11139803" target="_blank" style="display:block;margin-top:8px;font-size:12px">Otvorit na OpenLane &#8599;</a>
 </div>
 
 <!-- ===== UZAVRETE z apriloveho refreshu (presun z LIVE) ===== -->
